@@ -62,7 +62,12 @@ public class GATileEntities {
 	public static TileEntityAssemblyLine ASSEMBLY_LINE;
 	public static TileEntityProcessingArray PROCESSING_ARRAY;
 
-	public static TileEntityDrum WOODEN_DRUM;
+	public static TileEntityLargeChemReactor LARGE_CHEM_REACTOR;
+
+	public static TileEntityLargeMachine LARGE_ORE_WASHER;
+
+
+    public static TileEntityDrum WOODEN_DRUM;
 	public static TileEntityDrum BRONZE_DRUM;
 	public static TileEntityDrum STEEL_DRUM;
 	public static TileEntityDrum STAINLESS_STEEL_DRUM;
@@ -383,6 +388,9 @@ public class GATileEntities {
 		}
 
 		ASSEMBLY_LINE = GregTechAPI.registerMetaTileEntity(2502, new TileEntityAssemblyLine(location("assembly_line")));
+		LARGE_CHEM_REACTOR = GregTechAPI.registerMetaTileEntity(2601, new TileEntityLargeChemReactor(location("large_chem_reactor")));
+		LARGE_ORE_WASHER = GregTechAPI.registerMetaTileEntity(2602, new TileEntityLargeMachine(location("large_ore_washer"), TileEntityLargeMachine.MachineType.ORE_WASHER));
+
 
 		FUSION_REACTOR[0] = GregTechAPI.registerMetaTileEntity(2504, new TileEntityFusionReactor(location("fusion_reactor.luv"), 6));
 		FUSION_REACTOR[1] = GregTechAPI.registerMetaTileEntity(2505, new TileEntityFusionReactor(location("fusion_reactor.zpm"), 7));
