@@ -34,10 +34,10 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 
 		ORE_WASHER(RecipeMaps.ORE_WASHER_RECIPES, MetaBlocks.METAL_CASING.getState(MetalCasingType.STEEL_SOLID), Textures.SOLID_STEEL_CASING,
 				4,
-				400),
+				4.0),
 		MACERATOR(RecipeMaps.MACERATOR_RECIPES, MetaBlocks.METAL_CASING.getState(MetalCasingType.STEEL_SOLID), Textures.SOLID_STEEL_CASING,
 				8,
-				1.0);
+				1.6);
 
 		public final RecipeMap recipeMap;
 		public final IBlockState casingState;
@@ -169,7 +169,7 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 					int overclockAmount = Math.min(stackInSlot.getCount() / inputIngredient.getCount(),
 							(maxItemsLimit - currentItemsEngaged) / inputIngredient.getCount());
 					CountableIngredient ingredient = new CountableIngredient(inputIngredient.getIngredient(),
-							inputIngredient.getCount() * overclockAmount))
+							inputIngredient.getCount() * overclockAmount);
 					recipeInputs.add(ingredient);
 					if (!outputStack.isEmpty()) {
 						outputStack.setCount(outputStack.getCount() * overclockAmount);
@@ -198,7 +198,7 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 						.EUt(currEuT)
 						.duration((int) Math.max(1.0, currDuration / speedMulti));
 				for (Recipe.ChanceEntry entry : chanceOutputs)
-				    builder.chancedOutput(entry.getItemStack().copy(), entry.getChance(), 1);
+				    builder.chancedOutput(entry.getItemStack(), entry.getChance(), entry.getBoostPerTier());
 				return builder.build().getResult();
 			} else {
 				return null;
