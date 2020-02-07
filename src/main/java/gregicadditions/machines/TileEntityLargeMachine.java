@@ -23,7 +23,10 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+
+import static gregtech.api.recipes.Recipe.getMaxChancedValue;
 
 
 public class TileEntityLargeMachine extends RecipeMapMultiblockController {
@@ -102,7 +105,6 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 		return new TileEntityLargeMachine(metaTileEntityId, machineType);
 	}
 
-	//protected class LargeMachineWorkable extends MultiblockRecipeLogic {
 	protected class LargeMachineWorkable extends MultiblockRecipeLogic {
 		private final double speedMulti;
 
@@ -148,6 +150,13 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 			}
 		}
 
+		/**
+		 * Custom findRecipe logic for large machines
+		 * @param maxVoltage
+		 * @param inputs
+		 * @param fluidInputs
+		 * @return Combined recipe to be processed as a single recipe
+		 */
 		@Override
 		protected Recipe findRecipe(long maxVoltage, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
 			int currentItemsEngaged = 0;
@@ -175,6 +184,7 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 						outputStack.setCount(outputStack.getCount() * overclockAmount);
 						recipeOutputs.add(outputStack);
 					}
+					recipeOutputs.addAll(customChanceOutput(matchingRecipe.getChancedOutputs(), ingredient.getCount(), getMachineTierForRecipe(matchingRecipe)));
 					for (int i=0; i < ingredient.getCount(); i++)
 						chanceOutputs.addAll(matchingRecipe.getChancedOutputs());
 					currentItemsEngaged += inputIngredient.getCount() * overclockAmount;
@@ -190,20 +200,6 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 				if (currentItemsEngaged >= maxItemsLimit)
 					break;
 			}
-			if (!recipeInputs.isEmpty()){
-				RecipeBuilder<?> builder = recipeMap.recipeBuilder();
-				builder
-						.inputsIngredients(recipeInputs)
-						.outputs(recipeOutputs)
-						.EUt(currEuT)
-						.duration((int) Math.max(1.0, currDuration / speedMulti));
-				for (Recipe.ChanceEntry entry : chanceOutputs)
-				    builder.chancedOutput(entry.getItemStack(), entry.getChance(), entry.getBoostPerTier());
-				return builder.build().getResult();
-			} else {
-				return null;
-			}
-			/*
 			return recipeInputs.isEmpty() ? null : recipeMap.recipeBuilder()
 					.inputsIngredients(recipeInputs)
 					.outputs(recipeOutputs)
@@ -211,7 +207,38 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 					.EUt(currEuT)
 					.duration((int) Math.max(1.0, currDuration / speedMulti))
 					.build().getResult();
-			 */
+		}
+
+		/**
+		 * Generates the collated chanced outputs for a given recipe.  Recipe.class doesn't collate multiple
+		 * instances and drops the outputs.  This is needed to handle large recipes.  Does not take into account
+		 * output inventory size.
+		 * @param entries items that are rolled for chancedoutput
+		 * @param count number of times recipe is being processed
+		 * @param tier tier the machine is processing the recipe at
+		 * @return List of ItemStack to be added to recipeOutputs
+		 */
+		private List<ItemStack> customChanceOutput(List<Recipe.ChanceEntry> entries, int count, int tier){
+			// TODO - change output to map.  nested loops are inefficient
+			List<ItemStack> ret = new ArrayList<>();
+			Iterator iter = entries.iterator();
+			while(iter.hasNext()) {
+				Recipe.ChanceEntry chancedOutput = (Recipe.ChanceEntry)iter.next();
+				int outputChance = chancedOutput.getChance() + chancedOutput.getBoostPerTier() * tier;
+				if (random.nextInt(getMaxChancedValue()) <= outputChance) {
+					ItemStack output = chancedOutput.getItemStack().copy();
+					for (int i=0; i < count; i++)
+						if (random.nextInt(getMaxChancedValue()) <= chancedOutput.getChance() + chancedOutput.getBoostPerTier() * tier)
+							if (output.getCount() < output.getMaxStackSize())
+								output.setCount(output.getCount()+1);
+							else{
+							    ret.add(output);
+							    output = chancedOutput.getItemStack().copy();
+							}
+					ret.add(output);
+				}
+			}
+			return ret;
 		}
 
 	}
