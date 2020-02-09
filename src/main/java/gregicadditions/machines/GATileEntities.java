@@ -388,9 +388,9 @@ public class GATileEntities {
 		}
 
 		ASSEMBLY_LINE = GregTechAPI.registerMetaTileEntity(2502, new TileEntityAssemblyLine(location("assembly_line")));
-		LARGE_ORE_WASHER = GregTechAPI.registerMetaTileEntity(2602, new TileEntityLargeMachine(location("large_ore_washer"), TileEntityLargeMachine.MachineType.ORE_WASHER));
-		LARGE_MACERATOR = GregTechAPI.registerMetaTileEntity(2603, new TileEntityLargeMachine(location("large_macerator"), TileEntityLargeMachine.MachineType.MACERATOR));
-		LARGE_CENTRIFUGE = GregTechAPI.registerMetaTileEntity(2604, new TileEntityLargeMachine(location("large_centrifuge"), TileEntityLargeMachine.MachineType.CENTRIFUGE));
+		LARGE_ORE_WASHER = GregTechAPI.registerMetaTileEntity(2602, new TileEntityLargeMachine(location("large_ore_washer"), GAMachineTypes.LargeMachineType.ORE_WASHER));
+		LARGE_MACERATOR = GregTechAPI.registerMetaTileEntity(2603, new TileEntityLargeMachine(location("large_macerator"), GAMachineTypes.LargeMachineType.MACERATOR));
+		LARGE_CENTRIFUGE = GregTechAPI.registerMetaTileEntity(2604, new TileEntityLargeMachine(location("large_centrifuge"), GAMachineTypes.LargeMachineType.CENTRIFUGE));
 
 
 		FUSION_REACTOR[0] = GregTechAPI.registerMetaTileEntity(2504, new TileEntityFusionReactor(location("fusion_reactor.luv"), 6));
