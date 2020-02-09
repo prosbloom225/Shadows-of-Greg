@@ -62,10 +62,9 @@ public class GATileEntities {
 	public static TileEntityAssemblyLine ASSEMBLY_LINE;
 	public static TileEntityProcessingArray PROCESSING_ARRAY;
 
-	public static TileEntityLargeChemReactor LARGE_CHEM_REACTOR;
-
 	public static TileEntityLargeMachine LARGE_ORE_WASHER;
 	public static TileEntityLargeMachine LARGE_MACERATOR;
+	public static TileEntityLargeMachine LARGE_CENTRIFUGE;
 
 
     public static TileEntityDrum WOODEN_DRUM;
@@ -389,9 +388,9 @@ public class GATileEntities {
 		}
 
 		ASSEMBLY_LINE = GregTechAPI.registerMetaTileEntity(2502, new TileEntityAssemblyLine(location("assembly_line")));
-		LARGE_CHEM_REACTOR = GregTechAPI.registerMetaTileEntity(2601, new TileEntityLargeChemReactor(location("large_chem_reactor")));
 		LARGE_ORE_WASHER = GregTechAPI.registerMetaTileEntity(2602, new TileEntityLargeMachine(location("large_ore_washer"), TileEntityLargeMachine.MachineType.ORE_WASHER));
 		LARGE_MACERATOR = GregTechAPI.registerMetaTileEntity(2603, new TileEntityLargeMachine(location("large_macerator"), TileEntityLargeMachine.MachineType.MACERATOR));
+		LARGE_CENTRIFUGE = GregTechAPI.registerMetaTileEntity(2604, new TileEntityLargeMachine(location("large_centrifuge"), TileEntityLargeMachine.MachineType.CENTRIFUGE));
 
 
 		FUSION_REACTOR[0] = GregTechAPI.registerMetaTileEntity(2504, new TileEntityFusionReactor(location("fusion_reactor.luv"), 6));

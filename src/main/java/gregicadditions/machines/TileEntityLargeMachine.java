@@ -1,5 +1,6 @@
 package gregicadditions.machines;
 
+import com.google.common.collect.Sets;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -14,17 +15,23 @@ import gregtech.api.recipes.*;
 import gregtech.api.recipes.crafttweaker.ChancedEntry;
 import gregtech.api.render.ICubeRenderer;
 import gregtech.api.render.Textures;
+import gregtech.api.util.ValidationResult;
 import gregtech.common.blocks.BlockMetalCasing.MetalCasingType;
 import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTank;
+import net.minecraftforge.fluids.IFluidTank;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static gregtech.api.recipes.Recipe.getMaxChancedValue;
 
@@ -40,7 +47,10 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 				4.0),
 		MACERATOR(RecipeMaps.MACERATOR_RECIPES, MetaBlocks.METAL_CASING.getState(MetalCasingType.STEEL_SOLID), Textures.SOLID_STEEL_CASING,
 				8,
-				1.6);
+				1.6),
+		CENTRIFUGE(RecipeMaps.CENTRIFUGE_RECIPES, MetaBlocks.METAL_CASING.getState(MetalCasingType.STEEL_SOLID), Textures.SOLID_STEEL_CASING,
+				6,
+				1.25);
 
 		public final RecipeMap recipeMap;
 		public final IBlockState casingState;
@@ -123,101 +133,89 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 			return super.getOverclockingTier(voltage);
 		}
 
+
 		@Override
 		protected void trySearchNewRecipe() {
 			long maxVoltage = getMaxVoltage();
 			Recipe currentRecipe = null;
 			IItemHandlerModifiable importInventory = getInputInventory();
 			IMultipleTankHandler importFluids = getInputTank();
+
 			boolean dirty = checkRecipeInputsDirty(importInventory, importFluids);
-			//inverse of logic in normal AbstractRecipeLogic
-			//for MultiSmelter, we can reuse previous recipe if inputs didn't change
-			//otherwise, we need to recompute it for new ingredients
-			//but technically, it means we can cache multi smelter recipe, but changing inputs have more priority
 			if (dirty || forceRecipeRecheck) {
 				this.forceRecipeRecheck = false;
-				//else, try searching new recipe for given inputs
+
+				// else, try searching new recipe for given inputs
+				if (previousRecipe != null)
+					recipeMap.removeRecipe(previousRecipe);
 				currentRecipe = findRecipe(maxVoltage, importInventory, importFluids);
 				if (currentRecipe != null) {
 					this.previousRecipe = currentRecipe;
 				}
 			} else if (previousRecipe != null && previousRecipe.matches(false, importInventory, importFluids)) {
-				//if previous recipe still matches inputs, try to use it
+				// if previous recipe still matches inputs, try to use it
 				currentRecipe = previousRecipe;
 			}
 			if (currentRecipe != null && setupAndConsumeRecipeInputs(currentRecipe)) {
 				setupRecipe(currentRecipe);
 			}
+
 		}
 
-		/**
-		 * Custom findRecipe logic for large machines
-		 * @param maxVoltage
-		 * @param inputs
-		 * @param fluidInputs
-		 * @return Combined recipe to be processed as a single recipe
-		 */
 		@Override
 		protected Recipe findRecipe(long maxVoltage, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
-			int currentItemsEngaged = 0;
-			int maxItemsLimit = machineType.operationsPerTier * getOverclockingTier(getEnergyContainer().getInputVoltage());
-			List<Recipe.ChanceEntry> chanceOutputs = new ArrayList<>();
-            int currDuration = 0;
-            int currEuT = 0;
-			ArrayList<CountableIngredient> recipeInputs = new ArrayList<>();
-			ArrayList<ItemStack> recipeOutputs = new ArrayList<>();
-			for (int index = 0; index < inputs.getSlots(); index++) {
-				ItemStack stackInSlot = inputs.getStackInSlot(index);
-				if (stackInSlot.isEmpty())
-					continue;
-				Recipe matchingRecipe = recipeMap.findRecipe(maxVoltage,
-						Collections.singletonList(stackInSlot), Collections.emptyList(), 0);
-				CountableIngredient inputIngredient = matchingRecipe == null ? null : matchingRecipe.getInputs().get(0);
-				if (inputIngredient != null && (maxItemsLimit - currentItemsEngaged) >= inputIngredient.getCount()) {
-					ItemStack outputStack = matchingRecipe.getOutputs().get(0).copy();
-					int overclockAmount = Math.min(stackInSlot.getCount() / inputIngredient.getCount(),
-							(maxItemsLimit - currentItemsEngaged) / inputIngredient.getCount());
-					CountableIngredient ingredient = new CountableIngredient(inputIngredient.getIngredient(),
-							inputIngredient.getCount() * overclockAmount);
-					recipeInputs.add(ingredient);
-					if (!outputStack.isEmpty()) {
-						outputStack.setCount(outputStack.getCount() * overclockAmount);
-						recipeOutputs.add(outputStack);
-					}
-					recipeOutputs.addAll(customChanceOutput(matchingRecipe.getChancedOutputs(), ingredient.getCount(), getMachineTierForRecipe(matchingRecipe)));
-					for (int i=0; i < ingredient.getCount(); i++)
-						chanceOutputs.addAll(matchingRecipe.getChancedOutputs());
-					currentItemsEngaged += inputIngredient.getCount() * overclockAmount;
-					// use the max duration and EuT
-					currDuration = Math.max(currDuration, matchingRecipe.getDuration());
-					currEuT = Math.max(currEuT, matchingRecipe.getEUt());
+			Recipe recipe = super.findRecipe(maxVoltage, inputs, fluidInputs);
+			if (recipe != null) {
+				int maxOperations = 8;
+				List<Integer> overclocks = new ArrayList<>();
+				// calculate fluid overclock
+				List<FluidStack> fi = fluidInputs.getFluidTanks().stream().map(f -> f.getFluid()).collect(Collectors.toList());
+				for (FluidStack stack : recipe.getFluidInputs()) {
+					overclocks.add(fi.stream().filter(f -> f.getFluid() == stack.getFluid()).findAny().orElse(null).amount / stack.amount);
 				}
-				// check that there is output availability
-				// this will still void items over the count, this just compares a slot for each recipe
-				if (recipeOutputs.size() > this.getOutputInventory().getSlots())
-				    return null;
-				// TODO - handle if not enough fluid space for recipe
-				if (currentItemsEngaged >= maxItemsLimit)
-					break;
+				// calculate item overclock
+				List<ItemStack> ii = new ArrayList<>();
+				for (int i = 0; i < inputs.getSlots(); i++)
+					if (!inputs.getStackInSlot(i).isEmpty())
+						ii.add(inputs.getStackInSlot(i));
+				for (CountableIngredient ingredient : recipe.getInputs()) {
+					overclocks.add(ii.stream().filter(i -> i.getItem() ==
+							ingredient.getIngredient().getMatchingStacks()[0].getItem()).findAny().orElse(null).getCount() / ingredient.getCount());
+				}
+
+				// total overclock
+				int overclockAmount = Math.min(maxOperations, overclocks.stream().mapToInt(v -> v).min().getAsInt());
+
+
+				// item
+				List<CountableIngredient> iin = recipe.getInputs().stream().map(i->new CountableIngredient(i.getIngredient(),
+						i.getCount()*overclockAmount)).collect(Collectors.toList());
+				List<ItemStack> out = new ArrayList<>();
+				for (ItemStack stack : recipe.getOutputs()) {
+					stack.setCount(stack.getCount() * overclockAmount);
+					out.add(stack);
+				}
+
+				// fluid
+				List<FluidStack> fin = recipe.getFluidInputs().stream().map(f->new FluidStack(f.getFluid(), f.amount * overclockAmount)).collect(Collectors.toList());
+
+				// chance outputs
+				//out.addAll(customChanceOutput(recipe.getChancedOutputs(), overclockAmount,getMachineTierForRecipe(recipe)));
+
+				Recipe newRecipe = recipeMap.recipeBuilder()
+						.inputsIngredients(iin)
+						.fluidInputs(fin)
+						.outputs(out)
+						//.chancedOutput(recipeOutputs.get(0), 1, 1)
+						.EUt(recipe.getEUt())
+						.duration((int) Math.max(1.0, recipe.getDuration()/ speedMulti))
+						.build().getResult();
+				return newRecipe;
 			}
-			return recipeInputs.isEmpty() ? null : recipeMap.recipeBuilder()
-					.inputsIngredients(recipeInputs)
-					.outputs(recipeOutputs)
-					.chancedOutput(recipeOutputs.get(0), 1, 1)
-					.EUt(currEuT)
-					.duration((int) Math.max(1.0, currDuration / speedMulti))
-					.build().getResult();
+			return null;
 		}
 
-		/**
-		 * Generates the collated chanced outputs for a given recipe.  Recipe.class doesn't collate multiple
-		 * instances and drops the outputs.  This is needed to handle large recipes.  Does not take into account
-		 * output inventory size.
-		 * @param entries items that are rolled for chancedoutput
-		 * @param count number of times recipe is being processed
-		 * @param tier tier the machine is processing the recipe at
-		 * @return List of ItemStack to be added to recipeOutputs
-		 */
+
 		private List<ItemStack> customChanceOutput(List<Recipe.ChanceEntry> entries, int count, int tier){
 			// TODO - change output to map.  nested loops are inefficient
 			List<ItemStack> ret = new ArrayList<>();
