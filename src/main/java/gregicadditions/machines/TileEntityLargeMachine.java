@@ -1,6 +1,10 @@
 package gregicadditions.machines;
 
+import codechicken.lib.render.CCRenderState;
+import codechicken.lib.render.pipeline.IVertexOperation;
+import codechicken.lib.vec.Matrix4;
 import com.google.common.collect.Sets;
+import gregicadditions.client.ClientHandler;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -15,6 +19,7 @@ import gregtech.api.recipes.*;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.recipes.crafttweaker.ChancedEntry;
 import gregtech.api.render.ICubeRenderer;
+import gregtech.api.render.OrientedOverlayRenderer;
 import gregtech.api.render.Textures;
 import gregtech.api.util.GTLog;
 import gregtech.api.util.GTUtility;
@@ -44,25 +49,30 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 	public enum MachineType {
 
 		ORE_WASHER(RecipeMaps.ORE_WASHER_RECIPES, MetaBlocks.METAL_CASING.getState(MetalCasingType.STEEL_SOLID), Textures.SOLID_STEEL_CASING,
+				Textures.ORE_WASHER_OVERLAY,
 				4,
 				4.0),
 		MACERATOR(RecipeMaps.MACERATOR_RECIPES, MetaBlocks.METAL_CASING.getState(MetalCasingType.STEEL_SOLID), Textures.SOLID_STEEL_CASING,
+				Textures.MACERATOR_OVERLAY,
 				8,
 				1.6),
 		CENTRIFUGE(RecipeMaps.CENTRIFUGE_RECIPES, MetaBlocks.METAL_CASING.getState(MetalCasingType.STEEL_SOLID), Textures.SOLID_STEEL_CASING,
+				Textures.CENTRIFUGE_OVERLAY,
 				6,
 				1.25);
 
 		public final RecipeMap recipeMap;
 		public final IBlockState casingState;
 		public final ICubeRenderer casingRenderer;
+		public final OrientedOverlayRenderer renderer;
 		public final double speedMulti;
 		public final int operationsPerTier;
 
-		MachineType(RecipeMap recipeMap, IBlockState casingState, ICubeRenderer casingRenderer, int operationsPerTier, double speedMulti) {
+		MachineType(RecipeMap recipeMap, IBlockState casingState, ICubeRenderer casingRenderer, OrientedOverlayRenderer renderer, int operationsPerTier, double speedMulti) {
 			this.recipeMap = recipeMap;
 			this.casingState = casingState;
 			this.casingRenderer = casingRenderer;
+			this.renderer = renderer;
 			this.operationsPerTier = operationsPerTier;
 			this.speedMulti = speedMulti;
 		}
@@ -114,6 +124,12 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 	public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
 		// TODO Auto-generated method stub
 		return new TileEntityLargeMachine(metaTileEntityId, machineType);
+	}
+
+	@Override
+	public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
+		this.getBaseTexture(null).render(renderState, translation, pipeline);
+		machineType.renderer.render(renderState, translation, pipeline, this.getFrontFacing(), this.recipeMapWorkable.isActive());
 	}
 
 	protected class LargeMachineWorkable extends MultiblockRecipeLogic {
