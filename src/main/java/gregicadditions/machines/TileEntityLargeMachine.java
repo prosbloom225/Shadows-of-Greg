@@ -12,9 +12,12 @@ import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.FactoryBlockPattern;
 import gregtech.api.multiblock.PatternMatchContext;
 import gregtech.api.recipes.*;
+import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.recipes.crafttweaker.ChancedEntry;
 import gregtech.api.render.ICubeRenderer;
 import gregtech.api.render.Textures;
+import gregtech.api.util.GTLog;
+import gregtech.api.util.GTUtility;
 import gregtech.api.util.ValidationResult;
 import gregtech.common.blocks.BlockMetalCasing.MetalCasingType;
 import gregtech.common.blocks.MetaBlocks;
@@ -27,10 +30,8 @@ import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.IFluidTank;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import javax.annotation.Nullable;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static gregtech.api.recipes.Recipe.getMaxChancedValue;
@@ -40,7 +41,7 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 
 	// TODO - force the required abilites from the enum
 	private static final MultiblockAbility<?>[] ALLOWED_ABILITIES = {MultiblockAbility.IMPORT_ITEMS, MultiblockAbility.EXPORT_ITEMS, MultiblockAbility.IMPORT_FLUIDS, MultiblockAbility.EXPORT_FLUIDS, MultiblockAbility.INPUT_ENERGY};
-    public enum MachineType {
+	public enum MachineType {
 
 		ORE_WASHER(RecipeMaps.ORE_WASHER_RECIPES, MetaBlocks.METAL_CASING.getState(MetalCasingType.STEEL_SOLID), Textures.SOLID_STEEL_CASING,
 				4,
@@ -72,9 +73,10 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 	public TileEntityLargeMachine(ResourceLocation metaTileEntityId, MachineType type) {
 		super(metaTileEntityId, type.recipeMap);
 		this.machineType = type;
-		LargeMachineWorkable largeMachineWorkable = new LargeMachineWorkable(this, type.speedMulti);
+		LargeMachineWorkable largeMachineWorkable = new LargeMachineWorkable(this,
+				type.speedMulti,
+				type.operationsPerTier);
 		this.recipeMapWorkable = largeMachineWorkable;
-        // TODO - add custom recipeworkable logic
 		reinitializeStructurePattern();
 	}
 
@@ -92,7 +94,6 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 						.where('#', isAirPredicate())
 						.build();
 	}
-
 
 	public IBlockState getCasingState() {
 		return machineType.casingState;
@@ -117,22 +118,13 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 
 	protected class LargeMachineWorkable extends MultiblockRecipeLogic {
 		private final double speedMulti;
+		private final int operationsPerTier;
 
-		public LargeMachineWorkable(RecipeMapMultiblockController tileEntity, double speedMulti) {
+		public LargeMachineWorkable(RecipeMapMultiblockController tileEntity, double speedMulti, int operationsPerTier) {
 			super(tileEntity);
+			this.operationsPerTier = operationsPerTier;
 			this.speedMulti = speedMulti;
 		}
-
-		@Override
-		protected int[] calculateOverclock(int EUt, long voltage, int duration) {
-			return super.calculateOverclock(EUt, voltage, duration);
-		}
-
-		@Override
-		protected int getOverclockingTier(long voltage) {
-			return super.getOverclockingTier(voltage);
-		}
-
 
 		@Override
 		protected void trySearchNewRecipe() {
@@ -165,80 +157,76 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 		@Override
 		protected Recipe findRecipe(long maxVoltage, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
 			Recipe recipe = super.findRecipe(maxVoltage, inputs, fluidInputs);
-			if (recipe != null) {
-				int maxOperations = 8;
-				List<Integer> overclocks = new ArrayList<>();
-				// calculate fluid overclock
-				List<FluidStack> fi = fluidInputs.getFluidTanks().stream().map(f -> f.getFluid()).collect(Collectors.toList());
-				for (FluidStack stack : recipe.getFluidInputs()) {
-					overclocks.add(fi.stream().filter(f -> f.getFluid() == stack.getFluid()).findAny().orElse(null).amount / stack.amount);
-				}
-				// calculate item overclock
-				List<ItemStack> ii = new ArrayList<>();
-				for (int i = 0; i < inputs.getSlots(); i++)
-					if (!inputs.getStackInSlot(i).isEmpty())
-						ii.add(inputs.getStackInSlot(i));
-				for (CountableIngredient ingredient : recipe.getInputs()) {
-					overclocks.add(ii.stream().filter(i -> i.getItem() ==
-							ingredient.getIngredient().getMatchingStacks()[0].getItem()).findAny().orElse(null).getCount() / ingredient.getCount());
-				}
-
-				// total overclock
-				int overclockAmount = Math.min(maxOperations, overclocks.stream().mapToInt(v -> v).min().getAsInt());
-
-
-				// item
-				List<CountableIngredient> iin = recipe.getInputs().stream().map(i->new CountableIngredient(i.getIngredient(),
-						i.getCount()*overclockAmount)).collect(Collectors.toList());
-				List<ItemStack> out = new ArrayList<>();
-				for (ItemStack stack : recipe.getOutputs()) {
-					stack.setCount(stack.getCount() * overclockAmount);
-					out.add(stack);
-				}
-
-				// fluid
-				List<FluidStack> fin = recipe.getFluidInputs().stream().map(f->new FluidStack(f.getFluid(), f.amount * overclockAmount)).collect(Collectors.toList());
-
-				// chance outputs
-				//out.addAll(customChanceOutput(recipe.getChancedOutputs(), overclockAmount,getMachineTierForRecipe(recipe)));
-
-				Recipe newRecipe = recipeMap.recipeBuilder()
-						.inputsIngredients(iin)
-						.fluidInputs(fin)
-						.outputs(out)
-						//.chancedOutput(recipeOutputs.get(0), 1, 1)
-						.EUt(recipe.getEUt())
-						.duration((int) Math.max(1.0, recipe.getDuration()/ speedMulti))
-						.build().getResult();
-				return newRecipe;
+			if (recipe == null)
+				return null;
+			List<Integer> overclocks = new ArrayList<>();
+			// calculate fluid overclock
+			List<FluidStack> fi = fluidInputs.getFluidTanks().stream().map(f -> f.getFluid()).collect(Collectors.toList());
+			for (FluidStack stack : recipe.getFluidInputs()) {
+				overclocks.add(fi.stream().filter(f -> f.getFluid() == stack.getFluid()).findAny().orElse(null).amount / stack.amount);
 			}
-			return null;
+			// calculate item overclock
+			List<ItemStack> ii = new ArrayList<>();
+			for (int i = 0; i < inputs.getSlots(); i++) {
+				if (!inputs.getStackInSlot(i).isEmpty())
+					ii.add(inputs.getStackInSlot(i));
+			}
+			for (CountableIngredient ingredient : recipe.getInputs()) {
+				overclocks.add(ii.stream().filter(i -> i.getItem() ==
+						ingredient.getIngredient().getMatchingStacks()[0].getItem()).findAny().orElse(null).getCount() / ingredient.getCount());
+			}
+
+			// total overclock
+			int overclockAmount = Math.min(operationsPerTier * GTUtility.getTierByVoltage(maxVoltage),
+					overclocks.stream().mapToInt(v -> v).min().getAsInt());
+
+			List<CountableIngredient> newRecipeInputs = new ArrayList<>();
+			List<FluidStack> newFluidInputs = new ArrayList<>();
+			List<ItemStack> outputI = new ArrayList<>();
+			List<FluidStack> outputF = new ArrayList<>();
+			this.multiplyInputsAndOutputs(newRecipeInputs, newFluidInputs, outputI, outputF, recipe, overclockAmount);
+
+			RecipeBuilder<?> newRecipe = recipeMap.recipeBuilder()
+					.inputsIngredients(newRecipeInputs)
+					.fluidInputs(newFluidInputs)
+					.outputs(outputI)
+					.fluidOutputs(outputF)
+					.EUt(recipe.getEUt())
+					.duration((int)Math.max(1.0, recipe.getDuration()/speedMulti));
+			copyChancedItemOutputs(newRecipe, recipe, overclockAmount);
+			return (Recipe) newRecipe.build().getResult();
 		}
 
-
-		private List<ItemStack> customChanceOutput(List<Recipe.ChanceEntry> entries, int count, int tier){
-			// TODO - change output to map.  nested loops are inefficient
-			List<ItemStack> ret = new ArrayList<>();
-			Iterator iter = entries.iterator();
-			while(iter.hasNext()) {
-				Recipe.ChanceEntry chancedOutput = (Recipe.ChanceEntry)iter.next();
-				int outputChance = chancedOutput.getChance() + chancedOutput.getBoostPerTier() * tier;
-				if (random.nextInt(getMaxChancedValue()) <= outputChance) {
-					ItemStack output = chancedOutput.getItemStack().copy();
-					for (int i=0; i < count; i++)
-						if (random.nextInt(getMaxChancedValue()) <= chancedOutput.getChance() + chancedOutput.getBoostPerTier() * tier)
-							if (output.getCount() < output.getMaxStackSize())
-								output.setCount(output.getCount()+1);
-							else{
-							    ret.add(output);
-							    output = chancedOutput.getItemStack().copy();
-							}
-					ret.add(output);
-				}
+		protected void multiplyInputsAndOutputs(List<CountableIngredient> newRecipeInputs, List<FluidStack> newFluidInputs, List<ItemStack> outputI, List<FluidStack> outputF, Recipe r, int numberOfOperations) {
+			for (CountableIngredient ci : r.getInputs()) {
+				CountableIngredient newIngredient = new CountableIngredient(ci.getIngredient(), ci.getCount() * numberOfOperations);
+				newRecipeInputs.add(newIngredient);
 			}
-			return ret;
+			for (FluidStack fs : r.getFluidInputs()) {
+				FluidStack newFluid = new FluidStack(fs.getFluid(), fs.amount * numberOfOperations);
+				newFluidInputs.add(newFluid);
+			}
+			for (ItemStack s : r.getOutputs()) {
+				int num = s.getCount() * numberOfOperations;
+				ItemStack itemCopy = s.copy();
+				itemCopy.setCount(num);
+				outputI.add(itemCopy);
+			}
+			for (FluidStack f : r.getFluidOutputs()) {
+				int fluidNum = f.amount * numberOfOperations;
+				FluidStack fluidCopy = f.copy();
+				fluidCopy.amount = fluidNum;
+				outputF.add(fluidCopy);
+			}
 		}
 
+		protected void copyChancedItemOutputs(RecipeBuilder<?> newRecipe, Recipe oldRecipe, int numberOfOperations) {
+			for (Recipe.ChanceEntry s : oldRecipe.getChancedOutputs()) {
+				ItemStack itemStack = s.getItemStack().copy();
+				itemStack.setCount(itemStack.getCount() * numberOfOperations);
+				newRecipe.chancedOutput(itemStack, s.getChance(), s.getBoostPerTier());
+			}
+		}
 	}
 }
 
