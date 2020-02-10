@@ -24,3 +24,4 @@ classes
 gradle/wrapper/gradle-wrapper.properties
 logs/debug.log
 logs/latest.log
+.DS_Store

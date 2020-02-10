@@ -643,6 +643,17 @@ public class GARecipeAddition {
 		RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Lithium.getFluid(16), Materials.Tungsten.getFluid(16)).fluidOutputs(Materials.Iridium.getFluid(16)).duration(32).EUt(32768).EUToStart(300000000).buildAndRegister();
 		RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Lanthanum.getFluid(16), Materials.Silicon.getFluid(16)).fluidOutputs(Materials.Lutetium.getFluid(16)).duration(16).EUt(8192).EUToStart(80000000).buildAndRegister();
 
+		// Alloy Blast Smelter Recipes
+		GARecipeMaps.ALLOY_BLAST_SMELTER.recipeBuilder().duration(400).EUt(120)
+				.input(OrePrefix.ingot, Materials.Nichrome, 10)
+				.input(OrePrefix.ingot, Materials.Nickel, 3)
+				.input(OrePrefix.ingot, Materials.Chrome, 7)
+				.input(OrePrefix.ingot, Materials.Invar, 10)
+				.input(OrePrefix.ingot, Materials.Molybdenum, 10)
+                .fluidOutputs(GAMaterials.INCONEL625.getFluid(6192))
+				.buildAndRegister();
+		// TODO - add recipes for blast furnace, only recipes that have outputs that can be fluids
+
 		//FUsion Casing Recipes
 		ModHandler.addShapedRecipe("fusion_casing_1", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.FUSION_CASING), "PhP", "PHP", "PwP", 'P', "plateTungstenSteel", 'H', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.LuV));
 		ModHandler.addShapedRecipe("fusion_casing_2", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.FUSION_CASING_MK2), "PhP", "PHP", "PwP", 'P', "plateAmericium", 'H', MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.FUSION_CASING));

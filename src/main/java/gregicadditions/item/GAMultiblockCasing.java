@@ -29,7 +29,8 @@ public class GAMultiblockCasing extends VariantBlock<GAMultiblockCasing.CasingTy
 	public enum CasingType implements IStringSerializable {
 
 		COKE_OVEN_BRICKS("coke_oven_bricks"),
-		TUNGSTENSTEEL_GEARBOX_CASING("tungstensteel_gearbox_casing");
+		TUNGSTENSTEEL_GEARBOX_CASING("tungstensteel_gearbox_casing"),
+		ZIRCONIUM_CARBIDE_CASING("zirconium_carbide_casing");
 
 		private final String name;
 

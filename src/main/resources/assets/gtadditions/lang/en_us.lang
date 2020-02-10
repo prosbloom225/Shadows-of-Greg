@@ -412,6 +412,7 @@ gtadditions.machine.large_cutter.name=Industrial Cutting Factory
 gtadditions.machine.large_wiremill.name=Wire Factory Controller
 gtadditions.machine.large_freezer.name=Cryogenic Freezer
 gtadditions.machine.large_assembler.name=Large Scale Auto-Assembler
+gtadditions.machine.alloy_blast_smelter.name=Alloy Blast Smelter
 gtadditions.machine.coke_oven.name=[Deprecated] Coke Oven
 gtadditions.machine.cracker_unit.name=[Deprecated] Cracking Unit
 
@@ -458,6 +459,7 @@ gtadditions.machine.coke_fluid_hatch.name=[Deprecated] Coke Oven Faucet
 
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing
+tile.ga_multiblock_casing.zirconium_carbide_casing.name=Blast Smelter Casing Block
 tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
