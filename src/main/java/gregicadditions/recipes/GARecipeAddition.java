@@ -48,6 +48,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
+import slimeknights.mantle.util.RecipeMatch;
 
 public class GARecipeAddition {
 
@@ -286,6 +287,7 @@ public class GARecipeAddition {
 		RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(400).EUt(4).inputs(MetaItems.ADVANCED_ALLOY_PLATE.getStackForm()).input(OrePrefix.dust, Materials.Glass, 3).outputs(GAMetaBlocks.TRANSPARENT_CASING.getItemVariant(GATransparentCasing.CasingType.REINFORCED_GLASS, 4)).buildAndRegister();
 		RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder().duration(400).EUt(4).inputs(MetaItems.ADVANCED_ALLOY_PLATE.getStackForm(), new ItemStack(Blocks.GLASS, 3)).outputs(GAMetaBlocks.TRANSPARENT_CASING.getItemVariant(GATransparentCasing.CasingType.REINFORCED_GLASS, 4)).buildAndRegister();
 
+
 		//Machine Components
 		ModHandler.removeRecipes(MetaItems.EMITTER_LV.getStackForm());
 		ModHandler.removeRecipes(MetaItems.EMITTER_MV.getStackForm());
@@ -467,7 +469,27 @@ public class GARecipeAddition {
 			RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(500).EUt(120).blastFurnaceTemp(1500).input(OrePrefix.ore, materials).input(OrePrefix.dustTiny, Materials.Quicklime, 3).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Iron, 2), OreDictUnifier.get(OrePrefix.dustSmall, Materials.DarkAsh)).buildAndRegister();
 		}
 
-		//RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(944).EUt(120).input(OrePrefix.dust, Materials.Silicon).notConsumable(new IntCircuitIngredient(1)).blastFurnaceTemp(1687).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Silicon)).buildAndRegister();
+		/*
+		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(400).EUt(8)
+				.input(OrePrefix.dust, Materials.Lead, 3)
+				.input(OrePrefix.dust, Materials.Platinum)
+				.input(OrePrefix.dust, Materials.EnderPearl, 4)
+				.outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.Enderium, 4)).buildAndRegister();
+		 */
+
+		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(400).EUt(400)
+				.input(OrePrefix.ingot, Materials.Nichrome, 13)
+				.input(OrePrefix.ingot, Materials.Invar, 10)
+				.input(OrePrefix.ingot, Materials.Molybdenum, 10)
+				.outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.INCONEL625, 33)).buildAndRegister();
+		/*
+		RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(8020).EUt(120).blastFurnaceTemp(1200)
+				.input(OrePrefix.ingot, Materials.Nichrome, 13)
+				.input(OrePrefix.ingot, Materials.Invar, 10)
+				.input(OrePrefix.ingot, Materials.Molybdenum, 10)
+				.outputs(OreDictUnifier.get(OrePrefix.ingot, GAMaterials.Inconel_625, 43)).buildAndRegister();
+		 */
+
 
 		//Misc Centrifuging
 		RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(300).EUt(192).fluidInputs(Materials.LeadZincSolution.getFluid(8000)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Lead), OreDictUnifier.get(OrePrefix.dust, Materials.Silver), OreDictUnifier.get(OrePrefix.dust, Materials.Zinc), OreDictUnifier.get(OrePrefix.dust, Materials.Sulfur, 3)).fluidOutputs(Materials.Water.getFluid(2000)).buildAndRegister();
