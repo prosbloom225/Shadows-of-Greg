@@ -601,6 +601,8 @@ material.neutronium=Neutronium
 material.plasma=Plasma Confinement
 material.lignite_coke=Lignite Coke
 
+material.inconel_625=Inconel-625
+
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp
 item.epoxid.dustSmall=Small Pile of Epoxy Resin Pulp
