@@ -31,6 +31,8 @@ public class ClientHandler {
 	public static final TextureArea BRONZE_FLUID_SLOT = TextureArea.fullImage("textures/gui/steam/fluid_slot.png");
 	public static final TextureArea COAL_OVERLAY = TextureArea.fullImage("textures/gui/steam/bronze/overlay_bronze_coal.png");
 
+	public static SimpleCubeRenderer ZIRCONIUM_CARBIDE_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_zirconium_carbide");
+
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event) {
 		GAMetaBlocks.registerItemModels();

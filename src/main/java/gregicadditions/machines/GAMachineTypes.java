@@ -1,5 +1,7 @@
 package gregicadditions.machines;
 
+import gregicadditions.client.ClientHandler;
+import gregicadditions.recipes.GARecipeMaps;
 import gregtech.api.multiblock.FactoryBlockPattern;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
@@ -23,7 +25,12 @@ public class GAMachineTypes {
         CENTRIFUGE(RecipeMaps.CENTRIFUGE_RECIPES, MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID), Textures.SOLID_STEEL_CASING,
                 Textures.CENTRIFUGE_OVERLAY,
                 6,
-                1.25);
+                1.25),
+        // TODO - this isnt really a largeMachine - should maybe move to MetaTileEntities
+        ALLOY_BLAST_SMELTER(GARecipeMaps.ALLOY_BLAST_SMELTER, MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID), ClientHandler.ZIRCONIUM_CARBIDE_MACHINE_CASING,
+        Textures.ALLOY_SMELTER_OVERLAY,
+                1,
+                1.00);
 
         public final RecipeMap recipeMap;
         public final IBlockState casingState;
