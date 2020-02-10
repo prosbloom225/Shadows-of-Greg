@@ -44,7 +44,7 @@ public class GAMaterials implements IMaterialHandler {
 
 	 */
 
-	public static final IngotMaterial INCONEL625 = new IngotMaterial(702, "inconel_625", 0x6ca96c, MaterialIconSet.METALLIC, 2,
+	public static final IngotMaterial INCONEL625 = new IngotMaterial(702, "inconel625", 0x6ca96c, MaterialIconSet.METALLIC, 2,
 			ImmutableList.of(new MaterialStack(Nichrome, 13),
 					new MaterialStack(Invar, 10),
 					new MaterialStack(Molybdenum, 10)),
