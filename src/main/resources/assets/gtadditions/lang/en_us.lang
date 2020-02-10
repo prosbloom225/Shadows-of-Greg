@@ -459,6 +459,7 @@ gtadditions.machine.coke_fluid_hatch.name=[Deprecated] Coke Oven Faucet
 
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing
+tile.ga_multiblock_casing.zirconium_carbide_casing.name=Zirconium Carbide Machine Casing
 tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder

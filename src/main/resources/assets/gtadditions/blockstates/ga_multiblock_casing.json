@@ -17,6 +17,11 @@
         "textures": {
           "all": "gregtech:blocks/casings/gearbox/machine_casing_gearbox_tungstensteel"
         }
+      },
+      "zirconium_carbide_casing": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_zirconium_carbide"
+        }
       }
     }
   }
