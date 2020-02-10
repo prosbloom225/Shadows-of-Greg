@@ -413,6 +413,7 @@ gtadditions.machine.large_wiremill.name=Wire Factory Controller
 gtadditions.machine.large_freezer.name=Cryogenic Freezer
 gtadditions.machine.large_assembler.name=Large Scale Auto-Assembler
 gtadditions.machine.alloy_blast_smelter.name=Alloy Blast Smelter
+gtadditions.machine.power_station.name=Power Station Control Node
 gtadditions.machine.coke_oven.name=[Deprecated] Coke Oven
 gtadditions.machine.cracker_unit.name=[Deprecated] Cracking Unit
 
@@ -677,6 +678,9 @@ gregtech.multiblock.distill_tower.description=The GA Distillation Tower is a mul
 gregtech.multiblock.fusion_reactor_mk1.description=The Fusion Reactor Mark 1 is a large multiblock structure used for fusing elements into heavier ones. The Mark 1 Fusion Reactor can use LuV, ZPM or UV Energy Hatches. For every Hatch it has its buffer increases by 100k.
 gregtech.multiblock.fusion_reactor_mk2.description=The Fusion Reactor Mark 2 is a large multiblock structure used for fusing elements into heavier ones. The Mark 2 Fusion Reactor can use ZPM or UV Energy Hatches. For every Hatch it has its buffer increases by 200k.
 gregtech.multiblock.fusion_reactor_mk3.description=The Fusion Reactor Mark 3 is a large multiblock structure used for fusing elements into heavier ones. The Mark 3 Fusion Reactor can only use UV Energy Hatches. For every Hatch it has its buffer increases by 400k.
+
+gregtech.multiblock.input_eu=Inputting: %s EU/t
+gregtech.multiblock.stored_eu=Stored: %s EU
 
 item.material.oreprefix.plateCurved=Curved %s Plate
 item.material.oreprefix.ingotDouble=Double %s Ingot

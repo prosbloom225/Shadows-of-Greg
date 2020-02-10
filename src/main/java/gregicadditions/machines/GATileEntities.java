@@ -68,6 +68,8 @@ public class GATileEntities {
 
 	public static TileEntityLargeMachine ALLOY_BLAST_SMELTER;
 
+	public static TileEntityPowerStation POWER_STATION;
+
 
     public static TileEntityDrum WOODEN_DRUM;
 	public static TileEntityDrum BRONZE_DRUM;
@@ -396,6 +398,7 @@ public class GATileEntities {
 
 		ALLOY_BLAST_SMELTER= GregTechAPI.registerMetaTileEntity(2610, new TileEntityLargeMachine(location("alloy_blast_smelter"), GAMachineTypes.LargeMachineType.ALLOY_BLAST_SMELTER));
 
+		POWER_STATION = GregTechAPI.registerMetaTileEntity(2621, new TileEntityPowerStation(location("power_station")));
 
 		FUSION_REACTOR[0] = GregTechAPI.registerMetaTileEntity(2504, new TileEntityFusionReactor(location("fusion_reactor.luv"), 6));
 		FUSION_REACTOR[1] = GregTechAPI.registerMetaTileEntity(2505, new TileEntityFusionReactor(location("fusion_reactor.zpm"), 7));
