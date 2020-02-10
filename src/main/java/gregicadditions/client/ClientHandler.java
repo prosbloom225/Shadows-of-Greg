@@ -32,6 +32,9 @@ public class ClientHandler {
 	public static final TextureArea COAL_OVERLAY = TextureArea.fullImage("textures/gui/steam/bronze/overlay_bronze_coal.png");
 
 	public static SimpleCubeRenderer ZIRCONIUM_CARBIDE_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_zirconium_carbide");
+	public static SimpleCubeRenderer CENTRIFUGE_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_centrifuge");
+	public static SimpleCubeRenderer MACERATOR_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_macerator");
+	public static SimpleCubeRenderer ORE_WASHER_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_ore_washer");
 
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event) {

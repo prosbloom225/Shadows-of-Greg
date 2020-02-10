@@ -655,7 +655,6 @@ public class GARecipeAddition {
                 .fluidOutputs(GAMaterials.INCONEL625.getFluid(6192))
 				.buildAndRegister();
 
-		/*
 		GARecipeMaps.ALLOY_BLAST_SMELTER.recipeBuilder().duration(800).EUt(1920)
 				.input(OrePrefix.ingot, Materials.Titanium, 9)
 				.input(OrePrefix.ingot, Materials.Carbon, 9)
@@ -666,7 +665,6 @@ public class GARecipeAddition {
 				.notConsumable(new IntCircuitIngredient(6))
                 .fluidOutputs(GAMaterials.GRISIUM.getFluid(7200))
 				.buildAndRegister();
-		*/
 
 		//FUsion Casing Recipes
 		ModHandler.addShapedRecipe("fusion_casing_1", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.FUSION_CASING), "PhP", "PHP", "PwP", 'P', "plateTungstenSteel", 'H', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.LuV));
