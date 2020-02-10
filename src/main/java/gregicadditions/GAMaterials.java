@@ -45,11 +45,22 @@ public class GAMaterials implements IMaterialHandler {
 	 */
 
 	public static final IngotMaterial INCONEL625 = new IngotMaterial(702, "inconel625", 0x6ca96c, MaterialIconSet.METALLIC, 2,
-			ImmutableList.of(new MaterialStack(Nichrome, 13),
+			ImmutableList.of(new MaterialStack(Nichrome, 10),
+					new MaterialStack(Nickel, 3),
+					new MaterialStack(Chrome, 7),
 					new MaterialStack(Invar, 10),
 					new MaterialStack(Molybdenum, 10)),
 			EXT2_METAL,
 			null, 8.0F, 3.0F, 1280, 4500);
+
+	public static final IngotMaterial GRISIUM = new IngotMaterial(703, "grisium", 0x294953, MaterialIconSet.METALLIC, 2,
+			ImmutableList.of(new MaterialStack(Titanium, 9),
+					new MaterialStack(Carbon, 9),
+					new MaterialStack(Lithium, 9),
+					new MaterialStack(Sulfur, 9),
+					new MaterialStack(Potassium, 9)),
+			EXT2_METAL,
+			null, 8.0F, 3.0F, 1280, 4125);
 
 	/*
 	public static final IngotMaterial INCOLOY20 = new IngotMaterial(703, "inconel", 0xc9a197, MaterialIconSet.METALLIC, 2,

@@ -1,9 +1,5 @@
 package gregicadditions.recipes;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import forestry.core.ModuleCore;
 import forestry.core.fluids.Fluids;
 import forestry.core.items.EnumElectronTube;
@@ -48,7 +44,12 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
-import slimeknights.mantle.util.RecipeMatch;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static gregtech.api.unification.material.Materials.Potassium;
 
 public class GARecipeAddition {
 
@@ -644,6 +645,7 @@ public class GARecipeAddition {
 		RecipeMaps.FUSION_RECIPES.recipeBuilder().fluidInputs(Materials.Lanthanum.getFluid(16), Materials.Silicon.getFluid(16)).fluidOutputs(Materials.Lutetium.getFluid(16)).duration(16).EUt(8192).EUToStart(80000000).buildAndRegister();
 
 		// Alloy Blast Smelter Recipes
+		// TODO - add recipes for blast furnace, only recipes that have outputs that can be fluids
 		GARecipeMaps.ALLOY_BLAST_SMELTER.recipeBuilder().duration(400).EUt(120)
 				.input(OrePrefix.ingot, Materials.Nichrome, 10)
 				.input(OrePrefix.ingot, Materials.Nickel, 3)
@@ -652,7 +654,19 @@ public class GARecipeAddition {
 				.input(OrePrefix.ingot, Materials.Molybdenum, 10)
                 .fluidOutputs(GAMaterials.INCONEL625.getFluid(6192))
 				.buildAndRegister();
-		// TODO - add recipes for blast furnace, only recipes that have outputs that can be fluids
+
+		/*
+		GARecipeMaps.ALLOY_BLAST_SMELTER.recipeBuilder().duration(800).EUt(1920)
+				.input(OrePrefix.ingot, Materials.Titanium, 9)
+				.input(OrePrefix.ingot, Materials.Carbon, 9)
+				.input(OrePrefix.ingot, Materials.Lithium, 9)
+				.input(OrePrefix.ingot, Materials.Sulfur, 9)
+				.input(OrePrefix.ingot, Potassium, 9)
+                .fluidInputs(Materials.Hydrogen.getFluid(5000))
+				.notConsumable(new IntCircuitIngredient(6))
+                .fluidOutputs(GAMaterials.GRISIUM.getFluid(7200))
+				.buildAndRegister();
+		*/
 
 		//FUsion Casing Recipes
 		ModHandler.addShapedRecipe("fusion_casing_1", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.FUSION_CASING), "PhP", "PHP", "PwP", 'P', "plateTungstenSteel", 'H', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.LuV));

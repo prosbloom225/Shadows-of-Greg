@@ -460,6 +460,9 @@ gtadditions.machine.coke_fluid_hatch.name=[Deprecated] Coke Oven Faucet
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
 tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing
 tile.ga_multiblock_casing.zirconium_carbide_casing.name=Blast Smelter Casing Block
+tile.ga_multiblock_casing.grisium_casing.name=Wash Plant Casing
+tile.ga_multiblock_casing.tumbaga_casing.name=Maceration Stack Casing
+tile.ga_multiblock_casing.centrifuge_casing.name=Centrifuge Casing
 tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
@@ -477,6 +480,8 @@ recipemap.mass_fab.name=Mass Fabricator
 recipemap.cracker_unit.name=[Deprecated] Cracking Recipes
 
 recipemap.plasma_generator.name=Plasma Turbine Fuels
+
+recipemap.alloy_blast_smelter.name=Alloy Blast Smelter
 
 material.brick=Brick
 material.fireclay=Fireclay
