@@ -75,6 +75,7 @@ public class GregicAdditions {
 		IForgeRegistry<Block> registry = event.getRegistry();
 		registry.register(GAMetaBlocks.MUTLIBLOCK_CASING);
 		registry.register(GAMetaBlocks.TRANSPARENT_CASING);
+		registry.register(GAMetaBlocks.REDOX_POWER_CELL);
 	}
 
 	@SubscribeEvent
@@ -82,6 +83,7 @@ public class GregicAdditions {
 		IForgeRegistry<Item> registry = event.getRegistry();
 		registry.register(createItemBlock(GAMetaBlocks.MUTLIBLOCK_CASING, VariantItemBlock::new));
 		registry.register(createItemBlock(GAMetaBlocks.TRANSPARENT_CASING, VariantItemBlock::new));
+		registry.register(createItemBlock(GAMetaBlocks.REDOX_POWER_CELL, VariantItemBlock::new));
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOW)

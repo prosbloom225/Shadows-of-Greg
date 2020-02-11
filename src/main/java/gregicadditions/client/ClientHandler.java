@@ -35,6 +35,7 @@ public class ClientHandler {
 	public static SimpleCubeRenderer CENTRIFUGE_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_centrifuge");
 	public static SimpleCubeRenderer MACERATOR_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_macerator");
 	public static SimpleCubeRenderer ORE_WASHER_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_ore_washer");
+	public static SimpleCubeRenderer POWER_STATION_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_power_station");
 
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event) {

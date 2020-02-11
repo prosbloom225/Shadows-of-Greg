@@ -458,13 +458,18 @@ gtadditions.machine.fusion_reactor.uv.name=Fusion Reactor Computer Mark 3
 gtadditions.machine.coke_item_bus.name=[Deprecated] Coke Oven Chute
 gtadditions.machine.coke_fluid_hatch.name=[Deprecated] Coke Oven Faucet
 
+tile.power_cell.cupronickel.name=Cupronickel Power Cell
+tile.power_cell.kanthal.name=Kanthal Power Cell
+
 tile.ga_multiblock_casing.coke_oven_bricks.name=Coke Oven Bricks
+tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass
 tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing
+
 tile.ga_multiblock_casing.zirconium_carbide_casing.name=Blast Smelter Casing Block
 tile.ga_multiblock_casing.ore_washer_casing.name=Wash Plant Casing
 tile.ga_multiblock_casing.macerator_casing.name=Maceration Stack Casing
 tile.ga_multiblock_casing.centrifuge_casing.name=Centrifuge Casing
-tile.ga_transparent_casing.reinforced_glass.name=Reinforced Glass
+tile.ga_multiblock_casing.power_station_casing.name=Sub-Station External Casing
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
 metaitem.tool.bending_cylinder_small.name=Small %s Bending Cylinder
@@ -680,6 +685,7 @@ gregtech.multiblock.fusion_reactor_mk2.description=The Fusion Reactor Mark 2 is 
 gregtech.multiblock.fusion_reactor_mk3.description=The Fusion Reactor Mark 3 is a large multiblock structure used for fusing elements into heavier ones. The Mark 3 Fusion Reactor can only use UV Energy Hatches. For every Hatch it has its buffer increases by 400k.
 
 gregtech.multiblock.input_eu=Inputting: %s EU/t
+gregtech.multiblock.capacity_eu=Capacity: %s EU
 gregtech.multiblock.stored_eu=Stored: %s EU
 
 item.material.oreprefix.plateCurved=Curved %s Plate

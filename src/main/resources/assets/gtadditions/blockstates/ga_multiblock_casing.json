@@ -37,6 +37,11 @@
         "textures": {
           "all": "gregtech:blocks/casings/solid/machine_casing_ore_washer"
         }
+      },
+      "power_station_casing": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_power_station"
+        }
       }
     }
   }
