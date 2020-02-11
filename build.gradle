@@ -50,17 +50,22 @@ repositories {
     maven {
         url = "https://mod-buildcraft.com/maven/"
     }
+    maven {
+        url = "https://maven.tterrag.com"
+    }
 }
 
 dependencies {
-    compileOnly "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.+"
     deobfCompile "mezz.jei:jei_1.12.2:+"
-	deobfCompile "mcp.mobius.waila:Hwyla:1.8+"
-    compileOnly "net.sengir.forestry:forestry_1.12.2:+"
+	//deobfCompile "mcp.mobius.waila:Hwyla:1.8+"
+    deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.22-13"
 	deobfCompile "gregtechce:gregtech:1.12.2:1.8.13.465"
 	deobfCompile "codechicken:ChickenASM:1.12-+"
     deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.357:universal"
     deobfCompile "forge-multipart-cbe:ForgeMultipart-1.12.2:2.6.2.83:universal"
+
+    compileOnly "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.+"
+    compileOnly "net.sengir.forestry:forestry_1.12.2:+"
     compileOnly "com.mod-buildcraft:buildcraft-api:+"
     compileOnly "slimeknights.mantle:Mantle:1.12-1.3.3.42"
     compileOnly "slimeknights:TConstruct:1.12.2-2.12.0.115"
