@@ -37,6 +37,14 @@ public class ClientHandler {
 	public static SimpleCubeRenderer ORE_WASHER_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_ore_washer");
 	public static SimpleCubeRenderer POWER_STATION_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_power_station");
 
+	public static SimpleCubeRenderer []REDOX_POWER_CELL = new SimpleCubeRenderer[]{
+			new SimpleCubeRenderer("casings/redox/redox1"),
+			new SimpleCubeRenderer("casings/redox/redox2"),
+			new SimpleCubeRenderer("casings/redox/redox3"),
+			new SimpleCubeRenderer("casings/redox/redox4"),
+			new SimpleCubeRenderer("casings/redox/redox5"),
+			new SimpleCubeRenderer("casings/redox/redox6")};
+
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event) {
 		GAMetaBlocks.registerItemModels();

@@ -6,7 +6,6 @@ import codechicken.lib.vec.Matrix4;
 import gregicadditions.client.ClientHandler;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMultiblockCasing;
-import gregicadditions.item.RedoxPowerCellBlock;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.impl.EnergyContainerHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -15,20 +14,15 @@ import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.MultiblockWithDisplayBase;
 import gregtech.api.multiblock.BlockPattern;
-import gregtech.api.multiblock.BlockWorldState;
 import gregtech.api.multiblock.FactoryBlockPattern;
 import gregtech.api.multiblock.PatternMatchContext;
 import gregtech.api.render.ICubeRenderer;
-import gregtech.api.render.Textures;
-import gregtech.common.blocks.BlockMetalCasing.MetalCasingType;
-import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 import static gregtech.api.multiblock.BlockPattern.RelativeDirection.*;
 
@@ -37,7 +31,9 @@ public class TileEntityPowerStation extends MultiblockWithDisplayBase {
 	private boolean isActive = false;
 	protected IEnergyContainer energyContainer;
 
-	private static final MultiblockAbility<?>[] ALLOWED_ABILITIES = { MultiblockAbility.INPUT_ENERGY, MultiblockAbility.OUTPUT_ENERGY };
+	public static final MultiblockAbility<TileEntityRedoxPowerCell> ABILITY_POWER_CELL = new MultiblockAbility();
+
+	private static final MultiblockAbility<?>[] ALLOWED_ABILITIES = { MultiblockAbility.INPUT_ENERGY, MultiblockAbility.OUTPUT_ENERGY};
 
 	public TileEntityPowerStation(ResourceLocation metaTileEntityId) {
 		super(metaTileEntityId);
@@ -46,16 +42,16 @@ public class TileEntityPowerStation extends MultiblockWithDisplayBase {
 
 	@Override
 	protected BlockPattern createStructurePattern() {
-
 		return FactoryBlockPattern.start(RIGHT, FRONT, UP)
 				.aisle("XXSXX", "XXXXX", "XXXXX", "XXXXX", "XXXXX")
 				.aisle("XXXXX", "XPPPX", "XPPPX", "XPPPX", "XXXXX").setRepeatable(2, 16)
 				.aisle("XXXXX", "XXXXX", "XXXXX", "XXXXX", "XXXXX")
 				.where('S', selfPredicate())
 				.where('X', statePredicate(getCasingState()).or(abilityPartPredicate(ALLOWED_ABILITIES)))
-				.where('P', powerCellPredicate())
+				.where('P', abilityPartPredicate(ABILITY_POWER_CELL))
 				.build();
 	}
+
 
 	public IBlockState getCasingState() {
 	    return GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.POWER_STATION_CASING);
@@ -64,18 +60,6 @@ public class TileEntityPowerStation extends MultiblockWithDisplayBase {
 	@Override
 	public ICubeRenderer getBaseTexture(IMultiblockPart arg0) {
 		return ClientHandler.POWER_STATION_CASING;
-	}
-
-	public static Predicate<BlockWorldState> powerCellPredicate() {
-		return blockWorldState -> {
-			IBlockState blockState = blockWorldState.getBlockState();
-			if (!(blockState.getBlock() instanceof RedoxPowerCellBlock))
-				return false;
-			RedoxPowerCellBlock RedoxPowerCellBlock = (RedoxPowerCellBlock) blockState.getBlock();
-			RedoxPowerCellBlock.CellType cellType = RedoxPowerCellBlock.getState(blockState);
-			RedoxPowerCellBlock.CellType currentCellType = blockWorldState.getMatchContext().getOrPut("CellType", cellType);
-			return currentCellType.getName().equals(cellType.getName());
-		};
 	}
 
 	@Override
@@ -88,7 +72,10 @@ public class TileEntityPowerStation extends MultiblockWithDisplayBase {
 	protected void formStructure(PatternMatchContext context) {
 		super.formStructure(context);
 		this.energyContainer = new EnergyContainerHandler(this,
-				context.getOrDefault("CellType", RedoxPowerCellBlock.CellType.CUPRONICKEL).getCapacity(),
+				// TODO - this allows for mixed power cell types...maybe rebalance later
+				this.getAbilities(ABILITY_POWER_CELL).stream().map(c->c.getCapacity()).reduce(0L, Long::sum),
+				// TODO - maybe just use the celltype andignore the actual power station values in the update() function
+				// this really just adds an extra translation layer the energy has to go through
 				this.getAbilities(MultiblockAbility.INPUT_ENERGY).stream().map(i->i.getInputVoltage()).reduce(Long::max).get(),
 				this.getAbilities(MultiblockAbility.INPUT_ENERGY).stream().map(i->i.getInputAmperage()).reduce(Long::max).get(),
 				this.getAbilities(MultiblockAbility.OUTPUT_ENERGY).stream().map(i->i.getOutputVoltage()).reduce(Long::max).get(),
@@ -98,7 +85,6 @@ public class TileEntityPowerStation extends MultiblockWithDisplayBase {
 
 	@Override
 	protected void updateFormedValid() {
-
 	}
 
 	@Override

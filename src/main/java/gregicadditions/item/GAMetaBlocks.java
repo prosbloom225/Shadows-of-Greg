@@ -23,8 +23,6 @@ public class GAMetaBlocks {
 
 	public static GATransparentCasing TRANSPARENT_CASING;
 
-	public static RedoxPowerCellBlock REDOX_POWER_CELL;
-
 	public static void init() {
 		MUTLIBLOCK_CASING = new GAMultiblockCasing();
 		MUTLIBLOCK_CASING.setRegistryName("ga_multiblock_casing");
@@ -35,15 +33,12 @@ public class GAMetaBlocks {
 		MetaBlocks.FLUID_PIPE.addPipeMaterial(Materials.Ultimet, new FluidPipeProperties(1500, 12000, true));
 		//MetaBlocks.FLUID_PIPE.addPipeMaterial(GAMaterials.Plasma, new FluidPipeProperties(1000000, 30, true));
 
-		REDOX_POWER_CELL = new RedoxPowerCellBlock();
-		REDOX_POWER_CELL.setRegistryName("redox_power_cell");
 	}
 
 	@SideOnly(Side.CLIENT)
 	public static void registerItemModels() {
 		registerItemModel(MUTLIBLOCK_CASING);
 		registerItemModel(TRANSPARENT_CASING);
-		registerItemModel(REDOX_POWER_CELL);
 	}
 
 	@SideOnly(Side.CLIENT)

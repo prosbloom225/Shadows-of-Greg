@@ -69,6 +69,7 @@ public class GATileEntities {
 	public static TileEntityLargeMachine ALLOY_BLAST_SMELTER;
 
 	public static TileEntityPowerStation POWER_STATION;
+	public static TileEntityRedoxPowerCell []REDOX_POWER_CELL = new TileEntityRedoxPowerCell[6];
 
 
     public static TileEntityDrum WOODEN_DRUM;
@@ -399,6 +400,11 @@ public class GATileEntities {
 		ALLOY_BLAST_SMELTER= GregTechAPI.registerMetaTileEntity(2610, new TileEntityLargeMachine(location("alloy_blast_smelter"), GAMachineTypes.LargeMachineType.ALLOY_BLAST_SMELTER));
 
 		POWER_STATION = GregTechAPI.registerMetaTileEntity(2621, new TileEntityPowerStation(location("power_station")));
+		REDOX_POWER_CELL[0] = GregTechAPI.registerMetaTileEntity(2622, new TileEntityRedoxPowerCell(location("redox_power_cell.ev"), 4));
+		REDOX_POWER_CELL[1] = GregTechAPI.registerMetaTileEntity(2623, new TileEntityRedoxPowerCell(location("redox_power_cell.iv"), 5));
+		REDOX_POWER_CELL[2] = GregTechAPI.registerMetaTileEntity(2624, new TileEntityRedoxPowerCell(location("redox_power_cell.luv"), 6));
+		REDOX_POWER_CELL[3] = GregTechAPI.registerMetaTileEntity(2625, new TileEntityRedoxPowerCell(location("redox_power_cell.zpm"), 7));
+		REDOX_POWER_CELL[4] = GregTechAPI.registerMetaTileEntity(2626, new TileEntityRedoxPowerCell(location("redox_power_cell.uv"), 8));
 
 		FUSION_REACTOR[0] = GregTechAPI.registerMetaTileEntity(2504, new TileEntityFusionReactor(location("fusion_reactor.luv"), 6));
 		FUSION_REACTOR[1] = GregTechAPI.registerMetaTileEntity(2505, new TileEntityFusionReactor(location("fusion_reactor.zpm"), 7));

@@ -414,6 +414,11 @@ gtadditions.machine.large_freezer.name=Cryogenic Freezer
 gtadditions.machine.large_assembler.name=Large Scale Auto-Assembler
 gtadditions.machine.alloy_blast_smelter.name=Alloy Blast Smelter
 gtadditions.machine.power_station.name=Power Station Control Node
+gtadditions.machine.redox_power_cell.ev.name=Redox Power Cell EV
+gtadditions.machine.redox_power_cell.iv.name=Redox Power Cell IV
+gtadditions.machine.redox_power_cell.luv.name=Redox Power Cell LuV
+gtadditions.machine.redox_power_cell.zpm.name=Redox Power Cell Zpm
+gtadditions.machine.redox_power_cell.uv.name=Redox Power Cell UV
 gtadditions.machine.coke_oven.name=[Deprecated] Coke Oven
 gtadditions.machine.cracker_unit.name=[Deprecated] Cracking Unit
 
