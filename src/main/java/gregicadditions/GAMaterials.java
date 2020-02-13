@@ -16,13 +16,14 @@ import gregtech.api.unification.material.type.SolidMaterial.MatFlags;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static gregtech.api.unification.material.Materials.*;
 
 
 @IMaterialHandler.RegisterMaterialHandler
 public class GAMaterials implements IMaterialHandler {
-
-	static long STD_METAL = DustMaterial.MatFlags.GENERATE_PLATE;
 
 	static long EXT2_METAL = DustMaterial.MatFlags.GENERATE_PLATE | SolidMaterial.MatFlags.GENERATE_ROD | IngotMaterial.MatFlags.GENERATE_BOLT_SCREW | SolidMaterial.MatFlags.GENERATE_GEAR | IngotMaterial.MatFlags.GENERATE_FOIL | IngotMaterial.MatFlags.GENERATE_FINE_WIRE;
 	public static final FluidMaterial FISH_OIL = new FluidMaterial(975, "fish_oil", 14467421, MaterialIconSet.FLUID, ImmutableList.of(), FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK | Material.MatFlags.DISABLE_DECOMPOSITION);
@@ -42,34 +43,6 @@ public class GAMaterials implements IMaterialHandler {
 			EXT2_METAL | Material.MatFlags.DISABLE_DECOMPOSITION,
 			null, 8.0F, 3.0F, 1280, 4500);
 
-	 */
-
-	public static final IngotMaterial INCONEL625 = new IngotMaterial(702, "inconel625", 0x6ca96c, MaterialIconSet.METALLIC, 2,
-			ImmutableList.of(new MaterialStack(Nichrome, 10),
-					new MaterialStack(Nickel, 3),
-					new MaterialStack(Chrome, 7),
-					new MaterialStack(Invar, 10),
-					new MaterialStack(Molybdenum, 10)),
-			EXT2_METAL,
-			null, 8.0F, 3.0F, 1280, 4500);
-
-	public static final IngotMaterial GRISIUM = new IngotMaterial(703, "grisium", 0x294953, MaterialIconSet.METALLIC, 2,
-			ImmutableList.of(new MaterialStack(Titanium, 9),
-					new MaterialStack(Carbon, 9),
-					new MaterialStack(Lithium, 9),
-					new MaterialStack(Sulfur, 9),
-					new MaterialStack(Potassium, 9)),
-			EXT2_METAL,
-			null, 8.0F, 3.0F, 1280, 4125);
-
-	/*
-	public static final IngotMaterial INCOLOY20 = new IngotMaterial(703, "inconel", 0xc9a197, MaterialIconSet.METALLIC, 2,
-			ImmutableList.of(new MaterialStack(Nichrome, 13),
-					new MaterialStack(Invar, 10),
-					new MaterialStack(Cupronickel, 10),
-					new MaterialStack(Chrome, 5)),
-			EXT2_METAL,
-			null, 8.0F, 3.0F, 1280, 4500);
 	 */
 
 
@@ -114,7 +87,5 @@ public class GAMaterials implements IMaterialHandler {
 		OrePrefix.gemExquisite.setIgnored(LIGNITE_COKE);
 
 		Materials.Magnetite.setDirectSmelting(Materials.Iron);
-
-
 	}
 }

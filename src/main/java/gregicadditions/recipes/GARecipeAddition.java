@@ -3,7 +3,9 @@ package gregicadditions.recipes;
 import forestry.core.ModuleCore;
 import forestry.core.fluids.Fluids;
 import forestry.core.items.EnumElectronTube;
+import gregicadditions.GAAlloys;
 import gregicadditions.GAConfig;
+import gregicadditions.GAIngotMaterial;
 import gregicadditions.GAMaterials;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
@@ -16,6 +18,7 @@ import gregtech.api.recipes.CountableIngredient;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMaps;
+import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
@@ -470,27 +473,6 @@ public class GARecipeAddition {
 			RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(500).EUt(120).blastFurnaceTemp(1500).input(OrePrefix.ore, materials).input(OrePrefix.dustTiny, Materials.Quicklime, 3).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Iron, 2), OreDictUnifier.get(OrePrefix.dustSmall, Materials.DarkAsh)).buildAndRegister();
 		}
 
-		/*
-		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(400).EUt(8)
-				.input(OrePrefix.dust, Materials.Lead, 3)
-				.input(OrePrefix.dust, Materials.Platinum)
-				.input(OrePrefix.dust, Materials.EnderPearl, 4)
-				.outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.Enderium, 4)).buildAndRegister();
-		 */
-
-		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(400).EUt(400)
-				.input(OrePrefix.ingot, Materials.Nichrome, 13)
-				.input(OrePrefix.ingot, Materials.Invar, 10)
-				.input(OrePrefix.ingot, Materials.Molybdenum, 10)
-				.outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.INCONEL625, 33)).buildAndRegister();
-		/*
-		RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(8020).EUt(120).blastFurnaceTemp(1200)
-				.input(OrePrefix.ingot, Materials.Nichrome, 13)
-				.input(OrePrefix.ingot, Materials.Invar, 10)
-				.input(OrePrefix.ingot, Materials.Molybdenum, 10)
-				.outputs(OreDictUnifier.get(OrePrefix.ingot, GAMaterials.Inconel_625, 43)).buildAndRegister();
-		 */
-
 
 		//Misc Centrifuging
 		RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder().duration(300).EUt(192).fluidInputs(Materials.LeadZincSolution.getFluid(8000)).outputs(OreDictUnifier.get(OrePrefix.dust, Materials.Lead), OreDictUnifier.get(OrePrefix.dust, Materials.Silver), OreDictUnifier.get(OrePrefix.dust, Materials.Zinc), OreDictUnifier.get(OrePrefix.dust, Materials.Sulfur, 3)).fluidOutputs(Materials.Water.getFluid(2000)).buildAndRegister();
@@ -646,25 +628,35 @@ public class GARecipeAddition {
 
 		// Alloy Blast Smelter Recipes
 		// TODO - add recipes for blast furnace, only recipes that have outputs that can be fluids
+		/*
 		GARecipeMaps.ALLOY_BLAST_SMELTER.recipeBuilder().duration(400).EUt(120)
 				.input(OrePrefix.ingot, Materials.Nichrome, 10)
 				.input(OrePrefix.ingot, Materials.Nickel, 3)
 				.input(OrePrefix.ingot, Materials.Chrome, 7)
 				.input(OrePrefix.ingot, Materials.Invar, 10)
 				.input(OrePrefix.ingot, Materials.Molybdenum, 10)
-                .fluidOutputs(GAMaterials.INCONEL625.getFluid(6192))
+                .fluidOutputs(GAAlloys.INCONEL625.getFluid(6192))
 				.buildAndRegister();
 
-		GARecipeMaps.ALLOY_BLAST_SMELTER.recipeBuilder().duration(800).EUt(1920)
-				.input(OrePrefix.ingot, Materials.Titanium, 9)
-				.input(OrePrefix.ingot, Materials.Carbon, 9)
-				.input(OrePrefix.ingot, Materials.Lithium, 9)
-				.input(OrePrefix.ingot, Materials.Sulfur, 9)
-				.input(OrePrefix.ingot, Potassium, 9)
-                .fluidInputs(Materials.Hydrogen.getFluid(5000))
-				.notConsumable(new IntCircuitIngredient(6))
-                .fluidOutputs(GAMaterials.GRISIUM.getFluid(7200))
-				.buildAndRegister();
+		 */
+
+		/*
+		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(400).EUt(8)
+				.input(OrePrefix.dust, Materials.Lead, 3)
+				.input(OrePrefix.dust, Materials.Platinum)
+				.input(OrePrefix.dust, Materials.EnderPearl, 4)
+				.outputs(OreDictUnifier.get(OrePrefix.dust, GAMaterials.Enderium, 4)).buildAndRegister();
+		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(400).EUt(400)
+				.input(OrePrefix.ingot, Materials.Nichrome, 13)
+				.input(OrePrefix.ingot, Materials.Invar, 10)
+				.input(OrePrefix.ingot, Materials.Molybdenum, 10)
+				.outputs(OreDictUnifier.get(OrePrefix.dust, GAAlloys.INCONEL625, 33)).buildAndRegister();
+		RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(8020).EUt(120).blastFurnaceTemp(1200)
+				.input(OrePrefix.ingot, Materials.Nichrome, 13)
+				.input(OrePrefix.ingot, Materials.Invar, 10)
+				.input(OrePrefix.ingot, Materials.Molybdenum, 10)
+				.outputs(OreDictUnifier.get(OrePrefix.ingot, GAMaterials.Inconel_625, 43)).buildAndRegister();
+		 */
 
 		//FUsion Casing Recipes
 		ModHandler.addShapedRecipe("fusion_casing_1", MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(MultiblockCasingType.FUSION_CASING), "PhP", "PHP", "PwP", 'P', "plateTungstenSteel", 'H', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.LuV));
