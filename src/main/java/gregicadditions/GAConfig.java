@@ -242,6 +242,17 @@ public class GAConfig {
 		@Config.Name("Forestry's Ethanol and Seed Oil are used in recipes instead of GTCE's")
 		public boolean ForestryIntegration = true;
 
+		@Config.Comment("AE2 Integration module")
+		@Config.Name("Set this to false to disable AE2 integration module")
+		public boolean AE2Integration = true;
+		@Config.Name("Set this to false to disable inscriber...etc recipes removal")
+		public boolean recipeRemoval = true;
+		@Config.Name("Set this to false to disable assembler recipes for processors")
+		public boolean processorAssemblerRecipes = true;
+		@Config.Name("Set this to false to disable forming press recipes for processors")
+		public boolean formingProcessorsPrintRecipes = true;
+
+
 		@Config.Comment("Set this to false to disable Crates")
 		@Config.Name("Should Crates be registered?")
 		public boolean registerCrates = true;

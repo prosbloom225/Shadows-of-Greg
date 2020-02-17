@@ -64,6 +64,7 @@ dependencies {
     deobfCompile "codechicken-lib-1-8:CodeChickenLib-1.12.2:3.2.3.357:universal"
     deobfCompile "forge-multipart-cbe:ForgeMultipart-1.12.2:2.6.2.83:universal"
 
+    compileOnly "appeng:appliedenergistics2:rv6-stable-7"
     compileOnly "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.+"
     compileOnly "net.sengir.forestry:forestry_1.12.2:+"
     compileOnly "com.mod-buildcraft:buildcraft-api:+"
