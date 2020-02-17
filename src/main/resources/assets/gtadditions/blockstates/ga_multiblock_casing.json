@@ -42,6 +42,16 @@
         "textures": {
           "all": "gregtech:blocks/casings/solid/machine_casing_power_station"
         }
+      },
+      "sieve_grate": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_sieve_grate"
+        }
+      },
+      "sieve_casing": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_sieve"
+        }
       }
     }
   }

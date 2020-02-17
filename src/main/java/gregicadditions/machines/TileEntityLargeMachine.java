@@ -13,7 +13,9 @@ import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.FactoryBlockPattern;
 import gregtech.api.multiblock.PatternMatchContext;
-import gregtech.api.recipes.*;
+import gregtech.api.recipes.CountableIngredient;
+import gregtech.api.recipes.Recipe;
+import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.render.ICubeRenderer;
 import gregtech.api.util.GTUtility;
 import net.minecraft.block.state.IBlockState;
@@ -22,7 +24,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 
@@ -45,6 +48,24 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 	@Override
 	protected BlockPattern createStructurePattern() {
 		return largeMachineType == null ? null :
+                largeMachineType.pattern == null ?
+						FactoryBlockPattern.start()
+								.aisle("XXX", "XXX", "XXX")
+								.aisle("XXX", "X#X", "XXX")
+								.aisle("XXX", "XSX", "XXX")
+								.setAmountAtLeast('L', 10)
+								.where('S', selfPredicate())
+								.where('L', statePredicate(getCasingState()))
+								.where('X', statePredicate(getCasingState()).or(abilityPartPredicate(ALLOWED_ABILITIES)))
+								.where('#', isAirPredicate())
+								.build():
+						largeMachineType.pattern
+								.where('S', selfPredicate())
+								.where('L', statePredicate(getCasingState()))
+								.where('X', statePredicate(getCasingState()).or(abilityPartPredicate(ALLOWED_ABILITIES)))
+								.where('#', isAirPredicate())
+								.build();
+				/*
 				FactoryBlockPattern.start()
 						.aisle("XXX", "XXX", "XXX")
 						.aisle("XXX", "X#X", "XXX")
@@ -55,6 +76,7 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 						.where('X', statePredicate(getCasingState()).or(abilityPartPredicate(ALLOWED_ABILITIES)))
 						.where('#', isAirPredicate())
 						.build();
+				 */
 	}
 
 	public IBlockState getCasingState() {

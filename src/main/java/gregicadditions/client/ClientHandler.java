@@ -37,6 +37,9 @@ public class ClientHandler {
 	public static SimpleCubeRenderer ORE_WASHER_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_ore_washer");
 	public static SimpleCubeRenderer POWER_STATION_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_power_station");
 
+	public static SimpleCubeRenderer SIEVE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_sieve");
+	public static SimpleCubeRenderer SIEVE_GRATE = new SimpleCubeRenderer("casings/solid/machine_casing_sieve_grate");
+
 	public static SimpleCubeRenderer []REDOX_POWER_CELL = new SimpleCubeRenderer[]{
 			new SimpleCubeRenderer("casings/redox/redox1"),
 			new SimpleCubeRenderer("casings/redox/redox2"),

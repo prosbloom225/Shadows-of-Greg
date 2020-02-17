@@ -475,6 +475,8 @@ tile.ga_multiblock_casing.ore_washer_casing.name=Wash Plant Casing
 tile.ga_multiblock_casing.macerator_casing.name=Maceration Stack Casing
 tile.ga_multiblock_casing.centrifuge_casing.name=Centrifuge Casing
 tile.ga_multiblock_casing.power_station_casing.name=Sub-Station External Casing
+tile.ga_multiblock_casing.sieve_casing.name=Sieve Casing
+tile.ga_multiblock_casing.sieve_grate.name=Sieve Grate
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
 metaitem.tool.bending_cylinder_small.name=Small %s Bending Cylinder

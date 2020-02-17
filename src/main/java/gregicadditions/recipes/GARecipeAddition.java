@@ -639,7 +639,6 @@ public class GARecipeAddition {
 				.buildAndRegister();
 
 		 */
-
 		/*
 		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(400).EUt(8)
 				.input(OrePrefix.dust, Materials.Lead, 3)
