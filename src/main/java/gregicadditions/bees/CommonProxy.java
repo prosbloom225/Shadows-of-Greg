@@ -8,6 +8,7 @@ import forestry.api.recipes.RecipeManagers;
 import forestry.core.items.ItemFluidContainerForestry;
 import gregicadditions.GAConfig;
 import gregicadditions.GregicAdditions;
+import gregicadditions.recipes.AEIntegration;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
@@ -65,7 +66,8 @@ public class CommonProxy {
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
-		if (!GAConfig.GTBees.EnableGTCEBees || !Loader.isModLoaded("forestry")) return;
-		ForestryMachineRecipes.init();
+		//if (!GAConfig.GTBees.EnableGTCEBees || !Loader.isModLoaded("forestry")) return;
+		if (Loader.isModLoaded("appliedenergistics2") && GAConfig.Misc.AE2Integration)
+			AEIntegration.init();
 	}
 }
