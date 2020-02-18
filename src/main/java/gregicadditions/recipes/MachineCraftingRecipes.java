@@ -2,7 +2,9 @@ package gregicadditions.recipes;
 
 import gregicadditions.GAAlloys;
 import gregicadditions.GAConfig;
+import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
+import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.machines.GATileEntities;
 import gregtech.api.GTValues;
 import gregtech.api.items.OreDictNames;
@@ -15,6 +17,7 @@ import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.material.Materials;
+import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.blocks.BlockMachineCasing;
@@ -204,6 +207,18 @@ public class MachineCraftingRecipes {
 		LuV - master
 		ZPM -
 		UV - ultimate
+		ModHandler.addShapedRecipe("ga_processing_array", GATileEntities.PROCESSING_ARRAY.getStackForm(), "CBC", "RHR", "CDC",
+		'H', MetaTileEntities.HULL[GTValues.IV].getStackForm(),
+		'R', MetaItems.ROBOT_ARM_IV,
+		'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Elite),
+		'B', MetaItems.ENERGY_LAPOTRONIC_ORB,
+		'D', MetaItems.TOOL_DATA_ORB);
+		ModHandler.addShapedRecipe("ga_large_macerator_test", GATileEntities.LARGE_MACERATOR.getStackForm(), "CBC", "RHR", "CDC",
+				'H', MetaTileEntities.HULL[GTValues.IV].getStackForm(),
+				'R', MetaItems.ROBOT_ARM_IV,
+				'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Elite),
+				'B', MetaItems.ENERGY_LAPOTRONIC_ORB,
+				'D', MetaItems.TOOL_DATA_ORB);
 		 */
 
 		ModHandler.addShapedRecipe("ga_large_macerator", GATileEntities.LARGE_MACERATOR.getStackForm(), "PIP", "ECE", "PMP",
@@ -211,7 +226,28 @@ public class MachineCraftingRecipes {
 				'I', GATileEntities.MACERATOR[4].getStackForm(),
 				'E', MetaTileEntities.MACERATOR[3].getStackForm(),
 				'C', new UnificationEntry(OrePrefix.circuit, Tier.Master),
-				'M', BlockMachineCasing.MachineCasingType.IV);
+				'M', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.IV));
+
+		/*
+		ModHandler.addShapedRecipe("ga_machine_casing_macerator", GAMultiblockCasing., "PPP", "RFR", "PLP",
+				'P', new UnificationEntry(OrePrefix.plate, Materials.Palladium),
+				'R', new UnificationEntry(OrePrefix.stick, Materials.Platinum),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.INCONEL625),
+				'L', new UnificationEntry(OrePrefix.stickLong, Materials.Palladium) );
+
+		ModHandler.addShapedRecipe("ga_large_ore_washer", GATileEntities.LARGE_MACERATOR.getStackForm(), "PIP", "ECE", "PMP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.TUNGSTENTITANIUMCARBIDE),
+				'I', GATileEntities.MACERATOR[4].getStackForm(),
+				'E', MetaTileEntities.MACERATOR[3].getStackForm(),
+				'C', new UnificationEntry(OrePrefix.circuit, Tier.Master),
+				'M', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.IV));
+
+		ModHandler.addShapedRecipe("ga_machine_casing_", GATileEntities.LARGE_MACERATOR.getStackForm(), "PPP", "RFR", "PLP",
+				'P', new UnificationEntry(OrePrefix.plate, Materials.Palladium),
+				'R', new UnificationEntry(OrePrefix.stickLong, Materials.Platinum),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.INCONEL625),
+				'L', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.IV));
+	*/
 
 		List<Recipe> removals = new ArrayList<>();
 
