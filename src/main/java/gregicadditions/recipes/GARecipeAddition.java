@@ -500,6 +500,16 @@ public class GARecipeAddition {
 
 		RecipeMaps.MIXER_RECIPES.recipeBuilder().duration(160).EUt(16).inputs(new ItemStack(Items.SUGAR, 4), OreDictUnifier.get(OrePrefix.dust, GAMaterials.MEAT), OreDictUnifier.get(OrePrefix.dustTiny, Materials.Salt)).fluidInputs(Materials.DistilledWater.getFluid(4000)).fluidOutputs(GAMaterials.RAW_GROWTH_MEDIUM.getFluid(4000)).buildAndRegister();
 
+
+		// GT++ Intermediates
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(MetaItems.WETWARE_PROCESSOR_LUV.getStackForm())
+                .inputs(MetaItems.FIELD_GENERATOR_LUV.getStackForm())
+                .outputs(GAMetaItems.CIRCUIT_CONTROL.getStackForm())
+				.EUt(500)
+                .duration(240)
+				.buildAndRegister();
+
 	}
 
 	public static void init2() {

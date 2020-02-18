@@ -58,6 +58,8 @@ public class GAMetaItem extends MaterialMetaItem {
 
 		GAMetaItems.NEURO_PROCESSOR = addItem(15, "processor.neuro");
 		GAMetaItems.STEM_CELLS = addItem(18, "stemcells");
+
+		GAMetaItems.CIRCUIT_CONTROL= addItem(19, "circuit.control");
 	}
 
 	@Override

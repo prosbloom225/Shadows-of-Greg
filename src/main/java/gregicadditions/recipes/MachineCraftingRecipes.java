@@ -268,8 +268,10 @@ public class MachineCraftingRecipes {
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.MARAGING250),
 				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.INCONEL792),
 				'R', new UnificationEntry(OrePrefix.stick, GAAlloys.TUMBAGA));
+		// TODO - sifter, blast smelter
 
 
+		// TODO - power station intermediates
 		ModHandler.addShapedRecipe("ga_power_station", GATileEntities.POWER_STATION.getStackForm(),
 				"PCP", "AOA", "LPL",
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.INCOLOYMA956),
@@ -295,6 +297,7 @@ public class MachineCraftingRecipes {
 				}
 			}
 		}
+
 
 		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(MetaTileEntities.LARGE_BRONZE_BOILER.getStackForm()).inputs(CountableIngredient.from(OrePrefix.plate, Materials.Steel, 2), CountableIngredient.from(OrePrefix.circuit, Tier.Advanced, 2)).outputs(MetaTileEntities.LARGE_STEEL_BOILER.getStackForm()).EUt(120).duration(600).buildAndRegister();
 		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(MetaTileEntities.LARGE_STEEL_BOILER.getStackForm()).inputs(CountableIngredient.from(OrePrefix.plate, Materials.Titanium, 2), CountableIngredient.from(OrePrefix.circuit, Tier.Advanced, 2)).outputs(MetaTileEntities.LARGE_TITANIUM_BOILER.getStackForm()).EUt(500).duration(600).buildAndRegister();

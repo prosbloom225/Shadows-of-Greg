@@ -50,6 +50,8 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem NEURO_PROCESSOR;
 	public static MetaItem<?>.MetaValueItem STEM_CELLS;
 
+	public static MetaItem<?>.MetaValueItem CIRCUIT_CONTROL;
+
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();
 		item.setRegistryName("ga_meta_item");
