@@ -20,6 +20,7 @@ public class GAAlloys implements IMaterialHandler {
 
     static long STD_METAL = DustMaterial.MatFlags.GENERATE_PLATE;
     static long EXT2_METAL = STD_METAL | SolidMaterial.MatFlags.GENERATE_ROD | IngotMaterial.MatFlags.GENERATE_BOLT_SCREW | SolidMaterial.MatFlags.GENERATE_GEAR | IngotMaterial.MatFlags.GENERATE_FOIL | IngotMaterial.MatFlags.GENERATE_FINE_WIRE;
+    static long EXT3_METAL = EXT2_METAL | SolidMaterial.MatFlags.GENERATE_FRAME;
     // GT Alloys
 
 
@@ -58,7 +59,7 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Chrome, 7),
                     new MaterialStack(Invar, 10),
                     new MaterialStack(Molybdenum, 10)),
-            STD_METAL, null, 6.0F, 3.0F, 1800, 3758);
+            EXT3_METAL, null, 6.0F, 3.0F, 1800, 3758);
 
     public static final IngotMaterial INCONEL690  = new IngotMaterial(710, "inconel690", 0x76dc8a, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Nichrome, 10),
@@ -222,7 +223,7 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Lithium, 9),
                     new MaterialStack(Sulfur, 9),
                     new MaterialStack(Potassium, 9)),
-            EXT2_METAL,
+            EXT3_METAL,
             null, 8.0F, 3.0F, 1280, 4125);
     public static final IngotMaterial EGLINSTEELBASE = new IngotMaterial(733, "eglin_steel_base", 0xfcfcfc, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Iron, 12),

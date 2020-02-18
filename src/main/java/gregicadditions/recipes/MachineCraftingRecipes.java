@@ -221,33 +221,36 @@ public class MachineCraftingRecipes {
 				'D', MetaItems.TOOL_DATA_ORB);
 		 */
 
-		ModHandler.addShapedRecipe("ga_large_macerator", GATileEntities.LARGE_MACERATOR.getStackForm(), "PIP", "ECE", "PMP",
+		ModHandler.addShapedRecipe("ga_large_macerator", GATileEntities.LARGE_MACERATOR.getStackForm(),
+				"PIP", "ECE", "PMP",
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.TUNGSTENTITANIUMCARBIDE),
 				'I', GATileEntities.MACERATOR[4].getStackForm(),
 				'E', MetaTileEntities.MACERATOR[3].getStackForm(),
 				'C', new UnificationEntry(OrePrefix.circuit, Tier.Master),
 				'M', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.IV));
 
-		/*
-		ModHandler.addShapedRecipe("ga_machine_casing_macerator", GAMultiblockCasing., "PPP", "RFR", "PLP",
+		ModHandler.addShapedRecipe("ga_machine_casing_macerator", GAMetaBlocks.MUTLIBLOCK_CASING
+				.getItemVariant(GAMultiblockCasing.CasingType.MACERATOR_CASING),
+				"PPP", "RFR", "PLP",
 				'P', new UnificationEntry(OrePrefix.plate, Materials.Palladium),
 				'R', new UnificationEntry(OrePrefix.stick, Materials.Platinum),
 				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.INCONEL625),
 				'L', new UnificationEntry(OrePrefix.stickLong, Materials.Palladium) );
 
-		ModHandler.addShapedRecipe("ga_large_ore_washer", GATileEntities.LARGE_MACERATOR.getStackForm(), "PIP", "ECE", "PMP",
-				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.TUNGSTENTITANIUMCARBIDE),
-				'I', GATileEntities.MACERATOR[4].getStackForm(),
-				'E', MetaTileEntities.MACERATOR[3].getStackForm(),
-				'C', new UnificationEntry(OrePrefix.circuit, Tier.Master),
-				'M', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.IV));
+		ModHandler.addShapedRecipe("ga_large_ore_washer", GATileEntities.LARGE_ORE_WASHER.getStackForm(),
+				"PMP", "LOL", "PCP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.GRISIUM),
+				'M', MetaItems.ELECTRIC_PUMP_MV,
+				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.STELLITE),
+				'O',GATileEntities.ORE_WASHER[4].getStackForm(),
+				'C',new UnificationEntry(OrePrefix.circuit, Tier.Extreme));
 
-		ModHandler.addShapedRecipe("ga_machine_casing_", GATileEntities.LARGE_MACERATOR.getStackForm(), "PPP", "RFR", "PLP",
-				'P', new UnificationEntry(OrePrefix.plate, Materials.Palladium),
-				'R', new UnificationEntry(OrePrefix.stickLong, Materials.Platinum),
-				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.INCONEL625),
-				'L', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.IV));
-	*/
+		ModHandler.addShapedRecipe("ga_machine_casing_ore_washer", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.ORE_WASHER_CASING),
+				"PhP", "LFL", "PwP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.GRISIUM),
+				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.STELLITE),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.GRISIUM));
 
 		List<Recipe> removals = new ArrayList<>();
 
