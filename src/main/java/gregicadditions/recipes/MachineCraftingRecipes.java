@@ -241,7 +241,7 @@ public class MachineCraftingRecipes {
 				"PMP", "LOL", "PCP",
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.GRISIUM),
 				'M', MetaItems.ELECTRIC_PUMP_MV,
-				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.STELLITE),
+				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.TALONITE),
 				'O',GATileEntities.ORE_WASHER[4].getStackForm(),
 				'C',new UnificationEntry(OrePrefix.circuit, Tier.Extreme));
 
@@ -249,8 +249,25 @@ public class MachineCraftingRecipes {
 						.getItemVariant(GAMultiblockCasing.CasingType.ORE_WASHER_CASING),
 				"PhP", "LFL", "PwP",
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.GRISIUM),
-				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.STELLITE),
+				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.TALONITE),
 				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.GRISIUM));
+
+		ModHandler.addShapedRecipe("ga_large_centrifuge", GATileEntities.LARGE_CENTRIFUGE.getStackForm(),
+				"CUC", "LOL", "PMP",
+				'C', new UnificationEntry(OrePrefix.circuit, Tier.Elite),
+				'U', new UnificationEntry(OrePrefix.pipeLarge, Materials.StainlessSteel),
+				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.MARAGING250),
+				'O', GATileEntities.CENTRIFUGE[5].getStackForm(),
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.INCONEL792),
+				'M', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.IV));
+
+		ModHandler.addShapedRecipe("ga_machine_casing_ore_washer", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.CENTRIFUGE_CASING),
+				"PRP", "LRL", "PRP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.MARAGING250),
+				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.INCONEL792),
+				'R', new UnificationEntry(OrePrefix.stick, GAAlloys.TUMBAGA));
+
 
 		List<Recipe> removals = new ArrayList<>();
 

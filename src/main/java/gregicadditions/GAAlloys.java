@@ -45,7 +45,7 @@ public class GAAlloys implements IMaterialHandler {
     public static final IngotMaterial TUMBAGA = new IngotMaterial(707, "tumbaga", 0xffb30f, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Gold, 70),
                     new MaterialStack(Copper, 30)),
-            STD_METAL, null, 3.0F, 1.0F, 400);
+            EXT3_METAL, null, 3.0F, 1.0F, 400);
 
     public static final IngotMaterial POTIN = new IngotMaterial(708, "potin", 0xc99781, MaterialIconSet.METALLIC, 2,
             ImmutableList.of(new MaterialStack(Lead, 40),
