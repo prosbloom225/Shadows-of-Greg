@@ -190,7 +190,7 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Aluminium, 12),
                     new MaterialStack(Chrome, 20),
                     new MaterialStack(Yttrium, 4)),
-            STD_METAL, null, 3.0F, 3.0F, 2400, 6875);
+            EXT3_METAL, null, 3.0F, 3.0F, 2400, 6875);
 
     public static final IngotMaterial TUNGSTENTITANIUMCARBIDE = new IngotMaterial(727, "tungsten_titanium_carbide", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(TungstenCarbide, 70),

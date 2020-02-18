@@ -2,6 +2,7 @@ package gregicadditions;
 
 import java.util.function.Function;
 
+import gregicadditions.recipes.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,11 +11,6 @@ import gregicadditions.bees.GTBees;
 import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.machines.GATileEntities;
-import gregicadditions.recipes.GAMachineRecipeRemoval;
-import gregicadditions.recipes.GARecipeAddition;
-import gregicadditions.recipes.GeneratorFuels;
-import gregicadditions.recipes.MachineCraftingRecipes;
-import gregicadditions.recipes.MatterReplication;
 import gregicadditions.tconstruct.TinkersMaterials;
 import gregtech.common.blocks.VariantItemBlock;
 import net.minecraft.block.Block;

@@ -6,6 +6,7 @@ import gregicadditions.item.GAMetaBlocks;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.machines.GATileEntities;
+import gregicadditions.machines.TileEntityRedoxPowerCell;
 import gregtech.api.GTValues;
 import gregtech.api.items.OreDictNames;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -268,6 +269,21 @@ public class MachineCraftingRecipes {
 				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.INCONEL792),
 				'R', new UnificationEntry(OrePrefix.stick, GAAlloys.TUMBAGA));
 
+
+		ModHandler.addShapedRecipe("ga_power_station", GATileEntities.POWER_STATION.getStackForm(),
+				"PCP", "AOA", "LPL",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.INCOLOYMA956),
+				'C', new UnificationEntry(OrePrefix.circuit, Tier.Elite),
+				'A', GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.POWER_STATION_CASING),
+				'O', GATileEntities.REDOX_POWER_CELL[4].getStackForm(),
+				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.INCOLOY020));
+
+		ModHandler.addShapedRecipe("ga_machine_casing_power_station", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.POWER_STATION_CASING),
+				"SPS", "PFP", "SPS",
+				'S', new UnificationEntry(OrePrefix.screw, Materials.Titanium),
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.INCOLOY020),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.INCOLOYMA956));
 
 		List<Recipe> removals = new ArrayList<>();
 
