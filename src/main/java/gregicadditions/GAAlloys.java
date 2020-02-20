@@ -237,7 +237,7 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Sulfur, 1),
                     new MaterialStack(Silicon, 4),
                     new MaterialStack(Carbon, 1)),
-            EXT2_METAL,
+            EXT3_METAL,
             null, 3.0F, 3.0F, 2800);
 
     // TODO - trinium and its alloys
@@ -315,4 +315,5 @@ public class GAAlloys implements IMaterialHandler {
                     EXT2_METAL,
                     null, 5.0F, 4.0F, 589);
  */
+
 }

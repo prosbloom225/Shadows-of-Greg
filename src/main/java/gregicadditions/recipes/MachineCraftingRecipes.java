@@ -287,6 +287,24 @@ public class MachineCraftingRecipes {
 				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.STABALLOY));
 
 		// TODO - sifter
+		ModHandler.addShapedRecipe("ga_sifter", GATileEntities.LARGE_SIFTER.getStackForm(),
+				"PCP", "WAW", "PCP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.EGLINSTEEL),
+				'C', new UnificationEntry(OrePrefix.circuit, Tier.Good),
+				'A', MetaTileEntities.SIFTER[3].getStackForm(),
+				'W', new UnificationEntry(OrePrefix.cableGtQuadruple, Materials.Copper));
+
+		ModHandler.addShapedRecipe("ga_machine_casing_sieve", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.SIEVE_CASING),
+				"PPP", "PFP", "PPP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.EGLINSTEEL),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.TUMBAGA));
+
+		ModHandler.addShapedRecipe("ga_machine_casing_sieve_grate", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.SIEVE_GRATE),
+				"FWF", "WWW", "FWF",
+				'W', new UnificationEntry(OrePrefix.wireFine, Materials.Steel),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.EGLINSTEEL));
 
 
 		ModHandler.addShapedRecipe("ga_power_station", GATileEntities.POWER_STATION.getStackForm(),
