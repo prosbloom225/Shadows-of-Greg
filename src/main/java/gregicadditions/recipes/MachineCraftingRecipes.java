@@ -3,10 +3,10 @@ package gregicadditions.recipes;
 import gregicadditions.GAAlloys;
 import gregicadditions.GAConfig;
 import gregicadditions.item.GAMetaBlocks;
+import gregicadditions.item.GAMetaItem;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.machines.GATileEntities;
-import gregicadditions.machines.TileEntityRedoxPowerCell;
 import gregtech.api.GTValues;
 import gregtech.api.items.OreDictNames;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -18,7 +18,6 @@ import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.material.Materials;
-import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.blocks.BlockMachineCasing;
@@ -271,11 +270,10 @@ public class MachineCraftingRecipes {
 		// TODO - sifter, blast smelter
 
 
-		// TODO - power station intermediates
 		ModHandler.addShapedRecipe("ga_power_station", GATileEntities.POWER_STATION.getStackForm(),
 				"PCP", "AOA", "LPL",
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.INCOLOYMA956),
-				'C', new UnificationEntry(OrePrefix.circuit, Tier.Elite),
+				'C', new UnificationEntry(OrePrefix.circuit, Tier.Master), //TODO -- GAMetaItems.CIRCUIT_CONTROL.getStackForm(),
 				'A', GAMetaBlocks.MUTLIBLOCK_CASING.getItemVariant(GAMultiblockCasing.CasingType.POWER_STATION_CASING),
 				'O', GATileEntities.REDOX_POWER_CELL[4].getStackForm(),
 				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.INCOLOY020));
