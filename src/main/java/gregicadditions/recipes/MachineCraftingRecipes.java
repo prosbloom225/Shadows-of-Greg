@@ -267,6 +267,20 @@ public class MachineCraftingRecipes {
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.MARAGING250),
 				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.INCONEL792),
 				'R', new UnificationEntry(OrePrefix.stick, GAAlloys.TUMBAGA));
+
+		ModHandler.addShapedRecipe("ga_alloy_blast_smelter", GATileEntities.ALLOY_BLAST_SMELTER.getStackForm(),
+				"PCP", "WAW", "PCP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.ZIRCONIUMCARBIDE),
+				'C', new UnificationEntry(OrePrefix.circuit, Tier.Elite),
+				'A', GATileEntities.ALLOY_SMELTER[5].getStackForm(),
+				'W', new UnificationEntry(OrePrefix.wireGtQuadruple, Materials.Gold));
+
+		ModHandler.addShapedRecipe("ga_machine_casing_blast_smelter", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.ZIRCONIUM_CARBIDE_CASING),
+				"PRP", "RFR", "PRP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.ZIRCONIUMCARBIDE),
+				'R', new UnificationEntry(OrePrefix.plate, Materials.Aluminium),
+				'F', new UnificationEntry(OrePrefix.plate, GAAlloys.TUMBAGA));
 		// TODO - sifter, blast smelter
 
 
