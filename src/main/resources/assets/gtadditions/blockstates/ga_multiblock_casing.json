@@ -52,6 +52,11 @@
         "textures": {
           "all": "gregtech:blocks/casings/solid/machine_casing_sieve"
         }
+      },
+      "blast_smelter_containment_casing": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_blast_smelter_containment"
+        }
       }
     }
   }

@@ -64,9 +64,10 @@ public class GAMachineTypes {
                 1.00,
                 FactoryBlockPattern.start(RIGHT, FRONT, UP)
                         .aisle("XSX", "XXX", "XXX")
-                        .aisle("XXX", "X#X", "XXX")
-                        .aisle("XXX", "X#X", "XXX")
+                        .aisle("XXX", "XZX", "XXX")
+                        .aisle("XXX", "XZX", "XXX")
                         .aisle("XXX", "XXX", "XXX")
+                        .where('Z', statePredicate(GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.BLAST_SMELTER_CONTAINMENT_CASTING)))
                 );
 
         public final RecipeMap recipeMap;

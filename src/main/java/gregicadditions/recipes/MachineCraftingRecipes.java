@@ -20,10 +20,7 @@ import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
-import gregtech.common.blocks.BlockMachineCasing;
-import gregtech.common.blocks.BlockMetalCasing;
-import gregtech.common.blocks.BlockMultiblockCasing;
-import gregtech.common.blocks.MetaBlocks;
+import gregtech.common.blocks.*;
 import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.init.Blocks;
@@ -273,15 +270,23 @@ public class MachineCraftingRecipes {
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.ZIRCONIUMCARBIDE),
 				'C', new UnificationEntry(OrePrefix.circuit, Tier.Elite),
 				'A', GATileEntities.ALLOY_SMELTER[5].getStackForm(),
-				'W', new UnificationEntry(OrePrefix.wireGtQuadruple, Materials.Gold));
+				'W', new UnificationEntry(OrePrefix.cableGtQuadruple, Materials.Gold));
 
 		ModHandler.addShapedRecipe("ga_machine_casing_blast_smelter", GAMetaBlocks.MUTLIBLOCK_CASING
 						.getItemVariant(GAMultiblockCasing.CasingType.ZIRCONIUM_CARBIDE_CASING),
 				"PRP", "RFR", "PRP",
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.ZIRCONIUMCARBIDE),
-				'R', new UnificationEntry(OrePrefix.plate, Materials.Aluminium),
-				'F', new UnificationEntry(OrePrefix.plate, GAAlloys.TUMBAGA));
-		// TODO - sifter, blast smelter
+				'R', new UnificationEntry(OrePrefix.stick, Materials.Aluminium),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.TUMBAGA));
+
+		ModHandler.addShapedRecipe("ga_machine_casing_blast_smelter_containment", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.BLAST_SMELTER_CONTAINMENT_CASTING),
+				"PPP", "FCF", "PPP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.STABALLOY),
+				'C', MetaBlocks.TURBINE_CASING.getItemVariant(BlockTurbineCasing.TurbineCasingType.TITANIUM_GEARBOX),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.STABALLOY));
+
+		// TODO - sifter
 
 
 		ModHandler.addShapedRecipe("ga_power_station", GATileEntities.POWER_STATION.getStackForm(),

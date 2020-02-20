@@ -40,6 +40,8 @@ public class ClientHandler {
 	public static SimpleCubeRenderer SIEVE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_sieve");
 	public static SimpleCubeRenderer SIEVE_GRATE = new SimpleCubeRenderer("casings/solid/machine_casing_sieve_grate");
 
+	public static SimpleCubeRenderer BLAST_SMELTER_CONTAINMENT_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_blast_smelter_containment");
+
 	public static SimpleCubeRenderer []REDOX_POWER_CELL = new SimpleCubeRenderer[]{
 			new SimpleCubeRenderer("casings/redox/redox1"),
 			new SimpleCubeRenderer("casings/redox/redox2"),
