@@ -37,6 +37,7 @@ public class GAMultiblockCasing extends VariantBlock<GAMultiblockCasing.CasingTy
 		POWER_STATION_CASING("power_station_casing"),
 		SIEVE_CASING("sieve_casing"),
 		SIEVE_GRATE("sieve_grate"),
+		CUTTER_CASING("cutter_casing"),
 		BLAST_SMELTER_CONTAINMENT_CASTING("blast_smelter_containment_casing")
 		;
 

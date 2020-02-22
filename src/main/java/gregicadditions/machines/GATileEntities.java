@@ -66,6 +66,7 @@ public class GATileEntities {
 	public static TileEntityLargeMachine LARGE_MACERATOR;
 	public static TileEntityLargeMachine LARGE_CENTRIFUGE;
 	public static TileEntityLargeMachine LARGE_SIFTER;
+	public static TileEntityLargeMachine LARGE_CUTTER;
 
 	public static TileEntityLargeMachine ALLOY_BLAST_SMELTER;
 
@@ -398,6 +399,7 @@ public class GATileEntities {
 		LARGE_MACERATOR = GregTechAPI.registerMetaTileEntity(2603, new TileEntityLargeMachine(location("large_macerator"), GAMachineTypes.LargeMachineType.MACERATOR));
 		LARGE_CENTRIFUGE = GregTechAPI.registerMetaTileEntity(2604, new TileEntityLargeMachine(location("large_centrifuge"), GAMachineTypes.LargeMachineType.CENTRIFUGE));
 		LARGE_SIFTER = GregTechAPI.registerMetaTileEntity(2605, new TileEntityLargeMachine(location("large_sifter"), GAMachineTypes.LargeMachineType.SIFTER));
+		LARGE_CUTTER = GregTechAPI.registerMetaTileEntity(2606, new TileEntityLargeMachine(location("large_cutter"), GAMachineTypes.LargeMachineType.CUTTER));
 
 		ALLOY_BLAST_SMELTER= GregTechAPI.registerMetaTileEntity(2610, new TileEntityLargeMachine(location("alloy_blast_smelter"), GAMachineTypes.LargeMachineType.ALLOY_BLAST_SMELTER));
 
