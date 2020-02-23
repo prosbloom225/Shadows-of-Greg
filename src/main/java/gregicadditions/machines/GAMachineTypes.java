@@ -63,8 +63,8 @@ public class GAMachineTypes {
                 2,
                 FactoryBlockPattern.start()
                         .aisle("XXXXX", "XXXXX", "XXXXX")
-                        .aisle("XXXXX", "X###X", "XXXXX")
-                        .aisle("XXSXX", "XXXXX", "XXXXX")
+                        .aisle("XXSXX", "X###X", "XXXXX")
+                        .aisle("XXXXX", "XXXXX", "XXXXX")
         ),
 
         // TODO - this isnt really a largeMachine - should maybe move to MetaTileEntities
