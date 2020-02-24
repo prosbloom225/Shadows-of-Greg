@@ -826,14 +826,16 @@ public class GARecipeAddition {
 					.buildAndRegister();
 
 			//  Mixer
-			builder = RecipeMaps.MIXER_RECIPES.recipeBuilder();
-			for (MaterialStack m : mat.materialComponents)
-				builder.input(OrePrefix.dust, m.material, (int) m.amount);
-			builder.duration(mat.duration / 2)
-					.EUt(mat.EUt)
-					.notConsumable(new IntCircuitIngredient(12))
-					.outputs(OreDictUnifier.get(OrePrefix.dust, mat, mat.materialComponents.stream().map(m -> (int) m.amount).reduce(0, Integer::sum)))
-					.buildAndRegister();
+			if (mat.materialComponents.size() < RecipeMaps.MIXER_RECIPES.getMaxInputs()) {
+				builder = RecipeMaps.MIXER_RECIPES.recipeBuilder();
+				for (MaterialStack m : mat.materialComponents)
+					builder.input(OrePrefix.dust, m.material, (int) m.amount);
+				builder.duration(mat.duration / 2)
+						.EUt(mat.EUt)
+						.notConsumable(new IntCircuitIngredient(12))
+						.outputs(OreDictUnifier.get(OrePrefix.dust, mat, mat.materialComponents.stream().map(m -> (int) m.amount).reduce(0, Integer::sum)))
+						.buildAndRegister();
+			}
 
 			// Blast Furnace
 			if (mat.blastFurnaceTemperature > 0)

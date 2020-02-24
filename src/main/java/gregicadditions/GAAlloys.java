@@ -25,8 +25,9 @@ public class GAAlloys implements IMaterialHandler {
         alloys.add(TANTALLOY61);
         alloys.add(POTIN);
         alloys.add(INCONEL625);
-        //alloys.add(INCONEL690);
+        alloys.add(INCONEL690);
         alloys.add(INCONEL792);
+        alloys.add(NITINOL60);
 
     }
 
@@ -73,8 +74,6 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Molybdenum, 10)),
             EXT3_METAL, null, 6.0F, 3.0F, 1800, 3758, 120, 400);
 
-    // TODO - fix mixer recipes over 4 inputs
-    /*
     public static final GAIngotMaterial INCONEL690  = new GAIngotMaterial(710, "inconel690", 0x76dc8a, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Nichrome, 10),
                     new MaterialStack(Nickel, 3),
@@ -89,47 +88,46 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Aluminium, 20),
                     new MaterialStack(Nichrome, 10)),
             STD_METAL, null, 7.0F, 3.5F, 2200, 6200, 480, 600);
-     */
 
-    public static final IngotMaterial NITINOL60 = new IngotMaterial(712, "nitinol60", 0x76dc8a, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial NITINOL60 = new GAIngotMaterial(712, "nitinol60", 0x76dc8a, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Nickel, 40),
                     new MaterialStack(Titanium, 60)),
-            STD_METAL, null, 8.0F, 4.0F, 2800, 8975);
+            STD_METAL, null, 8.0F, 4.0F, 2800, 8975, 7680, 1500);
 
-    public static final IngotMaterial ZERON100 = new IngotMaterial(713, "zeron100", 0xb4b414, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial ZERON100 = new GAIngotMaterial(713, "zeron100", 0xb4b414, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Chrome, 26),
                     new MaterialStack(Nickel, 6),
                     new MaterialStack(Molybdenum, 6),
                     new MaterialStack(Copper, 20),
                     new MaterialStack(Tungsten, 4),
                     new MaterialStack(Steel, 40)),
-            STD_METAL, null, 8.0F, 4.0F, 2900, 9785);
+            STD_METAL, null, 8.0F, 4.0F, 2900, 9785, 30720, 7200);
 
-    public static final IngotMaterial MARAGING250 = new IngotMaterial(714, "maraging250", 0xfcfcf, MaterialIconSet.METALLIC, 3,
+    public static final GAIngotMaterial MARAGING250 = new GAIngotMaterial(714, "maraging250", 0xfcfcf, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Steel, 64),
                     new MaterialStack(Molybdenum, 4),
                     new MaterialStack(Titanium, 4),
                     new MaterialStack(Nickel, 16),
                     new MaterialStack(Cobalt, 8)),
-            STD_METAL, null, 7.0F, 3.0F, 1800, 4555);
+            STD_METAL, null, 7.0F, 3.0F, 1800, 4555, 120, 16);
 
-    public static final IngotMaterial MARAGING300 = new IngotMaterial(715, "maraging300", 0xfcfcf, MaterialIconSet.METALLIC, 3,
+    public static final GAIngotMaterial MARAGING300 = new GAIngotMaterial(715, "maraging300", 0xfcfcf, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Steel, 64),
                     new MaterialStack(Titanium, 4),
                     new MaterialStack(Nickel, 16),
                     new MaterialStack(Aluminium, 8),
                     new MaterialStack(Cobalt, 8)),
-    STD_METAL, null, 7.0F, 3.0F, 2000, 4555);
+    STD_METAL, null, 7.0F, 3.0F, 2000, 4555, 120, 16);
 
-    public static final IngotMaterial MARAGING350 = new IngotMaterial(716, "maraging350", 0xfcfcf, MaterialIconSet.METALLIC, 3,
+    public static final GAIngotMaterial MARAGING350 = new GAIngotMaterial(716, "maraging350", 0xfcfcf, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Steel, 64),
                     new MaterialStack(Aluminium, 4),
                     new MaterialStack(Molybdenum, 4),
                     new MaterialStack(Nickel, 4),
                     new MaterialStack(Cobalt, 8)),
-            STD_METAL, null, 7.0F, 4.0F, 2200, 4555);
+            STD_METAL, null, 7.0F, 4.0F, 2200, 4555, 120, 400);
 
-    public static final IngotMaterial AQUATIC_STEEL = new IngotMaterial(717, "aquatic_steel", 0x7878b4, MaterialIconSet.METALLIC, 3,
+    public static final GAIngotMaterial AQUATIC_STEEL = new GAIngotMaterial(717, "aquatic_steel", 0x7878b4, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Steel, 60),
                     new MaterialStack(Carbon, 10),
                     new MaterialStack(Manganese, 5),
@@ -137,127 +135,127 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Phosphorus, 5),
                     //new MaterialStack(Sulfur, 5),
                     new MaterialStack(Aluminium, 5)),
-    STD_METAL, null, 6.0F, 3.0F, 1800, 4835);
+    STD_METAL, null, 6.0F, 3.0F, 1800, 4835, 120, 400);
 
-    public static final IngotMaterial STELLITE = new IngotMaterial(718, "stellite", 0xfcfcfc, MaterialIconSet.METALLIC, 3,
+    public static final GAIngotMaterial STELLITE = new GAIngotMaterial(718, "stellite", 0xfcfcfc, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Cobalt, 35),
                     new MaterialStack(Chrome, 35),
                     new MaterialStack(Manganese, 20),
                     new MaterialStack(Titanium, 10)),
-    STD_METAL, null, 5.0F, 3.0F, 1900, 6250);
+    STD_METAL, null, 5.0F, 3.0F, 1900, 6250, 1920, 800);
 
-    public static final IngotMaterial TALONITE = new IngotMaterial(719, "talonite", 0xfcfcfc, MaterialIconSet.METALLIC, 3,
+    public static final GAIngotMaterial TALONITE = new GAIngotMaterial(719, "talonite", 0xfcfcfc, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Cobalt, 40),
                     new MaterialStack(Chrome, 30),
                     new MaterialStack(Phosphorus, 20),
                     new MaterialStack(Molybdenum, 10)),
-                    STD_METAL, null, 5.0F, 5.0F, 1600, 5500);
+                    STD_METAL, null, 5.0F, 5.0F, 1600, 5500, 480, 600);
 
-    public static final IngotMaterial HASTELLOYW= new IngotMaterial(720, "hastelloyw", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial HASTELLOYW= new GAIngotMaterial(720, "hastelloyw", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Iron, 6),
                     new MaterialStack(Cobalt, 24),
                     new MaterialStack(Chrome, 6),
                     new MaterialStack(Nickel, 62)),
-            STD_METAL, null, 5.0F, 5.0F, 1600, 5755);
+            STD_METAL, null, 5.0F, 5.0F, 1600, 5755, 480, 600);
 
-    public static final IngotMaterial HASTELLOYX= new IngotMaterial(721, "hastelloyx", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial HASTELLOYX= new GAIngotMaterial(721, "hastelloyx", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Iron, 18),
                     new MaterialStack(Manganese, 2),
                     new MaterialStack(Silicon, 2),
                     new MaterialStack(Molybdenum, 8),
                     new MaterialStack(Chrome, 22),
                     new MaterialStack(Nickel, 48)),
-                    STD_METAL, null, 5.0F, 6.0F, 2800, 5755);
+                    STD_METAL, null, 5.0F, 6.0F, 2800, 5755, 480, 600);
 
-    public static final IngotMaterial HASTELLOYN= new IngotMaterial(722, "hastelloyn", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial HASTELLOYN= new GAIngotMaterial(722, "hastelloyn", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Yttrium, 8),
                     new MaterialStack(Molybdenum, 16),
                     new MaterialStack(Chrome, 8),
                     new MaterialStack(Titanium, 8),
                     new MaterialStack(Nickel, 60)),
-                    STD_METAL, null, 5.0F, 7.0F, 3200, 6875);
+                    STD_METAL, null, 5.0F, 7.0F, 3200, 6875, 1920, 1000);
 
-    public static final IngotMaterial HASTELLOYC276 = new IngotMaterial(723, "hastelloyc276", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial HASTELLOYC276 = new GAIngotMaterial(723, "hastelloyc276", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Cobalt, 2),
                     new MaterialStack(Molybdenum, 16),
                     new MaterialStack(Tungsten, 2),
                     new MaterialStack(Copper, 2),
                     new MaterialStack(Chrome, 14),
                     new MaterialStack(Nickel, 64)),
-                    STD_METAL, null, 5.0F, 5.0F, 2600, 6250);
+                    STD_METAL, null, 5.0F, 5.0F, 2600, 6250, 1920, 800);
 
-    public static final IngotMaterial INCOLOY020 = new IngotMaterial(724, "incoloy020", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial INCOLOY020 = new GAIngotMaterial(724, "incoloy020", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Iron, 40),
                     new MaterialStack(Copper, 4),
                     new MaterialStack(Chrome, 20),
                     new MaterialStack(Nickel, 36)),
-            STD_METAL, null, 3.0F, 3.0F, 2200, 5420);
+            STD_METAL, null, 3.0F, 3.0F, 2200, 5420, 480, 600);
 
-    public static final IngotMaterial INCOLOYDS = new IngotMaterial(725, "incoloyds", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial INCOLOYDS = new GAIngotMaterial(725, "incoloyds", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Iron, 40),
                     new MaterialStack(Cobalt, 18),
                     new MaterialStack(Chrome, 18),
                     new MaterialStack(Nickel, 18)),
-            STD_METAL, null, 3.0F, 3.0F, 2400, 5420);
+            STD_METAL, null, 3.0F, 3.0F, 2400, 5420, 480, 600);
 
-    public static final IngotMaterial INCOLOYMA956 = new IngotMaterial(726, "incoloyma956", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial INCOLOYMA956 = new GAIngotMaterial(726, "incoloyma956", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Iron, 64),
                     new MaterialStack(Aluminium, 12),
                     new MaterialStack(Chrome, 20),
                     new MaterialStack(Yttrium, 4)),
-            EXT3_METAL, null, 3.0F, 3.0F, 2400, 6875);
+            EXT3_METAL, null, 3.0F, 3.0F, 2400, 6875, 1920, 800);
 
-    public static final IngotMaterial TUNGSTENTITANIUMCARBIDE = new IngotMaterial(727, "tungsten_titanium_carbide", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial TUNGSTENTITANIUMCARBIDE = new GAIngotMaterial(727, "tungsten_titanium_carbide", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(TungstenCarbide, 70),
                     new MaterialStack(Titanium, 30)),
-                    STD_METAL, null, 5.0F, 5.0F, 3300);
+                    STD_METAL, null, 5.0F, 5.0F, 3300, 1920, 1000);
 
-    public static final IngotMaterial SILICONCARBIDE = new IngotMaterial(728, "silicon_carbide", 0x283024, MaterialIconSet.METALLIC, 3,
+    public static final GAIngotMaterial SILICONCARBIDE = new GAIngotMaterial(728, "silicon_carbide", 0x283024, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Silicon, 50),
                     new MaterialStack(Carbon, 50)),
-            STD_METAL, null, 3.0F, 3.0F, 2200);
+            STD_METAL, null, 3.0F, 3.0F, 2200, 15, 200);
 
-    public static final IngotMaterial TANTALUMCARBIDE = new IngotMaterial(729, "tantalum_carbide", 0x8b8878, MaterialIconSet.METALLIC, 4,
+    public static final GAIngotMaterial TANTALUMCARBIDE = new GAIngotMaterial(729, "tantalum_carbide", 0x8b8878, MaterialIconSet.METALLIC, 4,
             ImmutableList.of(new MaterialStack(Tantalum, 50),
                     new MaterialStack(Carbon, 50)),
-            STD_METAL, null, 4.0F, 4.0F, 2600);
+            STD_METAL, null, 4.0F, 4.0F, 2600, 480, 600);
 
-    public static final IngotMaterial ZIRCONIUMCARBIDE = new IngotMaterial(730, "zirconium_carbide", 0xdecab4, MaterialIconSet.METALLIC, 4,
+    public static final GAIngotMaterial ZIRCONIUMCARBIDE = new GAIngotMaterial(730, "zirconium_carbide", 0xdecab4, MaterialIconSet.METALLIC, 4,
             ImmutableList.of(new MaterialStack(Diamond, 50),
                     new MaterialStack(Carbon, 50)),
-            STD_METAL, null, 5.0F, 5.0F, 1800);
+            STD_METAL, null, 5.0F, 5.0F, 1800, 15, 200);
 
-    public static final IngotMaterial NIOBIUMCARBIDE = new IngotMaterial(731, "niobium_carbide", 0xdecab4, MaterialIconSet.METALLIC, 4,
+    public static final GAIngotMaterial NIOBIUMCARBIDE = new GAIngotMaterial(731, "niobium_carbide", 0xdecab4, MaterialIconSet.METALLIC, 4,
             ImmutableList.of(new MaterialStack(Niobium, 50),
                     new MaterialStack(Carbon, 50)),
-            STD_METAL, null, 4.0F, 4.0F, 2200);
+            STD_METAL, null, 4.0F, 4.0F, 2200, 120, 400);
 
-    public static final IngotMaterial GRISIUM = new IngotMaterial(732, "grisium", 0x294953, MaterialIconSet.METALLIC, 2,
+    public static final GAIngotMaterial GRISIUM = new GAIngotMaterial(732, "grisium", 0x294953, MaterialIconSet.METALLIC, 2,
             ImmutableList.of(new MaterialStack(Titanium, 9),
                     new MaterialStack(Carbon, 9),
                     new MaterialStack(Lithium, 9),
                     new MaterialStack(Sulfur, 9),
                     new MaterialStack(Potassium, 9)),
             EXT3_METAL,
-            null, 8.0F, 3.0F, 1280, 4125);
-    public static final IngotMaterial EGLINSTEELBASE = new IngotMaterial(733, "eglin_steel_base", 0xfcfcfc, MaterialIconSet.METALLIC, 3,
+            null, 8.0F, 3.0F, 1280, 4125, 1920, 800);
+    public static final GAIngotMaterial EGLINSTEELBASE = new GAIngotMaterial(733, "eglin_steel_base", 0xfcfcfc, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Iron, 12),
                     new MaterialStack(Kanthal, 3),
                     new MaterialStack(Invar, 15)),
             EXT2_METAL,
-            null, 3.0F, 3.0F, 1600 );
+            null, 3.0F, 3.0F, 1600 , 16, 102);
 
-    public static final IngotMaterial EGLINSTEEL = new IngotMaterial(734, "eglin_steel", 0xfcfcfc, MaterialIconSet.METALLIC, 4,
+    public static final GAIngotMaterial EGLINSTEEL = new GAIngotMaterial(734, "eglin_steel", 0xfcfcfc, MaterialIconSet.METALLIC, 4,
             ImmutableList.of(new MaterialStack(EGLINSTEELBASE, 10),
                     new MaterialStack(Sulfur, 1),
                     new MaterialStack(Silicon, 4),
                     new MaterialStack(Carbon, 1)),
             EXT3_METAL,
-            null, 3.0F, 3.0F, 2800);
+            null, 3.0F, 3.0F, 2800, 15, 200);
 
     // TODO - trinium and its alloys
 
-    public static final IngotMaterial LAFIUM = new IngotMaterial(735, "lafium", 0xffffcc, MaterialIconSet.METALLIC, 6,
+    public static final GAIngotMaterial LAFIUM = new GAIngotMaterial(735, "lafium", 0xffffcc, MaterialIconSet.METALLIC, 6,
             ImmutableList.of(new MaterialStack(Naquadah, 4),
                     new MaterialStack(HASTELLOYN, 8),
                     new MaterialStack(Tungsten, 4),
@@ -265,18 +263,18 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Nickel, 8),
                     new MaterialStack(Carbon, 2)),
             EXT2_METAL,
-            null, 7.0F, 5.0F,3200, 9865);
+            null, 7.0F, 5.0F,3200, 9865, 122880, 8400);
 
-    public static final IngotMaterial ABYSSAL = new IngotMaterial(738, "abyssal", 0x3467ba, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial ABYSSAL = new GAIngotMaterial(738, "abyssal", 0x3467ba, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(StainlessSteel, 10),
                     new MaterialStack(TungstenCarbide, 10),
                     new MaterialStack(Nichrome, 10),
                     new MaterialStack(Bronze, 10),
                     new MaterialStack(INCOLOYMA956, 10)),
             EXT2_METAL,
-            null, 11.0F, 11.0F, 3000, 13765);
+            null, 11.0F, 11.0F, 3000, 13765, 1966080, 10800);
 
-    public static final IngotMaterial QUANTUM = new IngotMaterial(741, "quantum", 0xfffffb, MaterialIconSet.METALLIC, 9,
+    public static final GAIngotMaterial QUANTUM = new GAIngotMaterial(741, "quantum", 0xfffffb, MaterialIconSet.METALLIC, 9,
             ImmutableList.of(new MaterialStack(STELLITE, 15),
                     new MaterialStack(SILICONCARBIDE, 5),
                     new MaterialStack(Gallium, 5),
@@ -284,7 +282,7 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Palladium, 5),
                     new MaterialStack(Bismuth, 5)),
             EXT2_METAL,
-            null, 19.0F, 19.0F, 25000);
+            null, 19.0F, 19.0F, 25000, 7864320, 12000);
     /*
     public static final IngotMaterial CINOBYTE = new IngotMaterial(736, "cinobyte", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(ZERON100, 16),
