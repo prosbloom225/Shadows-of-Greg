@@ -9,13 +9,24 @@ import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.unification.stack.MaterialStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static gregtech.api.unification.material.Materials.*;
 
 @IMaterialHandler.RegisterMaterialHandler
 public class GAAlloys implements IMaterialHandler {
+    public static List<GAIngotMaterial> alloys = new ArrayList<>();
 
     @Override
     public void onMaterialsInit() {
+        alloys.add(STABALLOY);
+        alloys.add(TANTALLOY60);
+        alloys.add(TANTALLOY61);
+        alloys.add(POTIN);
+        alloys.add(INCONEL625);
+        //alloys.add(INCONEL690);
+        alloys.add(INCONEL792);
 
     }
 
@@ -37,45 +48,48 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Tantalum, 46)),
             STD_METAL, null, 7.0F, 3.0F, 1600, 3025, 480, 600);
 
-    public static final IngotMaterial TANTALLOY61 = new IngotMaterial(706, "tantalloy61", 0xc1d3d9, MaterialIconSet.METALLIC, 3,
+    public static final GAIngotMaterial TANTALLOY61 = new GAIngotMaterial(706, "tantalloy61", 0xc1d3d9, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(TANTALLOY60, 4),
                     new MaterialStack(Titanium, 12),
                     new MaterialStack(Yttrium, 8)),
-            STD_METAL, null, 7.0F, 3.0F, 1600, 3030);
+            STD_METAL, null, 7.0F, 3.0F, 1600, 3030, 480, 600);
 
-    public static final IngotMaterial TUMBAGA = new IngotMaterial(707, "tumbaga", 0xffb30f, MaterialIconSet.METALLIC, 3,
+    public static final GAIngotMaterial TUMBAGA = new GAIngotMaterial(707, "tumbaga", 0xffb30f, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Gold, 70),
                     new MaterialStack(Copper, 30)),
-            EXT3_METAL, null, 3.0F, 1.0F, 400);
+            EXT3_METAL, null, 3.0F, 1.0F, 400, 7, 4480);
 
-    public static final IngotMaterial POTIN = new IngotMaterial(708, "potin", 0xc99781, MaterialIconSet.METALLIC, 2,
+    public static final GAIngotMaterial POTIN = new GAIngotMaterial(708, "potin", 0xc99781, MaterialIconSet.METALLIC, 2,
             ImmutableList.of(new MaterialStack(Lead, 40),
                     new MaterialStack(Bronze, 40),
                     new MaterialStack(Tin, 40)),
-            STD_METAL, null, 3.0F, 1.0F, 800);
+            STD_METAL, null, 3.0F, 1.0F, 800, 16, 266);
 
-    public static final IngotMaterial INCONEL625 = new IngotMaterial(709, "inconel625", 0x80c880, MaterialIconSet.METALLIC, 4,
+    public static final GAIngotMaterial INCONEL625 = new GAIngotMaterial(709, "inconel625", 0x80c880, MaterialIconSet.METALLIC, 4,
             ImmutableList.of(new MaterialStack(Nichrome, 10),
                     new MaterialStack(Nickel, 3),
                     new MaterialStack(Chrome, 7),
                     new MaterialStack(Invar, 10),
                     new MaterialStack(Molybdenum, 10)),
-            EXT3_METAL, null, 6.0F, 3.0F, 1800, 3758);
+            EXT3_METAL, null, 6.0F, 3.0F, 1800, 3758, 120, 400);
 
-    public static final IngotMaterial INCONEL690  = new IngotMaterial(710, "inconel690", 0x76dc8a, MaterialIconSet.METALLIC, 5,
+    // TODO - fix mixer recipes over 4 inputs
+    /*
+    public static final GAIngotMaterial INCONEL690  = new GAIngotMaterial(710, "inconel690", 0x76dc8a, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Nichrome, 10),
                     new MaterialStack(Nickel, 3),
                     new MaterialStack(Chrome, 7),
                     new MaterialStack(Invar, 10),
                     new MaterialStack(Molybdenum, 10)),
-            STD_METAL, null, 7.0F, 3.5F, 2200, 4895);
+            STD_METAL, null, 7.0F, 3.5F, 2200, 4895, 480, 600);
 
-    public static final IngotMaterial INCONEL792 = new IngotMaterial(711, "inconel792", 0x76dc8a, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial INCONEL792 = new GAIngotMaterial(711, "inconel792", 0x76dc8a, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Nickel, 20),
                     new MaterialStack(Niobium, 10),
                     new MaterialStack(Aluminium, 20),
                     new MaterialStack(Nichrome, 10)),
-            STD_METAL, null, 7.0F, 3.5F, 2200, 6200);
+            STD_METAL, null, 7.0F, 3.5F, 2200, 6200, 480, 600);
+     */
 
     public static final IngotMaterial NITINOL60 = new IngotMaterial(712, "nitinol60", 0x76dc8a, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Nickel, 40),
