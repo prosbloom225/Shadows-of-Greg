@@ -32,10 +32,10 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Uranium, 9)),
             STD_METAL, null, 7.0F, 3.0F, 1600, 3450, 480, 600);
 
-    public static final IngotMaterial TANTALLOY60 = new IngotMaterial(705, "tantalloy60", 0xd5e7ed, MaterialIconSet.METALLIC, 3,
+    public static final GAIngotMaterial TANTALLOY60 = new GAIngotMaterial(705, "tantalloy60", 0xd5e7ed, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Tungsten, 4),
                     new MaterialStack(Tantalum, 46)),
-            STD_METAL, null, 7.0F, 3.0F, 1600, 3025);
+            STD_METAL, null, 7.0F, 3.0F, 1600, 3025, 480, 600);
 
     public static final IngotMaterial TANTALLOY61 = new IngotMaterial(706, "tantalloy61", 0xc1d3d9, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(TANTALLOY60, 4),

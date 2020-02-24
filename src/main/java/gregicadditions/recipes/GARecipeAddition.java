@@ -808,7 +808,7 @@ public class GARecipeAddition {
 
 	public static void init3() {
 	    GAIngotMaterial mat = GAAlloys.STABALLOY;
-	    //  Blast Smelter
+	    //  Blast Smelter - mats
 	    SimpleRecipeBuilder builder = GARecipeMaps.ALLOY_BLAST_SMELTER.recipeBuilder();
 		for (MaterialStack m : mat.materialComponents)
 		    builder.input(OrePrefix.dust, m.material, (int)m.amount);
@@ -816,6 +816,14 @@ public class GARecipeAddition {
 				.EUt(mat.EUt)
 				.fluidOutputs(mat.getFluid(mat.materialComponents.stream().map(m->(int)m.amount).reduce(0, Integer::sum) * 144))
                 .buildAndRegister();
+		// Blast smelter - dust
+		builder = GARecipeMaps.ALLOY_BLAST_SMELTER.recipeBuilder();
+		builder.duration(mat.duration)
+				.EUt(mat.EUt)
+                .inputs(OreDictUnifier.get(OrePrefix.dust, mat, 1))
+				.fluidOutputs(mat.getFluid(144))
+				.buildAndRegister();
+
 		//  Mixer
 		builder = RecipeMaps.MIXER_RECIPES.recipeBuilder();
 		for (MaterialStack m : mat.materialComponents)
@@ -825,15 +833,15 @@ public class GARecipeAddition {
 				.notConsumable(new IntCircuitIngredient(12))
 				.outputs(OreDictUnifier.get(OrePrefix.dust, mat, mat.materialComponents.stream().map(m->(int)m.amount).reduce(0, Integer::sum)))
 				.buildAndRegister();
+
 		// Blast Furnace
-		BlastRecipeBuilder blast = RecipeMaps.BLAST_RECIPES.recipeBuilder();
-		blast.duration(((int)(mat.duration * 1.25)))
-				.EUt(mat.EUt)
-				.input(OrePrefix.dust, mat, 1)
-				.outputs(OreDictUnifier.get(OrePrefix.ingotHot, mat, 1))
-				.buildAndRegister();
-
-
+        if (mat.blastFurnaceTemperature > 0)
+			RecipeMaps.BLAST_RECIPES.recipeBuilder()
+					.duration(((int) (mat.duration * 1.25)))
+					.EUt(mat.EUt)
+					.input(OrePrefix.dust, mat, 1)
+					.outputs(OreDictUnifier.get(OrePrefix.ingotHot, mat, 1))
+					.buildAndRegister();
 	}
 
 	public static void forestrySupport() {
