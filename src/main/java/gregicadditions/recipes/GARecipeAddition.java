@@ -3,21 +3,13 @@ package gregicadditions.recipes;
 import forestry.core.ModuleCore;
 import forestry.core.fluids.Fluids;
 import forestry.core.items.EnumElectronTube;
-import gregicadditions.GAAlloys;
-import gregicadditions.GAConfig;
-import gregicadditions.GAIngotMaterial;
-import gregicadditions.GAMaterials;
-import gregicadditions.item.GAMetaBlocks;
-import gregicadditions.item.GAMetaItems;
-import gregicadditions.item.GAMultiblockCasing;
-import gregicadditions.item.GATransparentCasing;
+import gregicadditions.*;
+import gregicadditions.item.*;
 import gregicadditions.machines.GATileEntities;
 import gregtech.api.GTValues;
 import gregtech.api.items.ToolDictNames;
-import gregtech.api.recipes.CountableIngredient;
-import gregtech.api.recipes.ModHandler;
-import gregtech.api.recipes.Recipe;
-import gregtech.api.recipes.RecipeMaps;
+import gregtech.api.recipes.*;
+import gregtech.api.recipes.builders.BlastRecipeBuilder;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
@@ -811,6 +803,36 @@ public class GARecipeAddition {
 		ModHandler.addShapedRecipe("3x3_schematic", GAMetaItems.SCHEMATIC_3X3.getStackForm(), "  d", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
 		ModHandler.addShapedRecipe("2x2_schematic", GAMetaItems.SCHEMATIC_2X2.getStackForm(), " d ", " S ", "   ", 'S', GAMetaItems.SCHEMATIC.getStackForm());
 		ModHandler.addShapedRecipe("dust_schematic", GAMetaItems.SCHEMATIC_DUST.getStackForm(), "   ", " S ", "  d", 'S', GAMetaItems.SCHEMATIC.getStackForm());
+
+	}
+
+	public static void init3() {
+	    GAIngotMaterial mat = GAAlloys.STABALLOY;
+	    //  Blast Smelter
+	    SimpleRecipeBuilder builder = GARecipeMaps.ALLOY_BLAST_SMELTER.recipeBuilder();
+		for (MaterialStack m : mat.materialComponents)
+		    builder.input(OrePrefix.dust, m.material, (int)m.amount);
+		builder.duration(mat.duration)
+				.EUt(mat.EUt)
+				.fluidOutputs(mat.getFluid(mat.materialComponents.stream().map(m->(int)m.amount).reduce(0, Integer::sum) * 144))
+                .buildAndRegister();
+		//  Mixer
+		builder = RecipeMaps.MIXER_RECIPES.recipeBuilder();
+		for (MaterialStack m : mat.materialComponents)
+			builder.input(OrePrefix.dust, m.material, (int)m.amount);
+		builder.duration(mat.duration / 2)
+				.EUt(mat.EUt)
+				.notConsumable(new IntCircuitIngredient(12))
+				.outputs(OreDictUnifier.get(OrePrefix.dust, mat, mat.materialComponents.stream().map(m->(int)m.amount).reduce(0, Integer::sum)))
+				.buildAndRegister();
+		// Blast Furnace
+		BlastRecipeBuilder blast = RecipeMaps.BLAST_RECIPES.recipeBuilder();
+		blast.duration(((int)(mat.duration * 1.25)))
+				.EUt(mat.EUt)
+				.input(OrePrefix.dust, mat, 1)
+				.outputs(OreDictUnifier.get(OrePrefix.ingotHot, mat, 1))
+				.buildAndRegister();
+
 
 	}
 

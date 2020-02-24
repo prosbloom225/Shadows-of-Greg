@@ -85,6 +85,7 @@ public class GregicAdditions {
 		GAMachineRecipeRemoval.init();
 		GARecipeAddition.init();
 		GARecipeAddition.init2();
+		GARecipeAddition.init3();
 		GARecipeAddition.forestrySupport();
 		MatterReplication.init();
 		MachineCraftingRecipes.init();
