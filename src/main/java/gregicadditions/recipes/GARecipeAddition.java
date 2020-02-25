@@ -826,7 +826,7 @@ public class GARecipeAddition {
 					.buildAndRegister();
 
 			//  Mixer
-			if (mat.materialComponents.size() < RecipeMaps.MIXER_RECIPES.getMaxInputs()) {
+			if (mat.materialComponents.size() < RecipeMaps.MIXER_RECIPES.getMaxInputs()-1) {
 				builder = RecipeMaps.MIXER_RECIPES.recipeBuilder();
 				for (MaterialStack m : mat.materialComponents)
 					builder.input(OrePrefix.dust, m.material, (int) m.amount);
@@ -836,20 +836,25 @@ public class GARecipeAddition {
 						.outputs(OreDictUnifier.get(OrePrefix.dust, mat, mat.materialComponents.stream().map(m -> (int) m.amount).reduce(0, Integer::sum)))
 						.buildAndRegister();
 			}
-
 			// Blast Furnace
-			if (mat.blastFurnaceTemperature > 0)
-				RecipeMaps.BLAST_RECIPES.recipeBuilder()
-						.duration(((int) (mat.duration * 1.25)))
-						.EUt(mat.EUt)
-						.input(OrePrefix.dust, mat, 1)
-						.outputs(OreDictUnifier.get(OrePrefix.ingotHot, mat, 1))
-						.buildAndRegister();
-			else
+			if (mat.blastFurnaceTemperature > 0 &&
+				mat.materialComponents.size() < RecipeMaps.BLAST_RECIPES.getMaxInputs()) {
+					RecipeMaps.BLAST_RECIPES.recipeBuilder()
+							.duration(((int) (mat.duration * 1.25)))
+							.EUt(mat.EUt)
+							.input(OrePrefix.dust, mat, 1)
+							.outputs(OreDictUnifier.get(mat.blastFurnaceTemperature > 1000 ? OrePrefix.ingotHot : OrePrefix.ingot, mat, 1))
+							.buildAndRegister();
+			}
+			/*
+			// Furnace
+			else {
 				RecipeMaps.FURNACE_RECIPES.recipeBuilder()
 						.input(OrePrefix.dust, mat, 1)
 						.outputs(OreDictUnifier.get(OrePrefix.ingot, mat, 1))
 						.buildAndRegister();
+			}
+			 */
 		}
 	}
 

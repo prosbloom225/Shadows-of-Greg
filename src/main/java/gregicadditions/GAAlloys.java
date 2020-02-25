@@ -23,11 +23,12 @@ public class GAAlloys implements IMaterialHandler {
         alloys.add(STABALLOY);
         alloys.add(TANTALLOY60);
         alloys.add(TANTALLOY61);
+        alloys.add(TUMBAGA);
         alloys.add(POTIN);
         alloys.add(INCONEL625);
-        alloys.add(INCONEL690);
-        alloys.add(INCONEL792);
-        alloys.add(NITINOL60);
+        //alloys.add(INCONEL690);
+        //alloys.add(INCONEL792);
+        //alloys.add(NITINOL60);
 
     }
 
@@ -61,9 +62,9 @@ public class GAAlloys implements IMaterialHandler {
             EXT3_METAL, null, 3.0F, 1.0F, 400, 7, 4480);
 
     public static final GAIngotMaterial POTIN = new GAIngotMaterial(708, "potin", 0xc99781, MaterialIconSet.METALLIC, 2,
-            ImmutableList.of(new MaterialStack(Lead, 40),
-                    new MaterialStack(Bronze, 40),
-                    new MaterialStack(Tin, 40)),
+            ImmutableList.of(new MaterialStack(Lead, 1),
+                    new MaterialStack(Bronze, 1),
+                    new MaterialStack(Tin, 1)),
             STD_METAL, null, 3.0F, 1.0F, 800, 16, 266);
 
     public static final GAIngotMaterial INCONEL625 = new GAIngotMaterial(709, "inconel625", 0x80c880, MaterialIconSet.METALLIC, 4,
@@ -90,8 +91,8 @@ public class GAAlloys implements IMaterialHandler {
             STD_METAL, null, 7.0F, 3.5F, 2200, 6200, 480, 600);
 
     public static final GAIngotMaterial NITINOL60 = new GAIngotMaterial(712, "nitinol60", 0x76dc8a, MaterialIconSet.METALLIC, 5,
-            ImmutableList.of(new MaterialStack(Nickel, 40),
-                    new MaterialStack(Titanium, 60)),
+            ImmutableList.of(new MaterialStack(Nickel, 2),
+                    new MaterialStack(Titanium, 3)),
             STD_METAL, null, 8.0F, 4.0F, 2800, 8975, 7680, 1500);
 
     public static final GAIngotMaterial ZERON100 = new GAIngotMaterial(713, "zeron100", 0xb4b414, MaterialIconSet.METALLIC, 5,
