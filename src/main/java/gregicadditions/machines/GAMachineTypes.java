@@ -63,7 +63,7 @@ public class GAMachineTypes {
                 2,
                 FactoryBlockPattern.start()
                         .aisle("XXXXX", "XXXXX", "XXXXX")
-                        .aisle("XXSXX", "X###X", "XXXXX")
+                        .aisle("XXXXX", "X###S", "XXXXX")
                         .aisle("XXXXX", "XXXXX", "XXXXX")
         ),
 

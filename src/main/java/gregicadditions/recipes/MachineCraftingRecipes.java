@@ -286,7 +286,6 @@ public class MachineCraftingRecipes {
 				'C', MetaBlocks.TURBINE_CASING.getItemVariant(BlockTurbineCasing.TurbineCasingType.TITANIUM_GEARBOX),
 				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.STABALLOY));
 
-		// TODO - sifter
 		ModHandler.addShapedRecipe("ga_sifter", GATileEntities.LARGE_SIFTER.getStackForm(),
 				"PCP", "WAW", "PCP",
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.EGLINSTEEL),
@@ -306,6 +305,19 @@ public class MachineCraftingRecipes {
 				'W', new UnificationEntry(OrePrefix.wireFine, Materials.Steel),
 				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.EGLINSTEEL));
 
+		ModHandler.addShapedRecipe("ga_cutter", GATileEntities.LARGE_CUTTER.getStackForm(),
+				"PCP", "WAW", "PCP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.MARAGING300),
+				'C', new UnificationEntry(OrePrefix.circuit, Tier.Advanced),
+				'A', GATileEntities.CUTTER[5].getStackForm(),
+				'W', new UnificationEntry(OrePrefix.wireFine, Materials.Platinum));
+
+		ModHandler.addShapedRecipe("ga_machine_casing_cutter", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.CUTTER_CASING),
+				"PhP", "LFL", "PwP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.MARAGING300),
+				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.STELLITE),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.TALONITE));
 
 		ModHandler.addShapedRecipe("ga_power_station", GATileEntities.POWER_STATION.getStackForm(),
 				"PCP", "AOA", "LPL",

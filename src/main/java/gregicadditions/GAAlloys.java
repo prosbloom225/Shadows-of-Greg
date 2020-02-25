@@ -148,7 +148,7 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Chrome, 30),
                     new MaterialStack(Phosphorus, 20),
                     new MaterialStack(Molybdenum, 10)),
-                    STD_METAL, null, 5.0F, 5.0F, 1600, 5500, 480, 600);
+                    EXT3_METAL, null, 5.0F, 5.0F, 1600, 5500, 480, 600);
 
     public static final GAIngotMaterial HASTELLOYW = new GAIngotMaterial(720, "hastelloyw", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Iron, 6),
