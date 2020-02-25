@@ -11,25 +11,23 @@ import gregtech.api.unification.stack.MaterialStack;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static gregtech.api.unification.material.Materials.*;
 
 @IMaterialHandler.RegisterMaterialHandler
 public class GAAlloys implements IMaterialHandler {
-    public static List<GAIngotMaterial> alloys = new ArrayList<>();
+    public static List<GAIngotMaterial> alloys;
 
     @Override
     public void onMaterialsInit() {
-        alloys.add(STABALLOY);
-        alloys.add(TANTALLOY60);
-        alloys.add(TANTALLOY61);
-        alloys.add(TUMBAGA);
-        alloys.add(POTIN);
-        alloys.add(INCONEL625);
-        //alloys.add(INCONEL690);
-        //alloys.add(INCONEL792);
-        //alloys.add(NITINOL60);
-
+        alloys = Stream.of(STABALLOY, TANTALLOY60, TANTALLOY61, TUMBAGA, POTIN, INCONEL625, INCONEL690, INCONEL792, NITINOL60,
+                NITINOL60, ZERON100, MARAGING250, MARAGING300, MARAGING350, AQUATIC_STEEL, STELLITE, TALONITE, HASTELLOYW,
+                HASTELLOYX, HASTELLOYN, HASTELLOYC276, INCOLOY020, INCOLOYDS, INCOLOYMA956, TUNGSTENTITANIUMCARBIDE,
+                SILICONCARBIDE, TANTALUMCARBIDE, ZIRCONIUMCARBIDE, NIOBIUMCARBIDE, GRISIUM, EGLINSTEELBASE, EGLINSTEEL,
+                LAFIUM, ABYSSAL, QUANTUM
+        ).collect(Collectors.toList());
     }
 
     static long STD_METAL = DustMaterial.MatFlags.GENERATE_PLATE;
@@ -152,14 +150,14 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Molybdenum, 10)),
                     STD_METAL, null, 5.0F, 5.0F, 1600, 5500, 480, 600);
 
-    public static final GAIngotMaterial HASTELLOYW= new GAIngotMaterial(720, "hastelloyw", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial HASTELLOYW = new GAIngotMaterial(720, "hastelloyw", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Iron, 6),
                     new MaterialStack(Cobalt, 24),
                     new MaterialStack(Chrome, 6),
                     new MaterialStack(Nickel, 62)),
             STD_METAL, null, 5.0F, 5.0F, 1600, 5755, 480, 600);
 
-    public static final GAIngotMaterial HASTELLOYX= new GAIngotMaterial(721, "hastelloyx", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial HASTELLOYX = new GAIngotMaterial(721, "hastelloyx", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Iron, 18),
                     new MaterialStack(Manganese, 2),
                     new MaterialStack(Silicon, 2),
@@ -168,7 +166,7 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Nickel, 48)),
                     STD_METAL, null, 5.0F, 6.0F, 2800, 5755, 480, 600);
 
-    public static final GAIngotMaterial HASTELLOYN= new GAIngotMaterial(722, "hastelloyn", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
+    public static final GAIngotMaterial HASTELLOYN = new GAIngotMaterial(722, "hastelloyn", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Yttrium, 8),
                     new MaterialStack(Molybdenum, 16),
                     new MaterialStack(Chrome, 8),
@@ -275,6 +273,7 @@ public class GAAlloys implements IMaterialHandler {
             EXT2_METAL,
             null, 11.0F, 11.0F, 3000, 13765, 1966080, 10800);
 
+// TODO - quantum blast furnace temp
     public static final GAIngotMaterial QUANTUM = new GAIngotMaterial(741, "quantum", 0xfffffb, MaterialIconSet.METALLIC, 9,
             ImmutableList.of(new MaterialStack(STELLITE, 15),
                     new MaterialStack(SILICONCARBIDE, 5),
