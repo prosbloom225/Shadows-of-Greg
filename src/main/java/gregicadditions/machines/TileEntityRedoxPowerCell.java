@@ -15,7 +15,7 @@ import java.util.List;
 
 public class TileEntityRedoxPowerCell extends MetaTileEntityMultiblockPart implements IMultiblockAbilityPart<TileEntityRedoxPowerCell> {
     private int tier;
-    private long []capacity = new long[]{10000, 100000, 250000, 500000, 1000000, 10000000};
+    private long []capacity = new long[]{100000000L, 400000000L, 1600000000L, 6400000000L, 25600000000L, 102400000000L};
 
     public TileEntityRedoxPowerCell(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId, tier);
