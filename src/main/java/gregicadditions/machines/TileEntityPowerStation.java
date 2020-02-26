@@ -71,15 +71,16 @@ public class TileEntityPowerStation extends MultiblockWithDisplayBase {
 	@Override
 	protected void formStructure(PatternMatchContext context) {
 		super.formStructure(context);
-		this.energyContainer = new EnergyContainerHandler(this,
+				this.energyContainer = new EnergyContainerHandler(this,
 				// TODO - this allows for mixed power cell types...maybe rebalance later
 				this.getAbilities(ABILITY_POWER_CELL).stream().map(c->c.getCapacity()).reduce(0L, Long::sum),
 				// TODO - maybe just use the celltype andignore the actual power station values in the update() function
 				// this really just adds an extra translation layer the energy has to go through
-				this.getAbilities(MultiblockAbility.INPUT_ENERGY).stream().map(i->i.getInputVoltage()).reduce(Long::max).get(),
-				this.getAbilities(MultiblockAbility.INPUT_ENERGY).stream().map(i->i.getInputAmperage()).reduce(Long::max).get(),
-				this.getAbilities(MultiblockAbility.OUTPUT_ENERGY).stream().map(i->i.getOutputVoltage()).reduce(Long::max).get(),
-				this.getAbilities(MultiblockAbility.OUTPUT_ENERGY).stream().map(i->i.getOutputAmperage()).reduce(Long::max).get());
+				// TODO - actually require input/outputs -- this is temporary!
+				this.getAbilities(MultiblockAbility.INPUT_ENERGY).stream().map(i->i.getInputVoltage()).reduce(Long::max).orElse(0L),
+				this.getAbilities(MultiblockAbility.INPUT_ENERGY).stream().map(i->i.getInputAmperage()).reduce(Long::max).orElse(0L),
+				this.getAbilities(MultiblockAbility.OUTPUT_ENERGY).stream().map(i->i.getOutputVoltage()).reduce(Long::max).orElse(0L),
+				this.getAbilities(MultiblockAbility.OUTPUT_ENERGY).stream().map(i->i.getOutputAmperage()).reduce(Long::max).orElse(0L));
 		isActive = true;
 	}
 
