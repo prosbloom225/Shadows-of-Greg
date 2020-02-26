@@ -66,6 +66,15 @@ public class GAMachineTypes {
                         .aisle("XXXXX", "X###S", "XXXXX")
                         .aisle("XXXXX", "XXXXX", "XXXXX")
         ),
+        WIREMILL(RecipeMaps.WIREMILL_RECIPES, GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.WIREMILL_CASING), ClientHandler.WIREMILL_CASING,
+                Textures.WIREMILL_OVERLAY,
+                4,
+                2,
+                FactoryBlockPattern.start()
+                        .aisle("XXXXX", "XXXXX", "XXXXX")
+                        .aisle("XXXXX", "X###S", "XXXXX")
+                        .aisle("XXXXX", "XXXXX", "XXXXX")
+        ),
 
         // TODO - this isnt really a largeMachine - should maybe move to MetaTileEntities
         ALLOY_BLAST_SMELTER(GARecipeMaps.ALLOY_BLAST_SMELTER, GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.ZIRCONIUM_CARBIDE_CASING), ClientHandler.ZIRCONIUM_CARBIDE_MACHINE_CASING,

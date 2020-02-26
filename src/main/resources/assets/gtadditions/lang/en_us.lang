@@ -480,6 +480,7 @@ tile.ga_multiblock_casing.sieve_casing.name=Sieve Casing
 tile.ga_multiblock_casing.sieve_grate.name=Sieve Grate
 tile.ga_multiblock_casing.blast_smelter_containment_casing.name=Blast Smelter Containment Casing
 tile.ga_multiblock_casing.cutter_casing.name=Industrial Cutter Casing
+tile.ga_multiblock_casing.wiremill_casing.name=Wire Factory Casing
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
 metaitem.tool.bending_cylinder_small.name=Small %s Bending Cylinder
