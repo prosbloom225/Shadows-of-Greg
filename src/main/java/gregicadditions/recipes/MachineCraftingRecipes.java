@@ -319,6 +319,20 @@ public class MachineCraftingRecipes {
 				'L', new UnificationEntry(OrePrefix.plate, GAAlloys.STELLITE),
 				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.TALONITE));
 
+		ModHandler.addShapedRecipe("ga_wiremill", GATileEntities.LARGE_WIREMILL.getStackForm(),
+				"PIP", "CAC", "PIP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.ZERON100),
+				'I', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.IV));
+				'C', new UnificationEntry(OrePrefix.circuit, Tier.Elite),
+				'A', GATileEntities.WIREMILL[5].getStackForm());
+
+		ModHandler.addShapedRecipe("ga_machine_casing_wiremill", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.WIREMILL_CASING),
+				"PRP", "RFR", "PRP",
+				'P', new UnificationEntry(OrePrefix.plate, Materials.BlueSteel),
+				'R', new UnificationEntry(OrePrefix.plate, GAAlloys.STELLITE),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.TALONITE));
+
 		ModHandler.addShapedRecipe("ga_power_station", GATileEntities.POWER_STATION.getStackForm(),
 				"PCP", "AOA", "LPL",
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.INCOLOYMA956),

@@ -62,18 +62,22 @@ public class GAMachineTypes {
                 4,
                 2,
                 FactoryBlockPattern.start()
-                        .aisle("XXXXX", "XXXXX", "XXXXX")
-                        .aisle("XXXXX", "X###S", "XXXXX")
-                        .aisle("XXXXX", "XXXXX", "XXXXX")
+                        .aisle("XXX", "XXX", "XXX")
+                        .aisle("XXX", "X#X", "XXX")
+                        .aisle("XXX", "X#X", "XXX")
+                        .aisle("XXX", "X#X", "XXX")
+                        .aisle("XXX", "XSX", "XXX")
         ),
         WIREMILL(RecipeMaps.WIREMILL_RECIPES, GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.WIREMILL_CASING), ClientHandler.WIREMILL_CASING,
                 Textures.WIREMILL_OVERLAY,
                 4,
                 2,
                 FactoryBlockPattern.start()
-                        .aisle("XXXXX", "XXXXX", "XXXXX")
-                        .aisle("XXXXX", "X###S", "XXXXX")
-                        .aisle("XXXXX", "XXXXX", "XXXXX")
+                        .aisle("XXX", "XXX", "XXX")
+                        .aisle("XXX", "X#X", "XXX")
+                        .aisle("XXX", "X#X", "XXX")
+                        .aisle("XXX", "X#X", "XXX")
+                        .aisle("XXX", "XSX", "XXX")
         ),
 
         // TODO - this isnt really a largeMachine - should maybe move to MetaTileEntities
