@@ -41,7 +41,7 @@ public class GAAlloys implements IMaterialHandler {
     public static final GAIngotMaterial STABALLOY = new GAIngotMaterial(704, "staballoy", 0x3c423a, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Titanium, 1),
                     new MaterialStack(Uranium, 9)),
-            STD_METAL, null, 7.0F, 3.0F, 1600, 3450, 480, 600);
+            EXT3_METAL, null, 7.0F, 3.0F, 1600, 3450, 480, 600);
 
     public static final GAIngotMaterial TANTALLOY60 = new GAIngotMaterial(705, "tantalloy60", 0xd5e7ed, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Tungsten, 4),
