@@ -856,6 +856,27 @@ public class GARecipeAddition {
 			}
 			 */
 		}
+
+
+		// GT++ Intermediates
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+				.duration(80)
+				.EUt(60)
+				.inputs(OreDictUnifier.get(OrePrefix.plate, Materials.Vanadium, 8),
+						OreDictUnifier.get(OrePrefix.frameGt, GAAlloys.INCOLOY020, 2))
+				.fluidInputs(Materials.Oxygen.getFluid(2000))
+				.outputs(GAMetaItems.COMPLETE_CASING_HALF.getStackForm())
+				.buildAndRegister();
+
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+				.duration(320)
+				.EUt(120)
+				.inputs(GAMetaItems.COMPLETE_CASING_HALF.getStackForm(),
+						OreDictUnifier.get(OrePrefix.plate, Materials.VanadiumGallium, 4))
+				.fluidInputs(Materials.Tantalum.getFluid(1000))
+				.outputs(GAMetaItems.COMPLETE_CASING.getStackForm())
+				.buildAndRegister();
+
 	}
 
 	public static void forestrySupport() {

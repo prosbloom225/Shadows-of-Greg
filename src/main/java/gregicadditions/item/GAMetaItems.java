@@ -52,6 +52,9 @@ public class GAMetaItems {
 
 	public static MetaItem<?>.MetaValueItem CIRCUIT_CONTROL;
 
+	public static MetaItem<?>.MetaValueItem COMPLETE_CASING;
+	public static MetaItem<?>.MetaValueItem COMPLETE_CASING_HALF;
+
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();
 		item.setRegistryName("ga_meta_item");

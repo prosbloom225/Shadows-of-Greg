@@ -159,6 +159,8 @@ metaitem.plate.iridium.alloy.uncompressed.name=Uncompressed Iridium Alloy Plate
 metaitem.neutron.reflector.name=Neutron Reflector
 metaitem.processor.neuro.name=Neuro Processing Unit
 metaitem.circuit.control.name=Control Circuit
+metaitem.casing.complete.name=Complete Casing
+metaitem.casing.complete.half.name=Half Complete Casing
 
 metaitem.electrode.apatite.name=Apatine Electrode
 metaitem.electrode.blaze.name=Blazing Electrode

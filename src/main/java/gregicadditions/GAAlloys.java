@@ -188,7 +188,7 @@ public class GAAlloys implements IMaterialHandler {
                     new MaterialStack(Copper, 4),
                     new MaterialStack(Chrome, 20),
                     new MaterialStack(Nickel, 36)),
-            STD_METAL, null, 3.0F, 3.0F, 2200, 5420, 480, 600);
+            EXT3_METAL, null, 3.0F, 3.0F, 2200, 5420, 480, 600);
 
     public static final GAIngotMaterial INCOLOYDS = new GAIngotMaterial(725, "incoloyds", 0xfcfcfc, MaterialIconSet.METALLIC, 5,
             ImmutableList.of(new MaterialStack(Iron, 40),

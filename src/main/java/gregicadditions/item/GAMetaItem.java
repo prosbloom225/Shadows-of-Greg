@@ -59,7 +59,9 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.NEURO_PROCESSOR = addItem(15, "processor.neuro");
 		GAMetaItems.STEM_CELLS = addItem(18, "stemcells");
 
-		GAMetaItems.CIRCUIT_CONTROL= addItem(19, "circuit.control");
+		GAMetaItems.CIRCUIT_CONTROL = addItem(19, "circuit.control");
+		GAMetaItems.COMPLETE_CASING = addItem(135, "casing.complete");
+		GAMetaItems.COMPLETE_CASING_HALF = addItem(136, "casing.complete.half");
 	}
 
 	@Override
