@@ -7,6 +7,7 @@ import gregicadditions.item.GAMetaItem;
 import gregicadditions.item.GAMetaItems;
 import gregicadditions.item.GAMultiblockCasing;
 import gregicadditions.machines.GATileEntities;
+import gregicadditions.machines.TileEntityRedoxPowerCell;
 import gregtech.api.GTValues;
 import gregtech.api.items.OreDictNames;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -347,6 +348,64 @@ public class MachineCraftingRecipes {
 				'S', new UnificationEntry(OrePrefix.screw, Materials.Titanium),
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.INCOLOY020),
 				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.INCOLOYMA956));
+
+		// Redox EV
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+				.duration(1280)
+				.EUt(240)
+				.inputs(GAMetaItems.COMPLETE_CASING.getStackForm(),
+						OreDictUnifier.get(OrePrefix.plate, Materials.Lead, 8))
+				.fluidInputs(Materials.Oxygen.getFluid(16000))
+				.outputs(GATileEntities.REDOX_POWER_CELL[0].getStackForm())
+				.buildAndRegister();
+		// Redox IV
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+				.duration(2400)
+				.EUt(2000)
+				.inputs(GATileEntities.REDOX_POWER_CELL[0].getStackForm(),
+						OreDictUnifier.get(OrePrefix.plate , Materials.Titanium, 8))
+				.fluidInputs(Materials.Nitrogen.getFluid(16000))
+				.outputs(GATileEntities.REDOX_POWER_CELL[1].getStackForm())
+				.buildAndRegister();
+		// Redox LuV
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+				.duration(5000)
+				.EUt(8000)
+				.inputs(GATileEntities.REDOX_POWER_CELL[1].getStackForm(),
+						OreDictUnifier.get(OrePrefix.plate, Materials.TungstenSteel, 8))
+				.fluidInputs(Materials.Helium.getFluid(16000))
+				.outputs(GATileEntities.REDOX_POWER_CELL[2].getStackForm())
+				.buildAndRegister();
+		// Redox ZPM
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+				.duration(10000)
+				.EUt(32000)
+				.inputs(GATileEntities.REDOX_POWER_CELL[2].getStackForm(),
+						OreDictUnifier.get(OrePrefix.plate, Materials.Iridium, 8))
+				.fluidInputs(Materials.Argon.getFluid(16000))
+				.outputs(GATileEntities.REDOX_POWER_CELL[3].getStackForm())
+				.buildAndRegister();
+		// Redox UV
+		// TODO - the eu is overflowed
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+				.duration(20000)
+				.EUt(128000)
+				.inputs(GATileEntities.REDOX_POWER_CELL[3].getStackForm(),
+						OreDictUnifier.get(OrePrefix.plate, Materials.Naquadah, 8))
+				.fluidInputs(Materials.Radon.getFluid(16000))
+				.outputs(GATileEntities.REDOX_POWER_CELL[4].getStackForm())
+				.buildAndRegister();
+		// TODO - Redox MAX
+		// Redox MAX
+        /*
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+				.duration(40000)
+				.EUt(512000)
+				.inputs(GATileEntities.REDOX_POWER_CELL[4].getStackForm(),
+						OreDictUnifier.get(OrePrefix.plateDense, Materials.Americium, 4))
+				.outputs(GATileEntities.REDOX_POWER_CELL[5].getStackForm())
+				.buildAndRegister();
+         */
 
 		List<Recipe> removals = new ArrayList<>();
 
