@@ -163,7 +163,7 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 			}
 			for (CountableIngredient ingredient : recipe.getInputs()) {
 				overclocks.add(ii.stream().filter(i -> i.getItem() ==
-						ingredient.getIngredient().getMatchingStacks()[0].getItem()).findAny().orElse(null).getCount() / ingredient.getCount());
+						ingredient.getIngredient().getMatchingStacks()[0].getItem()).findAny().orElse(ItemStack.EMPTY).getCount() /ingredient.getCount());
 			}
 
 			// total overclock

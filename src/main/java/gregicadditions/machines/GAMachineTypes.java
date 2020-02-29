@@ -79,6 +79,12 @@ public class GAMachineTypes {
                         .aisle("XXX", "X#X", "XXX")
                         .aisle("XXX", "XSX", "XXX")
         ),
+        ELECTROLYZER(RecipeMaps.ELECTROLYZER_RECIPES, GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.ELECTROLYZER_CASING), ClientHandler.ELECTROLYZER_CASING,
+                Textures.ELECTROLYZER_OVERLAY,
+                2,
+                1.8,
+                null
+        ),
 
         // TODO - this isnt really a largeMachine - should maybe move to MetaTileEntities
         ALLOY_BLAST_SMELTER(GARecipeMaps.ALLOY_BLAST_SMELTER, GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.ZIRCONIUM_CARBIDE_CASING), ClientHandler.ZIRCONIUM_CARBIDE_MACHINE_CASING,

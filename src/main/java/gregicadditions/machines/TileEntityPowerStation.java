@@ -18,6 +18,7 @@ import gregtech.api.multiblock.FactoryBlockPattern;
 import gregtech.api.multiblock.PatternMatchContext;
 import gregtech.api.render.ICubeRenderer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -71,17 +72,19 @@ public class TileEntityPowerStation extends MultiblockWithDisplayBase {
 	@Override
 	protected void formStructure(PatternMatchContext context) {
 		super.formStructure(context);
-				this.energyContainer = new EnergyContainerHandler(this,
-				// TODO - this allows for mixed power cell types...maybe rebalance later
-				this.getAbilities(ABILITY_POWER_CELL).stream().map(c->c.getCapacity()).reduce(0L, Long::sum),
-				// TODO - maybe just use the celltype andignore the actual power station values in the update() function
-				// this really just adds an extra translation layer the energy has to go through
-				// TODO - actually require input/outputs -- this is temporary!
-				this.getAbilities(MultiblockAbility.INPUT_ENERGY).stream().map(i->i.getInputVoltage()).reduce(Long::max).orElse(0L),
-				this.getAbilities(MultiblockAbility.INPUT_ENERGY).stream().map(i->i.getInputAmperage()).reduce(Long::max).orElse(0L),
-				this.getAbilities(MultiblockAbility.OUTPUT_ENERGY).stream().map(i->i.getOutputVoltage()).reduce(Long::max).orElse(0L),
-				this.getAbilities(MultiblockAbility.OUTPUT_ENERGY).stream().map(i->i.getOutputAmperage()).reduce(Long::max).orElse(0L));
-		isActive = true;
+		//if (this.getAbilities(ABILITY_POWER_CELL).size() > 0) {
+			this.energyContainer = new EnergyContainerHandler(this,
+					// TODO - this allows for mixed power cell types...maybe rebalance later
+					this.getAbilities(ABILITY_POWER_CELL).stream().map(TileEntityRedoxPowerCell::getCapacity).reduce(0L, Long::sum),
+					// TODO - maybe just use the celltype andignore the actual power station values in the update() function
+					// this really just adds an extra translation layer the energy has to go through
+					// TODO - actually require input/outputs -- this is temporary!
+					this.getAbilities(MultiblockAbility.INPUT_ENERGY).stream().map(IEnergyContainer::getInputVoltage).reduce(Long::max).orElse(0L),
+					this.getAbilities(MultiblockAbility.INPUT_ENERGY).stream().map(IEnergyContainer::getInputAmperage).reduce(Long::max).orElse(0L),
+					this.getAbilities(MultiblockAbility.OUTPUT_ENERGY).stream().map(IEnergyContainer::getOutputVoltage).reduce(Long::max).orElse(0L),
+					this.getAbilities(MultiblockAbility.OUTPUT_ENERGY).stream().map(IEnergyContainer::getOutputAmperage).reduce(Long::max).orElse(0L));
+			isActive = true;
+		//}
 	}
 
 	@Override
@@ -103,33 +106,20 @@ public class TileEntityPowerStation extends MultiblockWithDisplayBase {
 		List<IEnergyContainer> inputs = getAbilities(MultiblockAbility.INPUT_ENERGY);
 		List<IEnergyContainer> outputs = getAbilities(MultiblockAbility.OUTPUT_ENERGY);
 
-		int storagePacketCount = 0;
-		int hatchPacketCount = 0;
 		// add energy to storage
 		for (IEnergyContainer input : inputs){
-			hatchPacketCount = 0;
-			while (storagePacketCount < energyContainer.getInputAmperage() &&
-					hatchPacketCount < input.getInputAmperage() &&
-					energyContainer.getEnergyCapacity() - energyContainer.getEnergyStored() >= energyContainer.getInputVoltage() &&
+			while (energyContainer.getEnergyCapacity() - energyContainer.getEnergyStored() >= energyContainer.getInputVoltage() &&
 					input.getEnergyStored() >= input.getInputVoltage()) {
 				input.removeEnergy(input.getInputVoltage());
 				energyContainer.addEnergy(input.getInputVoltage());
-				storagePacketCount++;
-				hatchPacketCount++;
 			}
 		}
-		storagePacketCount = 0;
 		// add energy to output
 		for (IEnergyContainer output : outputs){
-			hatchPacketCount = 0;
-			while (storagePacketCount < energyContainer.getOutputAmperage() &&
-					hatchPacketCount < output.getOutputAmperage() &&
-					energyContainer.getEnergyStored() >= energyContainer.getOutputVoltage() &&
-					output.getEnergyStored() <= output.getOutputVoltage()) {
+			while (energyContainer.getEnergyStored() >= output.getOutputVoltage() &&
+					(output.getEnergyCapacity() - output.getEnergyStored()) >= output.getOutputVoltage()) {
 				energyContainer.removeEnergy(output.getOutputVoltage());
 				output.addEnergy(output.getOutputVoltage());
-				storagePacketCount++;
-				hatchPacketCount++;
 			}
 		}
 	}
@@ -139,6 +129,23 @@ public class TileEntityPowerStation extends MultiblockWithDisplayBase {
 		this.getBaseTexture(null).render(renderState, translation, pipeline);
 		ClientHandler.FUSION_REACTOR_OVERLAY.render(renderState, translation, pipeline, this.getFrontFacing(), isActive);
 	}
+
+	/*
+	@Override
+	public NBTTagCompound writeToNBT(NBTTagCompound data) {
+		super.writeToNBT(data);
+		data.setLong("energy", energyContainer.getEnergyCapacity());
+		return data;
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound data) {
+		super.readFromNBT(data);
+		if (this.energyContainer != null)
+			energyContainer.changeEnergy(data.getLong("energy"));
+	}
+
+	 */
 
 	@Override
 	protected void addDisplayText(List<ITextComponent> textList) {

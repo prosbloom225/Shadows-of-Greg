@@ -259,7 +259,7 @@ public class MachineCraftingRecipes {
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.INCONEL792),
 				'M', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.IV));
 
-		ModHandler.addShapedRecipe("ga_machine_casing_ore_washer", GAMetaBlocks.MUTLIBLOCK_CASING
+		ModHandler.addShapedRecipe("ga_machine_casing_centrifuge", GAMetaBlocks.MUTLIBLOCK_CASING
 						.getItemVariant(GAMultiblockCasing.CasingType.CENTRIFUGE_CASING),
 				"PRP", "LRL", "PRP",
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.MARAGING250),
@@ -270,7 +270,7 @@ public class MachineCraftingRecipes {
 				"PCP", "WAW", "PCP",
 				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.ZIRCONIUMCARBIDE),
 				'C', new UnificationEntry(OrePrefix.circuit, Tier.Advanced),
-				'A', GATileEntities.ALLOY_SMELTER[5].getStackForm(),
+				'A', GATileEntities.ALLOY_SMELTER[4].getStackForm(),
 				'W', new UnificationEntry(OrePrefix.cableGtQuadruple, Materials.Gold));
 
 		ModHandler.addShapedRecipe("ga_machine_casing_blast_smelter", GAMetaBlocks.MUTLIBLOCK_CASING
@@ -333,6 +333,22 @@ public class MachineCraftingRecipes {
 				'P', new UnificationEntry(OrePrefix.plate, Materials.BlueSteel),
 				'R', new UnificationEntry(OrePrefix.plate, Materials.BlueSteel),
 				'F', new UnificationEntry(OrePrefix.frameGt, Materials.BlueSteel));
+
+		ModHandler.addShapedRecipe("ga_electrolyzer", GATileEntities.LARGE_ELECTROLYZER.getStackForm(),
+				"PCP", "ASA", "PRP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.STELLITE),
+				'C', new UnificationEntry(OrePrefix.circuit, Tier.Elite),
+				'A', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.IV),
+				'S', GATileEntities.ELECTROLYZER[5].getStackForm(),
+				'R', new UnificationEntry(OrePrefix.rotor, GAAlloys.STELLITE));
+
+		ModHandler.addShapedRecipe("ga_machine_casing_electrolyzer", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.ELECTROLYZER_CASING),
+				"POP", "RFR", "PRP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.POTIN),
+				'O', new UnificationEntry(OrePrefix.stickLong, Materials.Chrome),
+				'R', new UnificationEntry(OrePrefix.stickLong, GAAlloys.POTIN),
+				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.POTIN));
 
 		ModHandler.addShapedRecipe("ga_power_station", GATileEntities.POWER_STATION.getStackForm(),
 				"PCP", "AOA", "LPL",

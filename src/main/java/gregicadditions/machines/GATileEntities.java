@@ -68,6 +68,7 @@ public class GATileEntities {
 	public static TileEntityLargeMachine LARGE_SIFTER;
 	public static TileEntityLargeMachine LARGE_CUTTER;
 	public static TileEntityLargeMachine LARGE_WIREMILL;
+	public static TileEntityLargeMachine LARGE_ELECTROLYZER;
 
 	public static TileEntityLargeMachine ALLOY_BLAST_SMELTER;
 
@@ -402,6 +403,7 @@ public class GATileEntities {
 		LARGE_SIFTER = GregTechAPI.registerMetaTileEntity(2605, new TileEntityLargeMachine(location("large_sifter"), GAMachineTypes.LargeMachineType.SIFTER));
 		LARGE_CUTTER = GregTechAPI.registerMetaTileEntity(2606, new TileEntityLargeMachine(location("large_cutter"), GAMachineTypes.LargeMachineType.CUTTER));
 		LARGE_WIREMILL = GregTechAPI.registerMetaTileEntity(2607, new TileEntityLargeMachine(location("large_wiremill"), GAMachineTypes.LargeMachineType.WIREMILL));
+		LARGE_ELECTROLYZER = GregTechAPI.registerMetaTileEntity(2608, new TileEntityLargeMachine(location("large_electrolyzer"), GAMachineTypes.LargeMachineType.ELECTROLYZER));
 
 		ALLOY_BLAST_SMELTER= GregTechAPI.registerMetaTileEntity(2610, new TileEntityLargeMachine(location("alloy_blast_smelter"), GAMachineTypes.LargeMachineType.ALLOY_BLAST_SMELTER));
 
