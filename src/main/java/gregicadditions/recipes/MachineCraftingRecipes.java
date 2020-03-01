@@ -19,6 +19,7 @@ import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.material.Materials;
+import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.blocks.*;
@@ -349,6 +350,22 @@ public class MachineCraftingRecipes {
 				'O', new UnificationEntry(OrePrefix.stickLong, Materials.Chrome),
 				'R', new UnificationEntry(OrePrefix.stickLong, GAAlloys.POTIN),
 				'F', new UnificationEntry(OrePrefix.frameGt, GAAlloys.POTIN));
+
+		ModHandler.addShapedRecipe("ga_tree_farm", GATileEntities.TREE_FARM.getStackForm(),
+				"PRP", "SIS", "PAP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.POTIN),
+				'R', new UnificationEntry(OrePrefix.rotor, GAAlloys.POTIN),
+				'S', new UnificationEntry(OrePrefix.cableGtDouble, Materials.Silver),
+				'I', new UnificationEntry(OrePrefix.pipeMedium, Materials.StainlessSteel),
+				'A', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.HV));
+
+		ModHandler.addShapedRecipe("ga_machine_casing_tree_farm", GAMetaBlocks.MUTLIBLOCK_CASING
+						.getItemVariant(GAMultiblockCasing.CasingType.FARM_CASING),
+				"POP", "RFR", "PRP",
+				'P', new UnificationEntry(OrePrefix.plate, GAAlloys.POTIN),
+				'O', new UnificationEntry(OrePrefix.stickLong, Materials.StainlessSteel),
+				'R', new UnificationEntry(OrePrefix.stickLong, GAAlloys.POTIN),
+				'F', new UnificationEntry(OrePrefix.frameGt, Materials.StainlessSteel));
 
 		ModHandler.addShapedRecipe("ga_power_station", GATileEntities.POWER_STATION.getStackForm(),
 				"PCP", "AOA", "LPL",

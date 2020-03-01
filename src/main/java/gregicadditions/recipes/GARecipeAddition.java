@@ -1123,6 +1123,7 @@ public class GARecipeAddition {
 		}
 
 		// Tree Farm
+		// TODO - make this do matching logs
 		List<ItemStack> allSaplings = OreDictionary.getOres("treeSapling").stream().flatMap(stack -> ModHandler.getAllSubItems(stack).stream()).collect(Collectors.toList());
 		for (ItemStack stack : allSaplings)
 			GARecipeMaps.TREE_FARM.recipeBuilder()

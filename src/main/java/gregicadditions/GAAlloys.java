@@ -64,7 +64,7 @@ public class GAAlloys implements IMaterialHandler {
             ImmutableList.of(new MaterialStack(Lead, 1),
                     new MaterialStack(Bronze, 1),
                     new MaterialStack(Tin, 1)),
-            EXT3_METAL, null, 3.0F, 1.0F, 800, 16, 266);
+            EXT4_METAL, null, 3.0F, 1.0F, 800, 16, 266);
 
     public static final GAIngotMaterial INCONEL625 = new GAIngotMaterial(709, "inconel625", 0x80c880, MaterialIconSet.METALLIC, 4,
             ImmutableList.of(new MaterialStack(Nichrome, 10),
