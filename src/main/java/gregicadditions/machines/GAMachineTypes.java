@@ -97,6 +97,13 @@ public class GAMachineTypes {
                         .aisle("ZZZ", "Z#Z", "ZZZ")
                         .aisle("XXX", "XXX", "XXX")
                         .where('Z', statePredicate(GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.BLAST_SMELTER_CONTAINMENT_CASTING)))
+                ),
+        // TODO - this isnt really a largeMachine - should maybe move to MetaTileEntities
+        TREE_FARM(GARecipeMaps.TREE_FARM, GAMetaBlocks.MUTLIBLOCK_CASING.getState(GAMultiblockCasing.CasingType.FARM_CASING), ClientHandler.FARM_CASING,
+        ClientHandler.MASS_FAB_OVERLAY,
+                1,
+                1.00,
+                null
                 );
 
         public final RecipeMap recipeMap;

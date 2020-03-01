@@ -71,6 +71,7 @@ public class GATileEntities {
 	public static TileEntityLargeMachine LARGE_ELECTROLYZER;
 
 	public static TileEntityLargeMachine ALLOY_BLAST_SMELTER;
+	public static TileEntityLargeMachine TREE_FARM;
 
 	public static TileEntityPowerStation POWER_STATION;
 	public static TileEntityRedoxPowerCell []REDOX_POWER_CELL = new TileEntityRedoxPowerCell[6];
@@ -406,6 +407,7 @@ public class GATileEntities {
 		LARGE_ELECTROLYZER = GregTechAPI.registerMetaTileEntity(2608, new TileEntityLargeMachine(location("large_electrolyzer"), GAMachineTypes.LargeMachineType.ELECTROLYZER));
 
 		ALLOY_BLAST_SMELTER= GregTechAPI.registerMetaTileEntity(2610, new TileEntityLargeMachine(location("alloy_blast_smelter"), GAMachineTypes.LargeMachineType.ALLOY_BLAST_SMELTER));
+		TREE_FARM = GregTechAPI.registerMetaTileEntity(2611, new TileEntityLargeMachine(location("tree_farm"), GAMachineTypes.LargeMachineType.TREE_FARM));
 
 		POWER_STATION = GregTechAPI.registerMetaTileEntity(2621, new TileEntityPowerStation(location("power_station")));
 		REDOX_POWER_CELL[0] = GregTechAPI.registerMetaTileEntity(2622, new TileEntityRedoxPowerCell(location("redox_power_cell.ev"), 4));

@@ -151,19 +151,23 @@ public class TileEntityLargeMachine extends RecipeMapMultiblockController {
 				return null;
 			List<Integer> overclocks = new ArrayList<>();
 			// calculate fluid overclock
-			List<FluidStack> fi = fluidInputs.getFluidTanks().stream().map(f -> f.getFluid()).collect(Collectors.toList());
-			for (FluidStack stack : recipe.getFluidInputs()) {
-				overclocks.add(fi.stream().filter(f -> f.getFluid() == stack.getFluid()).findAny().orElse(null).amount / stack.amount);
-			}
-			// calculate item overclock
-			List<ItemStack> ii = new ArrayList<>();
-			for (int i = 0; i < inputs.getSlots(); i++) {
-				if (!inputs.getStackInSlot(i).isEmpty())
-					ii.add(inputs.getStackInSlot(i));
-			}
+				List<FluidStack> fi = fluidInputs.getFluidTanks().stream().map(f -> f.getFluid()).collect(Collectors.toList());
+				for (FluidStack stack : recipe.getFluidInputs()) {
+					overclocks.add(fi.stream().filter(f -> f.getFluid() == stack.getFluid()).findAny().orElse(null).amount / stack.amount);
+				}
+				// calculate item overclock
+				List<ItemStack> ii = new ArrayList<>();
+				for (int i = 0; i < inputs.getSlots(); i++) {
+					if (!inputs.getStackInSlot(i).isEmpty())
+						ii.add(inputs.getStackInSlot(i));
+				}
 			for (CountableIngredient ingredient : recipe.getInputs()) {
-				overclocks.add(ii.stream().filter(i -> i.getItem() ==
-						ingredient.getIngredient().getMatchingStacks()[0].getItem()).findAny().orElse(ItemStack.EMPTY).getCount() /ingredient.getCount());
+				// nonConsumables
+			    if (ingredient.getCount() == 0)
+					overclocks.add(1);
+			    else
+					overclocks.add(ii.stream().filter(i -> i.getItem() ==
+							ingredient.getIngredient().getMatchingStacks()[0].getItem()).findAny().orElse(ItemStack.EMPTY).getCount() / ingredient.getCount());
 			}
 
 			// total overclock

@@ -415,6 +415,7 @@ gtadditions.machine.large_cutter.name=Industrial Cutting Factory
 gtadditions.machine.large_wiremill.name=Wire Factory Controller
 gtadditions.machine.large_freezer.name=Cryogenic Freezer
 gtadditions.machine.large_assembler.name=Large Scale Auto-Assembler
+gtadditions.machine.tree_farm.name=Tree Farm
 gtadditions.machine.alloy_blast_smelter.name=Alloy Blast Smelter
 gtadditions.machine.power_station.name=Power Station Control Node
 gtadditions.machine.redox_power_cell.ev.name=Redox Power Cell EV
@@ -484,6 +485,7 @@ tile.ga_multiblock_casing.blast_smelter_containment_casing.name=Blast Smelter Co
 tile.ga_multiblock_casing.cutter_casing.name=Industrial Cutter Casing
 tile.ga_multiblock_casing.wiremill_casing.name=Wire Factory Casing
 tile.ga_multiblock_casing.electrolyzer_casing.name=Electrolyzer Casing
+tile.ga_multiblock_casing.farm_casing.name=Farm Keeper
 
 metaitem.tool.bending_cylinder.name=%s Bending Cylinder
 metaitem.tool.bending_cylinder_small.name=Small %s Bending Cylinder
@@ -498,6 +500,7 @@ recipemap.naquadah_reactor.name=Naquadah Reactor Fuels
 recipemap.replicator.name=Replicator
 recipemap.mass_fab.name=Mass Fabricator
 recipemap.cracker_unit.name=[Deprecated] Cracking Recipes
+recipemap.tree_farm.name=Tree Farm
 
 recipemap.plasma_generator.name=Plasma Turbine Fuels
 

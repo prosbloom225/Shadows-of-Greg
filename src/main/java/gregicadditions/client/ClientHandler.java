@@ -39,6 +39,7 @@ public class ClientHandler {
 	public static SimpleCubeRenderer CUTTER_MACHINE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_cutter");
 	public static SimpleCubeRenderer WIREMILL_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_wiremill");
 	public static SimpleCubeRenderer ELECTROLYZER_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_electrolyzer");
+	public static SimpleCubeRenderer FARM_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_tree_farm");
 
 	public static SimpleCubeRenderer SIEVE_CASING = new SimpleCubeRenderer("casings/solid/machine_casing_sieve");
 	public static SimpleCubeRenderer SIEVE_GRATE = new SimpleCubeRenderer("casings/solid/machine_casing_sieve_grate");

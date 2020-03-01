@@ -31,6 +31,7 @@ import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockOldLog;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -1120,5 +1121,17 @@ public class GARecipeAddition {
 				ModHandler.removeFurnaceSmelting(woodStack);
 			}
 		}
+
+		// Tree Farm
+		List<ItemStack> allSaplings = OreDictionary.getOres("treeSapling").stream().flatMap(stack -> ModHandler.getAllSubItems(stack).stream()).collect(Collectors.toList());
+		for (ItemStack stack : allSaplings)
+			GARecipeMaps.TREE_FARM.recipeBuilder()
+					.duration(100)
+					.EUt(120)
+					.notConsumable(stack)
+					.chancedOutput(new ItemStack(Items.APPLE, 1), 1000, 500)
+					.chancedOutput(stack.copy(), 1000, 500)
+					.outputs(new ItemStack(Blocks.LOG, 4))
+			.buildAndRegister();
 	}
 }

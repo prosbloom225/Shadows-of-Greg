@@ -72,6 +72,11 @@
         "textures": {
           "all": "gregtech:blocks/casings/solid/machine_casing_electrolyzer"
         }
+      },
+      "farm_casing": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_tree_farm"
+        }
       }
     }
   }
