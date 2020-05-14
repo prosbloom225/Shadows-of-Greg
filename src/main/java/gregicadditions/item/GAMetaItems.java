@@ -54,10 +54,15 @@ public class GAMetaItems {
 
 	public static MetaItem<?>.MetaValueItem COMPLETE_CASING;
 	public static MetaItem<?>.MetaValueItem COMPLETE_CASING_HALF;
+	// TODO - add recipes for these
 	public static MetaItem<?>.MetaValueItem CORE_CHIP_GOLD;
 	public static MetaItem<?>.MetaValueItem CORE_CHIP_DIAMOND;
 	public static MetaItem<?>.MetaValueItem CORE_CHIP_EMERALD_ADVANCED;
 	public static MetaItem<?>.MetaValueItem CORE_CHIP_EMERALD_HIGH_ADVANCED;
+	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_GOLD;
+	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_DIAMOND;
+	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_EMERALD;
+	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_ADVANCED_EMERALD;
 
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();

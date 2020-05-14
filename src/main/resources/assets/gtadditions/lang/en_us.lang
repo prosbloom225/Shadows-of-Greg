@@ -165,6 +165,10 @@ metaitem.core.chip.gold.name=Item Circuit Tier I
 metaitem.core.chip.diamond.name=Item Circuit Tier II
 metaitem.core.chip.emerald.advanced.name=Item Circuit Tier III
 metaitem.core.chip.emerald.high.advanced.name=Item Circuit Tier IV
+metaitem.core.processor.gold.name=Item Processor Tier I
+metaitem.core.processor.diamond.name=Item Processor Tier II
+metaitem.core.processor.emerald.name=Item Processor Tier III
+metaitem.core.processor.advanced.emerald.name=Item Processor Tier IV
 
 metaitem.electrode.apatite.name=Apatine Electrode
 metaitem.electrode.blaze.name=Blazing Electrode
