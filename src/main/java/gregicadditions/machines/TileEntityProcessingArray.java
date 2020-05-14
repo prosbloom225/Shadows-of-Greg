@@ -462,7 +462,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 			}
 
 		}
-
+		/*
 		// hack over the internal AbstractRecipeLogic setActive method
 		private void setActive(boolean active) {
 			ObfuscationReflectionHelper.setPrivateValue(AbstractRecipeLogic.class, recipeMapWorkable, active, "isActive");
@@ -471,6 +471,7 @@ public class TileEntityProcessingArray extends RecipeMapMultiblockController {
 				writeCustomData(1, buf -> buf.writeBoolean(active));
 			}
 		}
+		 */
 
 	}
 }

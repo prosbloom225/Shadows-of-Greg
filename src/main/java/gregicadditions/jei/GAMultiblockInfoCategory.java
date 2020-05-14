@@ -20,8 +20,12 @@ public class GAMultiblockInfoCategory implements IRecipeCategory<MultiblockInfoR
 	}
 
 	public static void registerRecipes(IModRegistry registry) {
-		registry.addRecipes(Lists.newArrayList(new MultiblockInfoRecipeWrapper(new AssemblyLineInfo()), new MultiblockInfoRecipeWrapper(new FusionReactor1Info()), new MultiblockInfoRecipeWrapper(new FusionReactor2Info()), new MultiblockInfoRecipeWrapper(new FusionReactor3Info()), new MultiblockInfoRecipeWrapper(new ProcessingArrayInfo())
-
+		registry.addRecipes(Lists.newArrayList(new MultiblockInfoRecipeWrapper(new AssemblyLineInfo()),
+				new MultiblockInfoRecipeWrapper(new FusionReactor1Info()),
+				new MultiblockInfoRecipeWrapper(new FusionReactor2Info()),
+				new MultiblockInfoRecipeWrapper(new FusionReactor3Info()),
+				new MultiblockInfoRecipeWrapper(new ProcessingArrayInfo()),
+				new MultiblockInfoRecipeWrapper(new TreeFarmInfo())
 		), "gtadditions:multiblock_info");
 	}
 
