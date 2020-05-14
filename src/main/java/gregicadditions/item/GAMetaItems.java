@@ -59,10 +59,12 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem CORE_CHIP_DIAMOND;
 	public static MetaItem<?>.MetaValueItem CORE_CHIP_EMERALD_ADVANCED;
 	public static MetaItem<?>.MetaValueItem CORE_CHIP_EMERALD_HIGH_ADVANCED;
+	public static MetaItem<?>.MetaValueItem CORE_CHIP_SPATIAL;
 	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_GOLD;
 	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_DIAMOND;
 	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_EMERALD;
 	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_ADVANCED_EMERALD;
+	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_SPATIAL;
 
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();

@@ -70,6 +70,8 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.CORE_PROCESSOR_DIAMOND = addItem(142, "core.processor.diamond");
 		GAMetaItems.CORE_PROCESSOR_EMERALD = addItem(143, "core.processor.emerald");
 		GAMetaItems.CORE_PROCESSOR_ADVANCED_EMERALD = addItem(144, "core.processor.advanced.emerald");
+		GAMetaItems.CORE_CHIP_SPATIAL = addItem(145, "core.chip.spatial");
+		GAMetaItems.CORE_PROCESSOR_SPATIAL = addItem(146, "core.processor.spatial");
 	}
 
 	@Override
