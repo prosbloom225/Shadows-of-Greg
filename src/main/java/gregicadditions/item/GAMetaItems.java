@@ -54,6 +54,10 @@ public class GAMetaItems {
 
 	public static MetaItem<?>.MetaValueItem COMPLETE_CASING;
 	public static MetaItem<?>.MetaValueItem COMPLETE_CASING_HALF;
+	public static MetaItem<?>.MetaValueItem CORE_CHIP_GOLD;
+	public static MetaItem<?>.MetaValueItem CORE_CHIP_DIAMOND;
+	public static MetaItem<?>.MetaValueItem CORE_CHIP_EMERALD_ADVANCED;
+	public static MetaItem<?>.MetaValueItem CORE_CHIP_EMERALD_HIGH_ADVANCED;
 
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();

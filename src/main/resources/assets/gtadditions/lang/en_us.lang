@@ -161,6 +161,10 @@ metaitem.processor.neuro.name=Neuro Processing Unit
 metaitem.circuit.control.name=Control Circuit
 metaitem.casing.complete.name=Complete Casing
 metaitem.casing.complete.half.name=Half Complete Casing
+metaitem.core.chip.gold.name=Item Circuit Tier I
+metaitem.core.chip.diamond.name=Item Circuit Tier II
+metaitem.core.chip.emerald.advanced.name=Item Circuit Tier III
+metaitem.core.chip.emerald.high.advanced.name=Item Circuit Tier IV
 
 metaitem.electrode.apatite.name=Apatine Electrode
 metaitem.electrode.blaze.name=Blazing Electrode

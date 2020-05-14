@@ -62,6 +62,10 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.CIRCUIT_CONTROL = addItem(19, "circuit.control");
 		GAMetaItems.COMPLETE_CASING = addItem(135, "casing.complete");
 		GAMetaItems.COMPLETE_CASING_HALF = addItem(136, "casing.complete.half");
+		GAMetaItems.CORE_CHIP_GOLD = addItem(137, "core.chip.gold");
+		GAMetaItems.CORE_CHIP_DIAMOND = addItem(138, "core.chip.diamond");
+		GAMetaItems.CORE_CHIP_EMERALD_ADVANCED = addItem(139, "core.chip.emerald.advanced");
+		GAMetaItems.CORE_CHIP_EMERALD_HIGH_ADVANCED = addItem(140, "core.chip.emerald.high.advanced");
 	}
 
 	@Override
