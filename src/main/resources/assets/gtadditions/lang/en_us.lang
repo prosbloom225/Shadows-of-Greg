@@ -171,6 +171,7 @@ metaitem.core.processor.emerald.name=Item Processor Tier III
 metaitem.core.processor.advanced.emerald.name=Item Processor Tier IV
 metaitem.core.processor.spatial.name=Spatial Processor Tier I
 metaitem.core.chip.spatial.name=Spatial Circuit Tier I
+metaitem.display.name=Display
 
 metaitem.electrode.apatite.name=Apatine Electrode
 metaitem.electrode.blaze.name=Blazing Electrode

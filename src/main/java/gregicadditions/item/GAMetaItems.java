@@ -65,6 +65,7 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_EMERALD;
 	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_ADVANCED_EMERALD;
 	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_SPATIAL;
+	public static MetaItem<?>.MetaValueItem DISPLAY;
 
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();
