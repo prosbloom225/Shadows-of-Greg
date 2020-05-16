@@ -66,6 +66,15 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_ADVANCED_EMERALD;
 	public static MetaItem<?>.MetaValueItem CORE_PROCESSOR_SPATIAL;
 	public static MetaItem<?>.MetaValueItem DISPLAY;
+	public static MetaItem<?>.MetaValueItem CIRCUIT_BOARD;
+	public static MetaItem<?>.MetaValueItem GOOD_CIRCUIT_BOARD;
+	public static MetaItem<?>.MetaValueItem ADVANCED_CIRCUIT_BOARD;
+	public static MetaItem<?>.MetaValueItem MORE_ADVANCED_CIRCUIT_BOARD;
+	public static MetaItem<?>.MetaValueItem ELITE_CIRCUIT_BOARD;
+	public static MetaItem<?>.MetaValueItem EXTREME_WETWARE_LIFESUPPORT_CIRCUIT_BOARD;
+	public static MetaItem<?>.MetaValueItem PLASTIC_CIRCUIT_BOARD;
+	public static MetaItem<?>.MetaValueItem ULTRA_BIO_MUTATED_CIRCUIT_BOARD;
+	public static MetaItem<?>.MetaValueItem ENGINE_CORE;
 
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();

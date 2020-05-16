@@ -3,6 +3,7 @@ package gregicadditions.item;
 import gregicadditions.GAConfig;
 import gregtech.api.items.materialitem.MaterialMetaItem;
 import gregtech.api.items.metaitem.ElectricStats;
+import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.items.metaitem.stats.IItemComponent;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
@@ -73,6 +74,15 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.CORE_CHIP_SPATIAL = addItem(145, "core.chip.spatial");
 		GAMetaItems.CORE_PROCESSOR_SPATIAL = addItem(146, "core.processor.spatial");
 		GAMetaItems.DISPLAY = addItem(147, "display");
+		GAMetaItems.CIRCUIT_BOARD = addItem(148, "circuit.board");
+		GAMetaItems.GOOD_CIRCUIT_BOARD = addItem(149, "good.circuit.board");
+		GAMetaItems.ADVANCED_CIRCUIT_BOARD = addItem(150, "advanced.circuit.board");
+		GAMetaItems.MORE_ADVANCED_CIRCUIT_BOARD = addItem(151, "more.advanced.circuit.board");
+		GAMetaItems.ELITE_CIRCUIT_BOARD = addItem(152, "elite.circuit.board");
+		GAMetaItems.EXTREME_WETWARE_LIFESUPPORT_CIRCUIT_BOARD= addItem(153, "extreme.wetware.lifesupport.circuit.board");
+		GAMetaItems.PLASTIC_CIRCUIT_BOARD = addItem(154, "plastic.circuit.board");
+		GAMetaItems.ULTRA_BIO_MUTATED_CIRCUIT_BOARD = addItem(155, "ultra.bio.mutated.circuit.board");
+		GAMetaItems.ENGINE_CORE = addItem(156, "engine.core");
 	}
 
 	@Override
