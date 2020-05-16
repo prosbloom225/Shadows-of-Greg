@@ -83,6 +83,14 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.PLASTIC_CIRCUIT_BOARD = addItem(154, "plastic.circuit.board");
 		GAMetaItems.ULTRA_BIO_MUTATED_CIRCUIT_BOARD = addItem(155, "ultra.bio.mutated.circuit.board");
 		GAMetaItems.ENGINE_CORE = addItem(156, "engine.core");
+		GAMetaItems.GOOD_ELECTRONIC_CIRCUIT = addItem(157, "good.electronic.circuit");
+		GAMetaItems.WORKSTATION = addItem(158, "workstation");
+		GAMetaItems.MAINFRAME = addItem(159, "mainframe");
+		GAMetaItems.NANOPROCESSOR_MAINFRAME = addItem(160, "nanoprocessor.mainframe");
+		GAMetaItems.ELITE_NANOCOMPUTER = addItem(161, "elite.nanocomputer");
+		GAMetaItems.QUANTUMPROCESSOR_ASSEMBLY = addItem(162, "quantumprocessor.assembly");
+		GAMetaItems.MASTER_QUANTUMCOMPUTER = addItem(163, "master.quantumcomputer");
+		GAMetaItems.CRYSTALPROCESSOR_ASSEMBLY = addItem(164, "crystalprocessor.assembly");
 	}
 
 	@Override

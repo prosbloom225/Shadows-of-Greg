@@ -75,6 +75,14 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem PLASTIC_CIRCUIT_BOARD;
 	public static MetaItem<?>.MetaValueItem ULTRA_BIO_MUTATED_CIRCUIT_BOARD;
 	public static MetaItem<?>.MetaValueItem ENGINE_CORE;
+	public static MetaItem<?>.MetaValueItem GOOD_ELECTRONIC_CIRCUIT;
+	public static MetaItem<?>.MetaValueItem WORKSTATION;
+	public static MetaItem<?>.MetaValueItem MAINFRAME;
+	public static MetaItem<?>.MetaValueItem NANOPROCESSOR_MAINFRAME;
+	public static MetaItem<?>.MetaValueItem ELITE_NANOCOMPUTER;
+	public static MetaItem<?>.MetaValueItem QUANTUMPROCESSOR_ASSEMBLY;
+	public static MetaItem<?>.MetaValueItem MASTER_QUANTUMCOMPUTER;
+	public static MetaItem<?>.MetaValueItem CRYSTALPROCESSOR_ASSEMBLY;
 
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();

@@ -181,6 +181,14 @@ metaitem.extreme.wetware.lifesupport.circuit.board.name=Extreme Wetware Lifesupp
 metaitem.plastic.circuit.board.name=Plastic Circuit Board
 metaitem.ultra.bio.mutated.circuit.board.name=Ultra Bio Mutated Circuit Board
 metaitem.engine.core.name=Engine Core
+metaitem.good.electronic.circuit.name=Good Electronic Circuit
+metaitem.workstation.name=Workstation
+metaitem.mainframe.name=Mainframe
+metaitem.nanoprocessor.mainframe.name=Nanoprocessor Mainframe
+metaitem.elite.nanocomputer.name=Elite Nanocomputer
+metaitem.quantumprocessor.assembly.name=Quantumprocessor Assembly
+metaitem.master.quantumcomputer.name=Master Quantumcomputer
+metaitem.crystalprocessor.assembly.name=Crystalprocessor Assembly
 
 metaitem.electrode.apatite.name=Apatine Electrode
 metaitem.electrode.blaze.name=Blazing Electrode
