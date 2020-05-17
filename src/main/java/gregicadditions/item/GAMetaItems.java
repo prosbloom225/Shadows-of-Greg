@@ -12,6 +12,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 import net.minecraftforge.oredict.OreDictionary;
+import scala.swing.MainFrame;
 
 public class GAMetaItems {
 
@@ -97,6 +98,15 @@ public class GAMetaItems {
 				((GAMetaItem) item).registerOreDict();
 			}
 		}
+		// Circuit oredicts
+		GOOD_ELECTRONIC_CIRCUIT.addOreDict("circuitGood");
+		WORKSTATION.addOreDict("circuitExtreme");
+		MAINFRAME.addOreDict("circuitElite");
+		NANOPROCESSOR_MAINFRAME.addOreDict("circuitMaster");
+		ELITE_NANOCOMPUTER.addOreDict("circuitElite");
+		QUANTUMPROCESSOR_ASSEMBLY.addOreDict("circuitElite");
+		MASTER_QUANTUMCOMPUTER.addOreDict("circuitMaster");
+		CRYSTALPROCESSOR_ASSEMBLY.addOreDict("circuitMaster");
 	}
 
 	public static void registerRecipes() {

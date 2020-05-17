@@ -8,6 +8,8 @@ import gregicadditions.item.*;
 import gregicadditions.machines.GATileEntities;
 import gregtech.api.GTValues;
 import gregtech.api.items.ToolDictNames;
+import gregtech.api.items.materialitem.MaterialMetaItem;
+import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.recipes.*;
 import gregtech.api.recipes.builders.BlastRecipeBuilder;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
@@ -42,9 +44,12 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import static gregtech.api.unification.material.Materials.Copper;
 import static gregtech.api.unification.material.Materials.Potassium;
 
 public class GARecipeAddition {
@@ -868,16 +873,151 @@ public class GARecipeAddition {
 				.fluidInputs(Materials.Oxygen.getFluid(2000))
 				.outputs(GAMetaItems.COMPLETE_CASING_HALF.getStackForm())
 				.buildAndRegister();
+	}
 
-		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
-				.duration(320)
-				.EUt(120)
-				.inputs(GAMetaItems.COMPLETE_CASING_HALF.getStackForm(),
-						OreDictUnifier.get(OrePrefix.plate, Materials.VanadiumGallium, 4))
-				.fluidInputs(Materials.Tantalum.getFluid(1000))
-				.outputs(GAMetaItems.COMPLETE_CASING.getStackForm())
-				.buildAndRegister();
+	private static final MaterialStack[] solderingList = {
+			//new MaterialStack(Materials.Tin, 2L),
+			new MaterialStack(Materials.SolderingAlloy, 1L)
+	};
 
+	private static final List<MetaItem.MetaValueItem> diodeList = Arrays.asList(
+			MetaItems.DIODE,
+			MetaItems.SMD_DIODE);
+	private static final List<MetaItem.MetaValueItem> transistorList = Arrays.asList(
+			MetaItems.TRANSISTOR,
+			MetaItems.SMD_TRANSISTOR);
+	private static final List<MetaItem.MetaValueItem> resistorList = Arrays.asList(
+			MetaItems.RESISTOR,
+			MetaItems.SMD_RESISTOR);
+	private static final List<MetaItem.MetaValueItem> capacitorList = Arrays.asList(
+			MetaItems.CAPACITOR,
+			MetaItems.SMD_CAPACITOR);
+
+	public static void gtnh() {
+		// Circuits
+		for (MaterialStack stack : solderingList) {
+			IngotMaterial solder = (IngotMaterial) stack.material;
+			int multiplier = (int) stack.amount;
+
+			// LV - Integrated Logic Circuit
+			resistorList.forEach(r->
+					diodeList.forEach(d->
+							GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.CIRCUIT_BOARD.getStackForm(), MetaItems.INTEGRATED_LOGIC_CIRCUIT.getStackForm(), OreDictUnifier.get(OrePrefix.wireFine, Materials.Copper, 2), OreDictUnifier.get(OrePrefix.bolt, Materials.Tin, 2),
+									r.getStackForm(2), d.getStackForm(2)
+							).fluidInputs(solder.getFluid(multiplier * 72)).outputs(MetaItems.ADVANCED_CIRCUIT_PARTS_LV.getStackForm(1)).duration(200).EUt(16).buildAndRegister()
+					));
+
+			// LV - Microprocessor
+			resistorList.forEach(r->
+					capacitorList.forEach(c->
+							transistorList.forEach(t->
+									GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.PLASTIC_CIRCUIT_BOARD.getStackForm(), MetaItems.CENTRAL_PROCESSING_UNIT.getStackForm(),OreDictUnifier.get(OrePrefix.wireFine, Materials.Copper, 2),
+											r.getStackForm(2), c.getStackForm(2), t.getStackForm(2)
+									).fluidInputs(solder.getFluid(multiplier * 72)).outputs(MetaItems.ADVANCED_CIRCUIT_PARTS_LV.getStackForm(2)).duration(400).EUt(60).buildAndRegister()
+							)));
+			GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.PLASTIC_CIRCUIT_BOARD.getStackForm(), MetaItems.SYSTEM_ON_CHIP.getStackForm(),
+					OreDictUnifier.get(OrePrefix.wireFine, Copper, 2), OreDictUnifier.get(OrePrefix.bolt, Copper, 2)
+			).fluidInputs(solder.getFluid(multiplier * 72)).outputs(MetaItems.ADVANCED_CIRCUIT_PARTS_LV.getStackForm(2)).duration(50).EUt(600).buildAndRegister();
+
+			// MV - Good Electronic Circuit
+			diodeList.forEach(d->
+					GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.GOOD_CIRCUIT_BOARD.getStackForm(), MetaItems.BASIC_ELECTRONIC_CIRCUIT_LV.getStackForm(2), OreDictUnifier.get(OrePrefix.wireGtSingle, Copper, 2),
+							d.getStackForm(4)
+					).fluidInputs(solder.getFluid(multiplier * 72)).outputs(GAMetaItems.GOOD_ELECTRONIC_CIRCUIT.getStackForm(2)).duration(600).EUt(30).buildAndRegister()
+			);
+
+			// MV - Good Integrated Circuit
+			resistorList.forEach(r->
+					transistorList.forEach(t->
+							GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.GOOD_CIRCUIT_BOARD.getStackForm(), MetaItems.BASIC_ELECTRONIC_CIRCUIT_LV.getStackForm(2),OreDictUnifier.get(OrePrefix.wireFine, Materials.Gold, 4),
+									r.getStackForm(4),  t.getStackForm(4)
+							).fluidInputs(solder.getFluid(multiplier * 72)).outputs(MetaItems.GOOD_INTEGRATED_CIRCUIT_MV.getStackForm(2)).duration(400).EUt(24).buildAndRegister()
+					));
+
+			// MV - Integrated Processor
+			resistorList.forEach(r->
+					capacitorList.forEach(c->
+							transistorList.forEach(t->
+									GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.PLASTIC_CIRCUIT_BOARD.getStackForm(), MetaItems.CENTRAL_PROCESSING_UNIT.getStackForm(),OreDictUnifier.get(OrePrefix.wireFine, Materials.RedAlloy, 4),
+											r.getStackForm(4), c.getStackForm(4), t.getStackForm(4)
+									).fluidInputs(solder.getFluid(multiplier * 72)).outputs(MetaItems.ADVANCED_CIRCUIT_MV.getStackForm(1)).duration(200).EUt(60).buildAndRegister()
+							)));
+			GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.PLASTIC_CIRCUIT_BOARD.getStackForm(), MetaItems.SYSTEM_ON_CHIP.getStackForm(),
+					OreDictUnifier.get(OrePrefix.wireFine, Materials.RedAlloy, 4), OreDictUnifier.get(OrePrefix.bolt, Materials.AnnealedCopper, 4)
+					).fluidInputs(solder.getFluid(multiplier * 72)).outputs(MetaItems.ADVANCED_CIRCUIT_MV.getStackForm(1)).duration(50).EUt(2400).buildAndRegister();
+
+			// HV - Processor Assembly
+			capacitorList.forEach(t->
+					GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.PLASTIC_CIRCUIT_BOARD.getStackForm(), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(4), MetaItems.ADVANCED_CIRCUIT_MV.getStackForm(2),
+							OreDictUnifier.get(OrePrefix.wireFine, Materials.RedAlloy, 8), MetaItems.SMALL_COIL.getStackForm(4),
+                            t.getStackForm(8)
+					).fluidInputs(solder.getFluid(multiplier * 144)).outputs(MetaItems.PROCESSOR_ASSEMBLY_HV.getStackForm(1)).duration(200).EUt(96).buildAndRegister()
+			);
+
+			// HV - Nanoprocessor
+			resistorList.forEach(r->
+					capacitorList.forEach(c->
+							transistorList.forEach(t->
+									GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.ADVANCED_CIRCUIT_BOARD.getStackForm(), MetaItems.NANO_CENTRAL_PROCESSING_UNIT.getStackForm(),OreDictUnifier.get(OrePrefix.wireFine, Materials.Electrum, 8),
+											r.getStackForm(8), c.getStackForm(8), t.getStackForm(8)
+									).fluidInputs(solder.getFluid(multiplier * 72)).outputs(MetaItems.NANO_PROCESSOR_HV.getStackForm(1)).duration(200).EUt(600).buildAndRegister()
+							)));
+			GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.ADVANCED_CIRCUIT_BOARD.getStackForm(6), MetaItems.ADVANCED_SYSTEM_ON_CHIP.getStackForm(6),
+					OreDictUnifier.get(OrePrefix.wireFine, Materials.Electrum, 48), OreDictUnifier.get(OrePrefix.bolt, Materials.Platinum, 48)
+			).fluidInputs(solder.getFluid(multiplier * 288)).outputs(MetaItems.NANO_PROCESSOR_HV.getStackForm(1)).duration(200).EUt(9600).buildAndRegister();
+
+			// EV - Workstation
+			diodeList.forEach(d->
+					GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.PLASTIC_CIRCUIT_BOARD.getStackForm(), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(8), MetaItems.PROCESSOR_ASSEMBLY_HV.getStackForm(2),
+							OreDictUnifier.get(OrePrefix.wireFine, Materials.Electrum, 16), OreDictUnifier.get(OrePrefix.bolt, Materials.BlueSteel, 16),
+							d.getStackForm(4)
+					).fluidInputs(solder.getFluid(multiplier * 144)).outputs(GAMetaItems.WORKSTATION.getStackForm(1)).duration(200).EUt(96).buildAndRegister()
+			);
+
+			// EV - Nanoprocessor Assembly
+			capacitorList.forEach(c->
+					GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.ADVANCED_CIRCUIT_BOARD.getStackForm(), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(8), MetaItems.NANO_PROCESSOR_HV.getStackForm(2),
+							OreDictUnifier.get(OrePrefix.wireFine, Materials.Electrum, 16), MetaItems.SMALL_COIL.getStackForm(8),
+							c.getStackForm(8)
+					).fluidInputs(solder.getFluid(multiplier * 144)).outputs(MetaItems.NANO_PROCESSOR_ASSEMBLY_EV.getStackForm(1)).duration(400).EUt(600).buildAndRegister()
+			);
+
+			// EV - Quantumprocessor
+			capacitorList.forEach(c->
+					transistorList.forEach(t->
+					GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.MORE_ADVANCED_CIRCUIT_BOARD.getStackForm(), MetaItems.QBIT_CENTRAL_PROCESSING_UNIT.getStackForm(), MetaItems.NANO_CENTRAL_PROCESSING_UNIT.getStackForm(),
+							OreDictUnifier.get(OrePrefix.wireFine, Materials.Platinum, 16),
+							c.getStackForm(12), t.getStackForm(12)
+					).fluidInputs(solder.getFluid(multiplier * 72)).outputs(MetaItems.QUANTUM_PROCESSOR_EV.getStackForm(1)).duration(200).EUt(2400).buildAndRegister()
+			));
+			GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.MORE_ADVANCED_CIRCUIT_BOARD.getStackForm(6), MetaItems.ADVANCED_SYSTEM_ON_CHIP.getStackForm(6),
+					OreDictUnifier.get(OrePrefix.wireFine, Materials.Platinum, 64), OreDictUnifier.get(OrePrefix.bolt, Materials.NiobiumTitanium, 48)
+			).fluidInputs(solder.getFluid(multiplier * 288)).outputs(MetaItems.QUANTUM_PROCESSOR_EV.getStackForm(1)).duration(200).EUt(38400).buildAndRegister();
+
+			// IV - Mainframe
+			capacitorList.forEach(c->
+					GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.frameGt, Materials.Aluminium, 2), GAMetaItems.WORKSTATION.getStackForm(2), MetaItems.SMALL_COIL.getStackForm(12),
+							OreDictUnifier.get(OrePrefix.wireGtSingle, Materials.AnnealedCopper, 24), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(16),
+							c.getStackForm(24)
+					).fluidInputs(solder.getFluid(multiplier * 288)).outputs(GAMetaItems.MAINFRAME.getStackForm(1)).duration(1600).EUt(480).buildAndRegister()
+			);
+
+			// IV - Elite Nanocomputer
+			diodeList.forEach(d->
+					GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.ADVANCED_CIRCUIT_BOARD.getStackForm(), MetaItems.NANO_PROCESSOR_ASSEMBLY_EV.getStackForm(2), MetaItems.NOR_MEMORY_CHIP.getStackForm(4),
+							OreDictUnifier.get(OrePrefix.wireFine, Materials.Electrum, 16), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(16),
+							d.getStackForm(8)
+					).fluidInputs(solder.getFluid(multiplier * 144)).outputs(GAMetaItems.ELITE_NANOCOMPUTER.getStackForm(1)).duration(200).EUt(600).buildAndRegister()
+			);
+
+			// IV - Quantumprocessor Assembly
+			capacitorList.forEach(c->
+					GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.MORE_ADVANCED_CIRCUIT_BOARD.getStackForm(), MetaItems.QUANTUM_PROCESSOR_EV.getStackForm(2), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(4),
+							OreDictUnifier.get(OrePrefix.wireFine, Materials.Platinum, 24), MetaItems.SMALL_COIL.getStackForm(12),
+							c.getStackForm(16)
+					).fluidInputs(solder.getFluid(multiplier * 144)).outputs(GAMetaItems.QUANTUMPROCESSOR_ASSEMBLY.getStackForm(1)).duration(400).EUt(2400).buildAndRegister()
+			);
+		}
 	}
 
 	public static void forestrySupport() {

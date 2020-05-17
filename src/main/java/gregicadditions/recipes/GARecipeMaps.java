@@ -29,6 +29,9 @@ public class GARecipeMaps {
 	public static final RecipeMap<SimpleRecipeBuilder> PROCESSING_ARRAY_RECIPES;
 
 	@ZenProperty
+	public static final RecipeMap<SimpleRecipeBuilder> CIRCUIT_RECIPES;
+
+	@ZenProperty
 	public static final RecipeMap<SimpleRecipeBuilder> ALLOY_BLAST_SMELTER;
 
 	@ZenProperty
@@ -45,5 +48,6 @@ public class GARecipeMaps {
 		PROCESSING_ARRAY_RECIPES = new RecipeMap<>("processing_array", 0, 9, 0, 6, 0, 3, 0, 2, new SimpleRecipeBuilder()).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
 		ALLOY_BLAST_SMELTER = new RecipeMap<>("alloy_blast_smelter", 0, 9, 0, 1, 0, 9, 0, 1, new SimpleRecipeBuilder()).setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
 		TREE_FARM = new RecipeMap<>("tree_farm", 1, 1, 0, 3, 0, 0, 0, 1, new SimpleRecipeBuilder()).setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
+		CIRCUIT_RECIPES = new RecipeMap<>("circuit_assembler", 1, 6, 1, 1, 0, 1, 0, 0, new SimpleRecipeBuilder()).setSlotOverlay(false, false, GuiTextures.BENDER_OVERLAY).setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL);
 	}
 }
