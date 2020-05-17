@@ -196,6 +196,25 @@ public class MachineCraftingRecipes {
 		ModHandler.addShapedRecipe("ga_assline", GATileEntities.ASSEMBLY_LINE.getStackForm(), "CRC", "SAS", "CRC", 'A', MetaTileEntities.HULL[GTValues.IV].getStackForm(), 'R', MetaItems.ROBOT_ARM_IV, 'C', MetaBlocks.MUTLIBLOCK_CASING.getItemVariant(BlockMultiblockCasing.MultiblockCasingType.ASSEMBLER_CASING), 'S', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Elite));
 		ModHandler.addShapedRecipe("ga_processing_array", GATileEntities.PROCESSING_ARRAY.getStackForm(), "CBC", "RHR", "CDC", 'H', MetaTileEntities.HULL[GTValues.IV].getStackForm(), 'R', MetaItems.ROBOT_ARM_IV, 'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Elite), 'B', MetaItems.ENERGY_LAPOTRONIC_ORB, 'D', MetaItems.TOOL_DATA_ORB);
 
+		// --- Meta Machines ---
+
+		// Circuit Assembler
+		ModHandler.addShapedRecipe("ga_circuit_assembler_lv", GATileEntities.CIRCUIT_ASSEMBLER[GTValues.LV].getStackForm(), "ACE", "VSV", "WCW", 'A', MetaItems.ROBOT_ARM_LV.getStackForm(),
+				'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Good), 'E', MetaItems.EMITTER_LV.getStackForm(), 'V', MetaItems.CONVEYOR_MODULE_LV.getStackForm(), 'S', MetaTileEntities.HULL[GTValues.LV].getStackForm(), 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Tin));
+		ModHandler.addShapedRecipe("ga_circuit_assembler_mv", GATileEntities.CIRCUIT_ASSEMBLER[GTValues.MV].getStackForm(), "ACE", "VSV", "WCW", 'A', MetaItems.ROBOT_ARM_MV.getStackForm(),
+				'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Advanced), 'E', MetaItems.EMITTER_MV.getStackForm(), 'V', MetaItems.CONVEYOR_MODULE_MV.getStackForm(), 'S', MetaTileEntities.HULL[GTValues.MV].getStackForm(), 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Copper));
+		ModHandler.addShapedRecipe("ga_circuit_assembler_hv", GATileEntities.CIRCUIT_ASSEMBLER[GTValues.HV].getStackForm(), "ACE", "VSV", "WCW", 'A', MetaItems.ROBOT_ARM_HV.getStackForm(),
+				'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Extreme), 'E', MetaItems.EMITTER_HV.getStackForm(), 'V', MetaItems.CONVEYOR_MODULE_HV.getStackForm(), 'S', MetaTileEntities.HULL[GTValues.HV].getStackForm(), 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Copper));
+		ModHandler.addShapedRecipe("ga_circuit_assembler_ev", GATileEntities.CIRCUIT_ASSEMBLER[GTValues.EV].getStackForm(), "ACE", "VSV", "WCW", 'A', MetaItems.ROBOT_ARM_EV.getStackForm(),
+				'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Elite), 'E', MetaItems.EMITTER_EV.getStackForm(), 'V', MetaItems.CONVEYOR_MODULE_EV.getStackForm(), 'S', MetaTileEntities.HULL[GTValues.EV].getStackForm(), 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Aluminium));
+		ModHandler.addShapedRecipe("ga_circuit_assembler_iv", GATileEntities.CIRCUIT_ASSEMBLER[GTValues.IV].getStackForm(), "ACE", "VSV", "WCW", 'A', MetaItems.ROBOT_ARM_IV.getStackForm(),
+				'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Master), 'E', MetaItems.EMITTER_IV.getStackForm(), 'V', MetaItems.CONVEYOR_MODULE_IV.getStackForm(), 'S', MetaTileEntities.HULL[GTValues.IV].getStackForm(), 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Platinum));
+		ModHandler.addShapedRecipe("ga_circuit_assembler_luv", GATileEntities.CIRCUIT_ASSEMBLER[GTValues.LuV].getStackForm(), "ACE", "VSV", "WCW", 'A', MetaItems.ROBOT_ARM_LUV.getStackForm(),
+				'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Ultimate), 'E', MetaItems.EMITTER_LUV.getStackForm(), 'V', MetaItems.CONVEYOR_MODULE_LUV.getStackForm(), 'S', MetaTileEntities.HULL[GTValues.LuV].getStackForm(), 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.NiobiumTitanium));
+		ModHandler.addShapedRecipe("ga_circuit_assembler_zpm", GATileEntities.CIRCUIT_ASSEMBLER[GTValues.ZPM].getStackForm(), "ACE", "VSV", "WCW", 'A', MetaItems.ROBOT_ARM_ZPM.getStackForm(),
+				'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Superconductor), 'E', MetaItems.EMITTER_ZPM.getStackForm(), 'V', MetaItems.CONVEYOR_MODULE_ZPM.getStackForm(), 'S', MetaTileEntities.HULL[GTValues.ZPM].getStackForm(), 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Naquadah));
+		ModHandler.addShapedRecipe("ga_circuit_assembler_uv", GATileEntities.CIRCUIT_ASSEMBLER[GTValues.UV].getStackForm(), "ACE", "VSV", "WCW", 'A', MetaItems.ROBOT_ARM_UV.getStackForm(),
+				'C', new UnificationEntry(OrePrefix.valueOf("circuit"), Tier.Infinite), 'E', MetaItems.EMITTER_UV.getStackForm(), 'V', MetaItems.CONVEYOR_MODULE_UV.getStackForm(), 'S', MetaTileEntities.HULL[GTValues.UV].getStackForm(), 'W', new UnificationEntry(OrePrefix.cableGtQuadruple, Materials.NaquadahAlloy));
 
 		/*
 		LV - basic

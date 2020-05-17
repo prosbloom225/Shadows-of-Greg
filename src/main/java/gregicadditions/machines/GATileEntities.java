@@ -57,7 +57,7 @@ public class GATileEntities {
 	public static SimpleGeneratorMetaTileEntity[] NAQUADAH_REACTOR = new SimpleGeneratorMetaTileEntity[8];
 	public static SimpleMachineMetaTileEntity[] REPLICATOR = new SimpleMachineMetaTileEntity[8];
 	public static SimpleMachineMetaTileEntity[] MASS_FAB = new SimpleMachineMetaTileEntity[8];
-	public static SimpleMachineMetaTileEntity[] CIRCUIT_ASSEMBLER = new SimpleMachineMetaTileEntity[8];
+	public static SimpleMachineMetaTileEntity[] CIRCUIT_ASSEMBLER = new SimpleMachineMetaTileEntity[9];
 	public static TileEntityFusionReactor[] FUSION_REACTOR = new TileEntityFusionReactor[3];
 
 	public static TileEntityAssemblyLine ASSEMBLY_LINE;
@@ -421,9 +421,14 @@ public class GATileEntities {
 		FUSION_REACTOR[1] = GregTechAPI.registerMetaTileEntity(2505, new TileEntityFusionReactor(location("fusion_reactor.zpm"), 7));
 		FUSION_REACTOR[2] = GregTechAPI.registerMetaTileEntity(2506, new TileEntityFusionReactor(location("fusion_reactor.uv"), 8));
 
-		CIRCUIT_ASSEMBLER[0] = GregTechAPI.registerMetaTileEntity(2627, new SimpleMachineMetaTileEntity(location("circuit_assembler.lv"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 1));
-		CIRCUIT_ASSEMBLER[1] = GregTechAPI.registerMetaTileEntity(2628, new SimpleMachineMetaTileEntity(location("circuit_assembler.mv"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 2));
-		CIRCUIT_ASSEMBLER[2] = GregTechAPI.registerMetaTileEntity(2629, new SimpleMachineMetaTileEntity(location("circuit_assembler.hv"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 3));
+		CIRCUIT_ASSEMBLER[1] = GregTechAPI.registerMetaTileEntity(2627, new SimpleMachineMetaTileEntity(location("circuit_assembler.lv"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 1));
+		CIRCUIT_ASSEMBLER[2] = GregTechAPI.registerMetaTileEntity(2628, new SimpleMachineMetaTileEntity(location("circuit_assembler.mv"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 2));
+		CIRCUIT_ASSEMBLER[3] = GregTechAPI.registerMetaTileEntity(2629, new SimpleMachineMetaTileEntity(location("circuit_assembler.hv"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 3));
+		CIRCUIT_ASSEMBLER[4] = GregTechAPI.registerMetaTileEntity(2630, new SimpleMachineMetaTileEntity(location("circuit_assembler.ev"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 4));
+		CIRCUIT_ASSEMBLER[5] = GregTechAPI.registerMetaTileEntity(2631, new SimpleMachineMetaTileEntity(location("circuit_assembler.iv"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 5));
+		CIRCUIT_ASSEMBLER[6] = GregTechAPI.registerMetaTileEntity(2632, new SimpleMachineMetaTileEntity(location("circuit_assembler.luv"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 6));
+		CIRCUIT_ASSEMBLER[7] = GregTechAPI.registerMetaTileEntity(2633, new SimpleMachineMetaTileEntity(location("circuit_assembler.zpm"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 7));
+		CIRCUIT_ASSEMBLER[8] = GregTechAPI.registerMetaTileEntity(2634, new SimpleMachineMetaTileEntity(location("circuit_assembler.uv"), GARecipeMaps.CIRCUIT_RECIPES, Textures.ASSEMBLER_OVERLAY, 8));
 
 		PROCESSING_ARRAY = GregTechAPI.registerMetaTileEntity(2507, new TileEntityProcessingArray(location("processing_array")));
 
