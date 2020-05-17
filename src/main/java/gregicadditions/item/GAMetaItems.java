@@ -84,6 +84,8 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem QUANTUMPROCESSOR_ASSEMBLY;
 	public static MetaItem<?>.MetaValueItem MASTER_QUANTUMCOMPUTER;
 	public static MetaItem<?>.MetaValueItem CRYSTALPROCESSOR_ASSEMBLY;
+	public static MetaItem<?>.MetaValueItem ELECTRONIC_CIRCUIT;
+	public static MetaItem<?>.MetaValueItem ADVANCED_CIRCUIT;
 
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();
@@ -107,6 +109,8 @@ public class GAMetaItems {
 		QUANTUMPROCESSOR_ASSEMBLY.addOreDict("circuitElite");
 		MASTER_QUANTUMCOMPUTER.addOreDict("circuitMaster");
 		CRYSTALPROCESSOR_ASSEMBLY.addOreDict("circuitMaster");
+		ELECTRONIC_CIRCUIT.addOreDict("circuitBasic");
+		ADVANCED_CIRCUIT.addOreDict("circuitAdvanced");
 	}
 
 	public static void registerRecipes() {

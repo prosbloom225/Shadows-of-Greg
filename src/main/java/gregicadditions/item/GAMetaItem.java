@@ -91,6 +91,8 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.QUANTUMPROCESSOR_ASSEMBLY = addItem(162, "quantumprocessor.assembly");
 		GAMetaItems.MASTER_QUANTUMCOMPUTER = addItem(163, "master.quantumcomputer");
 		GAMetaItems.CRYSTALPROCESSOR_ASSEMBLY = addItem(164, "crystalprocessor.assembly");
+		GAMetaItems.ELECTRONIC_CIRCUIT = addItem(165, "electronic.circuit");
+		GAMetaItems.ADVANCED_CIRCUIT = addItem(166, "advanced.circuit");
 	}
 
 	@Override
