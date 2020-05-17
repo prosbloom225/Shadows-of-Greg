@@ -261,4 +261,19 @@ public class GAConfig {
 		@Config.Name("Air Collector have IV and LuV version")
 		public boolean highTierCollector = true;
 	}
+
+	@Config.Comment("Config options of Gregtech: New Horizons")
+	public static GTNH gtnh = new GTNH();
+
+	public static class GTNH {
+		@Config.Comment("Set these to true to disable blocks of recipes")
+		@Config.Name("Disable Assembler recipes for circuits")
+		public boolean disableAssemblerCircuits = true;
+		@Config.Name("List of circuits disabled in assembler")
+		public String disableAssemblerCircuitsList = "Basic Electronic Circuit,Advanced Circuit Parts,Good Electronic Circuit,Integrated Processor,Good Electronic Circuit,Nanoprocessor,Processor Assembly,Crystalprocessor,Data Control Circuit,Energy Flow Circuit,Wetware Processor,Wetware Mainframe,Wetware Supercomputer,Wetware Assembly,Quantumprocessor,Nano Processor Assembly";
+
+		// TODO - assembly line disables
+		//"Wetware Mainframe"
+	}
+
 }

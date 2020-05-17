@@ -1,6 +1,7 @@
 package gregicadditions.recipes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -185,6 +186,15 @@ public class GAMachineRecipeRemoval {
 		removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.block, Materials.CertusQuartz) }, new FluidStack[] { Materials.DistilledWater.getFluid(55) });
 		removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[] { new ItemStack(Blocks.QUARTZ_BLOCK) }, new FluidStack[] { Materials.Lubricant.getFluid(18) });
 		removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.block, Materials.CertusQuartz) }, new FluidStack[] { Materials.Lubricant.getFluid(18) });
+
+		// Clear the assembler recipes for circuits
+		List names = new ArrayList();
+		names.add("Basic Electronic Circuit");
+		removeRecipesByOutput(RecipeMaps.ASSEMBLER_RECIPES, names);
+		if (GAConfig.gtnh.disableAssemblerCircuits)
+			removeRecipesByOutput(RecipeMaps.ASSEMBLER_RECIPES,
+					Arrays.asList(GAConfig.gtnh.disableAssemblerCircuitsList.split(",")));
+
 	}
 
 	private static <R extends RecipeBuilder<R>> void removeRecipesByInputs(RecipeMap<R> map, ItemStack... itemInputs) {
@@ -218,5 +228,18 @@ public class GAMachineRecipeRemoval {
 
 		for (Recipe r : recipes)
 			map.removeRecipe(r);
+	}
+
+	private static <R extends RecipeBuilder<R>> void removeRecipesByOutput(RecipeMap<R> map, List<String> names) {
+		// Dirty remove method will remove any recipes containing the itemstack
+		// proceed with caution
+		List<Recipe> toRemove = new ArrayList<>();
+		for (Recipe r : map.getRecipeList())
+			if (r.getOutputs().stream()
+					.map(ItemStack::getDisplayName)
+					.anyMatch(names::contains))
+				toRemove.add(r);
+
+			toRemove.forEach(r->map.removeRecipe(r));
 	}
 }
