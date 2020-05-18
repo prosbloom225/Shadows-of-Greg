@@ -2,6 +2,7 @@ package gregicadditions;
 
 import com.google.common.collect.ImmutableList;
 
+import gregicadditions.item.GAIngotMaterial;
 import gregtech.api.unification.Element;
 import gregtech.api.unification.material.IMaterialHandler;
 import gregtech.api.unification.material.MaterialIconSet;
@@ -34,6 +35,15 @@ public class GAMaterials implements IMaterialHandler {
 	public static final FluidMaterial POSITIVE_MATTER = new FluidMaterial(882, "positive_matter", 11279131, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
 	public static final IngotMaterial NEUTRONIUM = new IngotMaterial(972, "neutronium", 12829635, MaterialIconSet.METALLIC, 6, ImmutableList.of(), EXT2_METAL | IngotMaterial.MatFlags.GENERATE_RING | IngotMaterial.MatFlags.GENERATE_ROTOR | IngotMaterial.MatFlags.GENERATE_SMALL_GEAR | SolidMaterial.MatFlags.GENERATE_LONG_ROD | MatFlags.GENERATE_FRAME, Element.valueOf("Nt"), 24.0F, 12F, 655360);
 	public static final GemMaterial LIGNITE_COKE = new GemMaterial(879, "lignite_coke", 0x8b6464, MaterialIconSet.LIGNITE, 1, ImmutableList.of(new MaterialStack(Materials.Carbon, 1)), Material.MatFlags.DECOMPOSITION_BY_ELECTROLYZING | SolidMaterial.MatFlags.MORTAR_GRINDABLE | Material.MatFlags.FLAMMABLE | DustMaterial.MatFlags.NO_SMELTING | DustMaterial.MatFlags.NO_SMASHING);
+
+	public static final IngotMaterial POLYBENZIMIDAZOLE = new IngotMaterial(976, "polybenzimidazole", 0x262626, MaterialIconSet.METALLIC, 1, ImmutableList.of(), IngotMaterial.MatFlags.GENERATE_FOIL | FluidMaterial.MatFlags.GENERATE_FLUID_BLOCK);
+	public static final FluidMaterial THREE_THREE_DIAMINOBENZIDINE = new FluidMaterial(977, "three_three_diaminobenzidine", 0x306b4f, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
+	public static final FluidMaterial TWO_NITROCHLOROBENZENE = new FluidMaterial(978, "two_nitrochlorobenzene", 0x718e18, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
+	public static final FluidMaterial THREE_THREE_DICHLOROBENZIDINE = new FluidMaterial(979, "three_three_dichlorobenzidine", 0x81b285, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
+	public static final FluidMaterial CHLOROBENZENE = new FluidMaterial(980, "chlorobenzene", 0x062a33, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
+	public static final FluidMaterial DIPHENYL_ISOPHTALATE = new FluidMaterial(981, "diphenyl_isophtalate", 0x205545, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
+	public static final FluidMaterial PHTALIC_ACID = new FluidMaterial(982, "phtalic_acid", 0x377044, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
+	public static final FluidMaterial DIMETHYL_BENZENE = new FluidMaterial(983, "dimethyl_benzene", 0x527a34, MaterialIconSet.FLUID, ImmutableList.of(), Material.MatFlags.DISABLE_DECOMPOSITION);
 
 	/*
 	public static final IngotMaterial Enderium = new IngotMaterial(701, "enderium", 0x23524a, MaterialIconSet.METALLIC, 3,

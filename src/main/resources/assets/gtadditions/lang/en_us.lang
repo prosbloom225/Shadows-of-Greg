@@ -671,6 +671,14 @@ material.positive_matter=Positive Matter
 material.neutronium=Neutronium
 material.plasma=Plasma Confinement
 material.lignite_coke=Lignite Coke
+material.polybenzimidazole=Polybenzimidazole
+material.three_three_diaminobenzidine=3,3-Diaminobenzidine
+material.two_nitrochlorobenzene=2-Nitrochlorobenzene
+material.three_three_dichlorobenzidine=3,3-Dichlorobenzidine
+material.chlorobenzene=Chlorobenzene
+material.diphenyl_isophtalate=Diphenyl Isophtalate
+material.phtalic_acid=Phtalic Acid
+material.dimethyl_benzene=Dimethyl Benzene
 
 material.staballoy=Staballoy
 material.tantalloy60=Tantalloy-60
