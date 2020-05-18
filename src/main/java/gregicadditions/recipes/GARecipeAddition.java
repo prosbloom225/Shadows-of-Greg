@@ -1040,6 +1040,14 @@ public class GARecipeAddition {
 							c.getStackForm(16)
 					).fluidInputs(solder.getFluid(multiplier * 144)).outputs(GAMetaItems.QUANTUMPROCESSOR_ASSEMBLY.getStackForm(1)).duration(400).EUt(2400).buildAndRegister()
 			);
+
+			// LuV - Nanoprocessor Mainframe
+			GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.frameGt, Aluminium, 2), GAMetaItems.ELITE_NANOCOMPUTER.getStackForm(2), MetaItems.SMALL_COIL.getStackForm(16),
+					OreDictUnifier.get(OrePrefix.wireGtSingle, AnnealedCopper, 24), MetaItems.SMD_CAPACITOR.getStackForm(32), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(16)
+			).fluidInputs(solder.getFluid(multiplier * 144)).outputs(GAMetaItems.QUANTUMPROCESSOR_ASSEMBLY.getStackForm(1)).duration(1600).EUt(1920).buildAndRegister();
+			GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.frameGt, Aluminium, 2), GAMetaItems.ELITE_NANOCOMPUTER.getStackForm(2), MetaItems.SMALL_COIL.getStackForm(16),
+					OreDictUnifier.get(OrePrefix.wireGtSingle, AnnealedCopper, 24), GAMetaItems.ADVANCED_SMD_CAPACITOR.getStackForm(16), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(16)
+			).fluidInputs(solder.getFluid(multiplier * 144)).outputs(GAMetaItems.QUANTUMPROCESSOR_ASSEMBLY.getStackForm(1)).duration(800).EUt(2400).buildAndRegister();
 		}
 	}
 

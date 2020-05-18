@@ -86,13 +86,16 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem CRYSTALPROCESSOR_ASSEMBLY;
 	public static MetaItem<?>.MetaValueItem ELECTRONIC_CIRCUIT;
 	public static MetaItem<?>.MetaValueItem ADVANCED_CIRCUIT;
-
 	public static MetaItem<?>.MetaValueItem QUANTUMPROCESSOR_MAINFRAME;
 	public static MetaItem<?>.MetaValueItem ULTIMATE_CRYSTALCOMPUTER;
 	public static MetaItem<?>.MetaValueItem BIOPROCESSOR;
 	public static MetaItem<?>.MetaValueItem CRYSTALPROCESSOR_MAINFRAME;
 	public static MetaItem<?>.MetaValueItem BIOWAREPROCESSOR_ASSEMBLY;
 	public static MetaItem<?>.MetaValueItem BIOWARE_SUPERCOMPUTER;
+	public static MetaItem<?>.MetaValueItem ADVANCED_SMD_RESISTOR;
+	public static MetaItem<?>.MetaValueItem ADVANCED_SMD_CAPACITOR;
+	public static MetaItem<?>.MetaValueItem ADVANCED_SMD_TRANSISTOR;
+	public static MetaItem<?>.MetaValueItem ADVANCED_SMD_DIODE;
 
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();
