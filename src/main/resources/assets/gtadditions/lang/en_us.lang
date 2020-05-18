@@ -192,6 +192,13 @@ metaitem.crystalprocessor.assembly.name=Crystalprocessor Assembly
 metaitem.electronic.circuit.name=Electronic Circuit
 metaitem.advanced.circuit.name=Advanced Circuit
 
+metaitem.quantumprocessor.mainframe.name=Quantumprocessor Mainframe
+metaitem.ultimate.crystalcomputer.name=Ultimate Crystal Computer
+metaitem.bioprocessor.name=Bioprocessor
+metaitem.crystalprocessor.mainframe.name=Crystalprocessor Mainframe
+metaitem.biowareprocessor.assembly.name=Biowareprocessor Assembly
+metaitem.bioware.supercomputer.name=Bioware Supercomputer
+
 metaitem.electrode.apatite.name=Apatine Electrode
 metaitem.electrode.blaze.name=Blazing Electrode
 metaitem.electrode.bronze.name=Bronze Electrode

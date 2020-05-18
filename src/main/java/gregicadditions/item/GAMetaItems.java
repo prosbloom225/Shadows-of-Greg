@@ -87,6 +87,13 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem ELECTRONIC_CIRCUIT;
 	public static MetaItem<?>.MetaValueItem ADVANCED_CIRCUIT;
 
+	public static MetaItem<?>.MetaValueItem QUANTUMPROCESSOR_MAINFRAME;
+	public static MetaItem<?>.MetaValueItem ULTIMATE_CRYSTALCOMPUTER;
+	public static MetaItem<?>.MetaValueItem BIOPROCESSOR;
+	public static MetaItem<?>.MetaValueItem CRYSTALPROCESSOR_MAINFRAME;
+	public static MetaItem<?>.MetaValueItem BIOWAREPROCESSOR_ASSEMBLY;
+	public static MetaItem<?>.MetaValueItem BIOWARE_SUPERCOMPUTER;
+
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();
 		item.setRegistryName("ga_meta_item");
@@ -111,6 +118,12 @@ public class GAMetaItems {
 		CRYSTALPROCESSOR_ASSEMBLY.addOreDict("circuitMaster");
 		ELECTRONIC_CIRCUIT.addOreDict("circuitBasic");
 		ADVANCED_CIRCUIT.addOreDict("circuitAdvanced");
+		QUANTUMPROCESSOR_MAINFRAME.addOreDict("circuitUltimate");
+		ULTIMATE_CRYSTALCOMPUTER.addOreDict("circuitUltimate");
+		BIOPROCESSOR.addOreDict("circuitUltimate");
+		CRYSTALPROCESSOR_MAINFRAME.addOreDict("circuitSuperconductor");
+		BIOWAREPROCESSOR_ASSEMBLY.addOreDict("circuitSuperconductor");
+		BIOWARE_SUPERCOMPUTER.addOreDict("circuitInfinite");
 	}
 
 	public static void registerRecipes() {

@@ -93,6 +93,12 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.CRYSTALPROCESSOR_ASSEMBLY = addItem(164, "crystalprocessor.assembly");
 		GAMetaItems.ELECTRONIC_CIRCUIT = addItem(165, "electronic.circuit");
 		GAMetaItems.ADVANCED_CIRCUIT = addItem(166, "advanced.circuit");
+		GAMetaItems.QUANTUMPROCESSOR_MAINFRAME = addItem(167, "quantumprocessor.mainframe");
+		GAMetaItems.ULTIMATE_CRYSTALCOMPUTER = addItem(168, "ultimate.crystalcomputer");
+		GAMetaItems.BIOPROCESSOR = addItem(169, "bioprocessor");
+		GAMetaItems.CRYSTALPROCESSOR_MAINFRAME = addItem(170, "crystalprocessor.mainframe");
+		GAMetaItems.BIOWAREPROCESSOR_ASSEMBLY = addItem(171, "biowareprocessor.assembly");
+		GAMetaItems.BIOWARE_SUPERCOMPUTER = addItem(172, "bioware.supercomputer");
 	}
 
 	@Override
