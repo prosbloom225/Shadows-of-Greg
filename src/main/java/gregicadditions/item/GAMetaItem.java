@@ -103,6 +103,8 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.ADVANCED_SMD_RESISTOR = addItem(174, "advanced.smd.resistor");
 		GAMetaItems.ADVANCED_SMD_TRANSISTOR = addItem(175, "advanced.smd.transistor");
 		GAMetaItems.ADVANCED_SMD_DIODE = addItem(176, "advanced.smd.diode");
+		GAMetaItems.BIO_PROCESSING_UNIT= addItem(177, "bio.processing.unit");
+		GAMetaItems.RAW_ADVANCED_CRYSTAL_CHIP= addItem(178, "raw.advanced.crystal.chip");
 	}
 
 	@Override

@@ -1,9 +1,7 @@
 package gregicadditions.recipes;
 
-import crafttweaker.mc1120.events.ScriptRunEvent;
 import gregicadditions.GAConfig;
 import gregicadditions.GAMaterials;
-import gregicadditions.item.GAMetaItem;
 import gregicadditions.item.GAMetaItems;
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.recipes.ModHandler;
@@ -11,13 +9,11 @@ import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
-import gregtech.api.unification.material.type.FluidMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
-import scala.xml.PrefixedAttribute;
 
 import java.util.Arrays;
 import java.util.List;
@@ -51,6 +47,10 @@ public class GTNHRecipeAddition {
         // Advanced SMD Capacitor
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.foil, Polystyrene, 2), OreDictUnifier.get(OrePrefix.foil, HSSS, 1)
         ).fluidInputs(GAMaterials.POLYBENZIMIDAZOLE.getFluid(36)).outputs(GAMetaItems.ADVANCED_SMD_CAPACITOR.getStackForm(16)).duration(160).EUt(480).buildAndRegister();
+
+        // Raw Advanced Crystal Chip
+        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder().inputs(MetaItems.CRYSTAL_SYSTEM_ON_CHIP.getStackForm()).notConsumable(OreDictUnifier.get(OrePrefix.lens, Emerald, 1))
+        .outputs(GAMetaItems.RAW_ADVANCED_CRYSTAL_CHIP.getStackForm(1)).duration(1200).EUt(80000).buildAndRegister();
     }
 
     private static final MaterialStack[] solderingList = {
@@ -252,11 +252,14 @@ public class GTNHRecipeAddition {
             GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.frameGt, Aluminium, 2), GAMetaItems.MASTER_QUANTUMCOMPUTER.getStackForm(2), MetaItems.SMALL_COIL.getStackForm(24),
                     GAMetaItems.ADVANCED_SMD_CAPACITOR.getStackForm(12), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(24), OreDictUnifier.get(OrePrefix.wireGtSingle, AnnealedCopper, 48)
             ).fluidInputs(solder.getFluid(multiplier * 288)).outputs(GAMetaItems.QUANTUMPROCESSOR_MAINFRAME.getStackForm(1)).duration(800).EUt(7680).buildAndRegister();
+            GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.frameGt, Aluminium, 2), GAMetaItems.MASTER_QUANTUMCOMPUTER.getStackForm(2), MetaItems.SMALL_COIL.getStackForm(24),
+                    MetaItems.SMD_CAPACITOR.getStackForm(48), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(24), OreDictUnifier.get(OrePrefix.wireGtSingle, AnnealedCopper, 48)
+            ).fluidInputs(solder.getFluid(multiplier * 288)).outputs(GAMetaItems.QUANTUMPROCESSOR_MAINFRAME.getStackForm(1)).duration(1600).EUt(7680).buildAndRegister();
 
             // ZPM - Ultimate Crystalcomputer
             GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.ELITE_CIRCUIT_BOARD.getStackForm(6), GAMetaItems.CRYSTALPROCESSOR_ASSEMBLY.getStackForm(2), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(24),
                     MetaItems.NOR_MEMORY_CHIP.getStackForm(64), MetaItems.NAND_MEMORY_CHIP.getStackForm(64), OreDictUnifier.get(OrePrefix.wireFine, NiobiumTitanium, 64)
-            ).fluidInputs(solder.getFluid(multiplier * 576)).outputs(GAMetaItems.ULTIMATE_CRYSTALCOMPUTER.getStackForm(1)).duration(800).EUt(9600).buildAndRegister();
+            ).fluidInputs(solder.getFluid(multiplier * 576)).outputs(GAMetaItems.ULTIMATE_CRYSTALCOMPUTER.getStackForm(1)).duration(1600).EUt(9600).buildAndRegister();
 
             // ZPM - Wetwareprocessor Assembly
             GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.EXTREME_WETWARE_LIFESUPPORT_CIRCUIT_BOARD.getStackForm(6), MetaItems.WETWARE_PROCESSOR_LUV.getStackForm(2), MetaItems.SMALL_COIL.getStackForm(64),
@@ -264,7 +267,17 @@ public class GTNHRecipeAddition {
             ).fluidInputs(solder.getFluid(multiplier * 576)).outputs(MetaItems.WETWARE_PROCESSOR_ASSEMBLY_ZPM.getStackForm(1)).duration(1200).EUt(38400).buildAndRegister();
 
             // ZPM - Bioprocessor
-            // TODO - bioprocessor needs bio processing unit and raw advanced crystal chip
+            GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(GAMetaItems.BIO_PROCESSING_UNIT.getStackForm(6), GAMetaItems.RAW_ADVANCED_CRYSTAL_CHIP.getStackForm(6), MetaItems.NANO_CENTRAL_PROCESSING_UNIT.getStackForm(12),
+                    GAMetaItems.ADVANCED_SMD_CAPACITOR.getStackForm(64), GAMetaItems.ADVANCED_SMD_TRANSISTOR.getStackForm(64), OreDictUnifier.get(OrePrefix.wireFine, NiobiumTitanium, 64)
+            ).fluidInputs(solder.getFluid(multiplier * 288)).outputs(GAMetaItems.BIOPROCESSOR.getStackForm(1)).duration(1200).EUt(153600).buildAndRegister();
+
+            // TODO - need superconductor materials
+            // UV - Crystalprocessor Mainframe
+            /*
+            GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.frameGt, Aluminium, 12), GAMetaItems.ULTIMATE_CRYSTALCOMPUTER.getStackForm(2), MetaItems.SMALL_COIL.getStackForm(64),
+                    GAMetaItems.ADVANCED_SMD_CAPACITOR.getStackForm(64), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(64),OreDictUnifier.get(OrePrefix.wireFine, GAMaterials.SUPERCONDUCTOR_LUV, 64)
+            ).fluidInputs(solder.getFluid(multiplier * 1152)).outputs(GAMetaItems.CRYSTALPROCESSOR_MAINFRAME.getStackForm(1)).duration(3200).EUt(30720).buildAndRegister();
+             */
         }
     }
 

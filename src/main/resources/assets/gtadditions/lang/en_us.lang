@@ -197,6 +197,8 @@ metaitem.bioprocessor.name=Bioprocessor
 metaitem.crystalprocessor.mainframe.name=Crystalprocessor Mainframe
 metaitem.biowareprocessor.assembly.name=Biowareprocessor Assembly
 metaitem.bioware.supercomputer.name=Bioware Supercomputer
+metaitem.bio.processing.unit.name=Bio Processing Unit
+metaitem.raw.advanced.crystal.chip.name=Raw Advanced Crystal Chip
 
 metaitem.advanced.smd.capacitor.name=Advanced SMD Capacitor
 metaitem.advanced.smd.diode.name=Advanced SMD Diode
