@@ -1,11 +1,13 @@
 package gregicadditions;
 
 import com.google.common.collect.ImmutableList;
+import gregicadditions.item.BasicMaterial;
 import gregicadditions.item.GAIngotMaterial;
 import gregtech.api.unification.material.IMaterialHandler;
 import gregtech.api.unification.material.MaterialIconSet;
 import gregtech.api.unification.material.type.DustMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
+import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.unification.stack.MaterialStack;
 
@@ -26,8 +28,16 @@ public class GAAlloys implements IMaterialHandler {
                 NITINOL60, ZERON100, MARAGING250, MARAGING300, MARAGING350, AQUATIC_STEEL, STELLITE, TALONITE, HASTELLOYW,
                 HASTELLOYX, HASTELLOYN, HASTELLOYC276, INCOLOY020, INCOLOYDS, INCOLOYMA956, TUNGSTENTITANIUMCARBIDE,
                 SILICONCARBIDE, TANTALUMCARBIDE, ZIRCONIUMCARBIDE, NIOBIUMCARBIDE, GRISIUM, EGLINSTEELBASE, EGLINSTEEL,
-                LAFIUM, ABYSSAL, QUANTUM
+                LAFIUM, ABYSSAL, QUANTUM, SUPERCONDUCTOR_BASE_MV
         ).collect(Collectors.toList());
+
+        SUPERCONDUCTOR_BASE_MV.setCableProperties(128, 1, 1);
+        SUPERCONDUCTOR_BASE_HV.setCableProperties(512, 1, 1);
+        SUPERCONDUCTOR_BASE_EV.setCableProperties(2048, 2, 1);
+        SUPERCONDUCTOR_BASE_IV.setCableProperties(8192, 2, 1);
+        SUPERCONDUCTOR_BASE_LUV.setCableProperties(32768, 4, 2);
+        SUPERCONDUCTOR_BASE_ZPM.setCableProperties(131072, 4, 2);
+        SUPERCONDUCTOR_BASE_UV.setCableProperties(524288, 8, 2);
     }
 
     static long STD_METAL = DustMaterial.MatFlags.GENERATE_PLATE;
@@ -329,5 +339,67 @@ public class GAAlloys implements IMaterialHandler {
                     EXT2_METAL,
                     null, 5.0F, 4.0F, 589);
  */
+    public static final GAIngotMaterial SUPERCONDUCTOR_BASE_MV = new GAIngotMaterial(742, "superconductor_base_mv", 0x4b4b4b, MaterialIconSet.METALLIC, 1,
+            ImmutableList.of(new MaterialStack(Cadmium, 5),
+                    new MaterialStack(Magnesium, 1)),
+            EXT2_METAL,
+            null, 480, 890, 2500);
+    public static final GAIngotMaterial SUPERCONDUCTOR_BASE_HV = new GAIngotMaterial(743, "superconductor_base_hv", 0x2b1500, MaterialIconSet.METALLIC, 1,
+            ImmutableList.of(new MaterialStack(Titanium, 1),
+                    new MaterialStack(Barium, 9),
+                    new MaterialStack(Copper, 10)),
+            EXT2_METAL,
+            null,  480, 1023, 3300);
+    public static final GAIngotMaterial SUPERCONDUCTOR_BASE_EV = new GAIngotMaterial(744, "superconductor_base_ev", 0x007800, MaterialIconSet.METALLIC, 1,
+            ImmutableList.of(new MaterialStack(Platinum, 3),
+                    new MaterialStack(Uranium, 1)),
+            EXT2_METAL,
+            null,  1920, 2877, 4400);
+    public static final GAIngotMaterial SUPERCONDUCTOR_BASE_IV = new GAIngotMaterial(745, "superconductor_base_iv", 0x2d002d, MaterialIconSet.METALLIC, 1,
+            ImmutableList.of(new MaterialStack(Indium, 3),
+                    new MaterialStack(Vanadium, 1)),
+            EXT2_METAL,
+            null,  1920, 3483, 5200);
+    public static final GAIngotMaterial SUPERCONDUCTOR_BASE_LUV = new GAIngotMaterial(746, "superconductor_base_luv", 0x824000, MaterialIconSet.METALLIC, 1,
+            ImmutableList.of(new MaterialStack(Indium, 4),
+                    new MaterialStack(Tin, 2),
+                    new MaterialStack(Barium, 2),
+                    new MaterialStack(Titanium, 1),
+                    new MaterialStack(Copper, 7)),
+            EXT2_METAL,
+            null,  7680, 3483, 6000);
+    public static final GAIngotMaterial SUPERCONDUCTOR_BASE_ZPM = new GAIngotMaterial(747, "superconductor_base_zpm", 0x080808, MaterialIconSet.METALLIC, 1,
+            ImmutableList.of(new MaterialStack(Naquadah, 4),
+                    new MaterialStack(Indium, 2),
+                    new MaterialStack(Palladium, 6),
+                    new MaterialStack(Osmium, 1)),
+            EXT2_METAL,
+            null,  7680, 2500, 9000);
+    public static final GAIngotMaterial SUPERCONDUCTOR_BASE_UV = new GAIngotMaterial(748, "superconductor_base_uv", 0xbeb206, MaterialIconSet.METALLIC, 1,
+            ImmutableList.of(new MaterialStack(Naquadria, 4),
+                    new MaterialStack(Osmiridium, 3),
+                    new MaterialStack(Europium, 1),
+                    new MaterialStack(Samarium, 1)),
+            EXT2_METAL,
+            null,  30720, 13095, 9900);
+    // TODO - UHV needs draconium and cosmic neutronium and tritanium
+    /*
+    public static final GAIngotMaterial SUPERCONDUCTOR_BASE_UHV = new GAIngotMaterial(749, "superconductor_base_uhv", 0xd8d8d8, MaterialIconSet.METALLIC, 1,
+            ImmutableList.of(new MaterialStack(Draconium, 6),
+                    new MaterialStack(CosmicNeutronium, 7),
+                    new MaterialStack(Tritanium, 5),
+                    new MaterialStack(Americium, 6)),
+            EXT2_METAL,
+            null,  122880, 16368, 10800);
+     */
+    public static final BasicMaterial SUPERCONDUCTOR_MV = new BasicMaterial(750, "superconductor_mv", 0x4b4b4b, MaterialIconSet.METALLIC);
+    public static final BasicMaterial SUPERCONDUCTOR_HV = new BasicMaterial(751, "superconductor_hv", 0x2b1500, MaterialIconSet.METALLIC);
+    public static final BasicMaterial SUPERCONDUCTOR_EV = new BasicMaterial(752, "superconductor_ev", 0x007800, MaterialIconSet.METALLIC);
+    public static final BasicMaterial SUPERCONDUCTOR_IV = new BasicMaterial(753, "superconductor_iv", 0x2d002d, MaterialIconSet.METALLIC);
+    public static final BasicMaterial SUPERCONDUCTOR_LUV = new BasicMaterial(754, "superconductor_luv", 0x824000, MaterialIconSet.METALLIC);
+    public static final BasicMaterial SUPERCONDUCTOR_ZPM = new BasicMaterial(755, "superconductor_zpm", 0x080808, MaterialIconSet.METALLIC);
+    public static final BasicMaterial SUPERCONDUCTOR_UV = new BasicMaterial(756, "superconductor_uv", 0xbeb206, MaterialIconSet.METALLIC);
+    // TODO - UHV base cable
+    //public static final BasicMaterial SUPERCONDUCTOR_UHV = new BasicMaterial(757, "superconductor_uhv", 0xbeb206, MaterialIconSet.METALLIC);
 
 }

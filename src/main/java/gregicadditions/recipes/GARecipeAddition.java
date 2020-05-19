@@ -860,8 +860,37 @@ public class GARecipeAddition {
 						.buildAndRegister();
 			}
 			 */
+
 		}
 
+		// Superconductor cables
+		// MV
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.wireGtSingle, GAAlloys.SUPERCONDUCTOR_BASE_MV, 3), OreDictUnifier.get(OrePrefix.pipeTiny, StainlessSteel, 2), MetaItems.ELECTRIC_PUMP_MV.getStackForm()
+		).fluidInputs(Helium.getFluid(2000)).outputs(OreDictUnifier.get(OrePrefix.cableGtSingle, GAAlloys.SUPERCONDUCTOR_MV	, 3)).duration(300).EUt(120).buildAndRegister();
+		// HV
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.wireGtSingle, GAAlloys.SUPERCONDUCTOR_BASE_HV, 6), OreDictUnifier.get(OrePrefix.pipeTiny, Titanium, 4), MetaItems.ELECTRIC_PUMP_HV.getStackForm()
+		).fluidInputs(Helium.getFluid(4000)).outputs(OreDictUnifier.get(OrePrefix.cableGtSingle, GAAlloys.SUPERCONDUCTOR_HV	, 6)).duration(400).EUt(256).buildAndRegister();
+		// EV
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.wireGtSingle, GAAlloys.SUPERCONDUCTOR_BASE_EV, 9), OreDictUnifier.get(OrePrefix.pipeTiny, TungstenSteel, 6), MetaItems.ELECTRIC_PUMP_EV.getStackForm()
+		).fluidInputs(Helium.getFluid(6000)).outputs(OreDictUnifier.get(OrePrefix.cableGtSingle, GAAlloys.SUPERCONDUCTOR_EV, 9)).duration(500).EUt(480).buildAndRegister();
+		// IV
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.wireGtSingle, GAAlloys.SUPERCONDUCTOR_BASE_IV, 12), OreDictUnifier.get(OrePrefix.pipeTiny, NiobiumTitanium, 8), MetaItems.ELECTRIC_PUMP_IV.getStackForm()
+		).fluidInputs(Helium.getFluid(8000)).outputs(OreDictUnifier.get(OrePrefix.cableGtSingle, GAAlloys.SUPERCONDUCTOR_IV, 12)).duration(600).EUt(1920).buildAndRegister();
+		// LuV
+		// TODO - enderium
+		//RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.wireGtSingle, GAAlloys.SUPERCONDUCTOR_BASE_LUV, 15), OreDictUnifier.get(OrePrefix.pipeTiny, Enderium, 10), MetaItems.ELECTRIC_PUMP_LUV.getStackForm()
+		//).fluidInputs(Helium.getFluid(14000)).outputs(OreDictUnifier.get(OrePrefix.cableGtSingle, GAAlloys.SUPERCONDUCTOR_LUV, 15)).duration(700).EUt(7680).buildAndRegister();
+		// ZPM
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.wireGtSingle, GAAlloys.SUPERCONDUCTOR_BASE_ZPM, 18), OreDictUnifier.get(OrePrefix.pipeTiny, Naquadah, 12), MetaItems.ELECTRIC_PUMP_ZPM.getStackForm()
+		).fluidInputs(Helium.getFluid(16000)).outputs(OreDictUnifier.get(OrePrefix.cableGtSingle, GAAlloys.SUPERCONDUCTOR_ZPM, 18)).duration(800).EUt(30720).buildAndRegister();
+		// UV
+		// TODO - neutronium
+		//RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.wireGtSingle, GAAlloys.SUPERCONDUCTOR_BASE_UV, 21), OreDictUnifier.get(OrePrefix.pipeTiny, Neutronium, 14), MetaItems.ELECTRIC_PUMP_UV.getStackForm()
+		//).fluidInputs(Helium.getFluid(20000)).outputs(OreDictUnifier.get(OrePrefix.cableGtSingle, GAAlloys.SUPERCONDUCTOR_UV, 21)).duration(1000).EUt(122880).buildAndRegister();
+		// UHV
+		// TODO - bedrockium
+		//RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.wireGtSingle, GAAlloys.SUPERCONDUCTOR_BASE_UHV, 24), OreDictUnifier.get(OrePrefix.pipeTiny, Bedrockium, 16), MetaItems.ELECTRIC_PUMP_UHV.getStackForm()
+		//).fluidInputs(Helium.getFluid(24000)).outputs(OreDictUnifier.get(OrePrefix.cableGtSingle, GAAlloys.SUPERCONDUCTOR_UHV, 24)).duration(1200).EUt(1966080).buildAndRegister();
 
 		// GT++ Intermediates
 		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
@@ -872,6 +901,7 @@ public class GARecipeAddition {
 				.fluidInputs(Materials.Oxygen.getFluid(2000))
 				.outputs(GAMetaItems.COMPLETE_CASING_HALF.getStackForm())
 				.buildAndRegister();
+
 	}
 
 	public static void forestrySupport() {

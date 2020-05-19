@@ -24,6 +24,11 @@ public class GAIngotMaterial extends IngotMaterial {
         super(metaItemSubId, name, materialRGB, materialIconSet, harvestLevel, materialComponents, materialGenerationFlags, element, toolSpeed, attackDamage, toolDurability, 0);
         this.EUt = EUt;
         this.duration = duration;
+    }
 
+    public GAIngotMaterial(int metaItemSubId, String name, int materialRGB, MaterialIconSet materialIconSet, int harvestLevel, ImmutableList<MaterialStack> materialComponents, long materialGenerationFlags, Element element, int EUt, int duration, int blastFurnaceTemperature){
+        super(metaItemSubId, name, materialRGB, materialIconSet, harvestLevel, materialComponents, materialGenerationFlags, element, blastFurnaceTemperature);
+        this.EUt = EUt;
+        this.duration = duration;
     }
 }

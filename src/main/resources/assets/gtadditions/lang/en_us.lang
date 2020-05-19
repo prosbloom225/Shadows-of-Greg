@@ -720,6 +720,23 @@ material.abyssal=Abyssal Alloy
 material.black_titanium=Black Titanium
 material.babbit=Babbit Alloy
 material.quantum=Quantum Alloy
+material.superconductor_base_mv=Superconductor Base MV
+material.superconductor_base_hv=Superconductor Base HV
+material.superconductor_base_ev=Superconductor Base EV
+material.superconductor_base_iv=Superconductor Base IV
+material.superconductor_base_luv=Superconductor Base LuV
+material.superconductor_base_zpm=Superconductor Base ZPM
+material.superconductor_base_uv=Superconductor Base UV
+material.superconductor_base_uhv=Superconductor Base UHV
+material.superconductor_mv=Superconductor MV
+material.superconductor_hv=Superconductor HV
+material.superconductor_ev=Superconductor EV
+material.superconductor_iv=Superconductor IV
+material.superconductor_luv=Superconductor LuV
+material.superconductor_zpm=Superconductor ZPM
+material.superconductor_uv=Superconductor UV
+material.superconductor_uhv=Superconductor UHV
+
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp
