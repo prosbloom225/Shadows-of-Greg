@@ -1,7 +1,9 @@
 package gregicadditions.recipes;
 
+import gregicadditions.GAAlloys;
 import gregicadditions.GAConfig;
 import gregicadditions.GAMaterials;
+import gregicadditions.item.GAIngotMaterial;
 import gregicadditions.item.GAMetaItems;
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.recipes.ModHandler;
@@ -271,13 +273,10 @@ public class GTNHRecipeAddition {
                     GAMetaItems.ADVANCED_SMD_CAPACITOR.getStackForm(64), GAMetaItems.ADVANCED_SMD_TRANSISTOR.getStackForm(64), OreDictUnifier.get(OrePrefix.wireFine, NiobiumTitanium, 64)
             ).fluidInputs(solder.getFluid(multiplier * 288)).outputs(GAMetaItems.BIOPROCESSOR.getStackForm(1)).duration(1200).EUt(153600).buildAndRegister();
 
-            // TODO - need superconductor materials
             // UV - Crystalprocessor Mainframe
-            /*
             GARecipeMaps.CIRCUIT_RECIPES.recipeBuilder().inputs(OreDictUnifier.get(OrePrefix.frameGt, Aluminium, 12), GAMetaItems.ULTIMATE_CRYSTALCOMPUTER.getStackForm(2), MetaItems.SMALL_COIL.getStackForm(64),
-                    GAMetaItems.ADVANCED_SMD_CAPACITOR.getStackForm(64), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(64),OreDictUnifier.get(OrePrefix.wireFine, GAMaterials.SUPERCONDUCTOR_LUV, 64)
+                    GAMetaItems.ADVANCED_SMD_CAPACITOR.getStackForm(64), MetaItems.RANDOM_ACCESS_MEMORY.getStackForm(64),OreDictUnifier.get(OrePrefix.wireGtSingle, GAAlloys.SUPERCONDUCTOR_LUV, 64)
             ).fluidInputs(solder.getFluid(multiplier * 1152)).outputs(GAMetaItems.CRYSTALPROCESSOR_MAINFRAME.getStackForm(1)).duration(3200).EUt(30720).buildAndRegister();
-             */
         }
     }
 
