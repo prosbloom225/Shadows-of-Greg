@@ -188,12 +188,17 @@ public class GAMachineRecipeRemoval {
 		removeRecipesByInputs(RecipeMaps.CUTTER_RECIPES, new ItemStack[] { OreDictUnifier.get(OrePrefix.block, Materials.CertusQuartz) }, new FluidStack[] { Materials.Lubricant.getFluid(18) });
 
 		// Clear the assembler recipes for circuits
-		List names = new ArrayList();
-		names.add("Basic Electronic Circuit");
-		removeRecipesByOutput(RecipeMaps.ASSEMBLER_RECIPES, names);
 		if (GAConfig.gtnh.disableAssemblerCircuits)
 			removeRecipesByOutput(RecipeMaps.ASSEMBLER_RECIPES,
 					Arrays.asList(GAConfig.gtnh.disableAssemblerCircuitsList.split(",")));
+
+		if (GAConfig.gtnh.gtnhDistillationTowerRecipes)
+			removeAllRecipes(RecipeMaps.DISTILLATION_RECIPES);
+		if (GAConfig.gtnh.gtnhPyrolyseRecipes)
+			removeAllRecipes(RecipeMaps.PYROLYSE_RECIPES);
+		removeAllRecipes(RecipeMaps.PYROLYSE_RECIPES);
+
+
 
 	}
 

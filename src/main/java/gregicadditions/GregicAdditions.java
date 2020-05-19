@@ -86,7 +86,6 @@ public class GregicAdditions {
 		GARecipeAddition.init();
 		GARecipeAddition.init2();
 		GARecipeAddition.init3();
-		GARecipeAddition.gtnh();
 		GTNHRecipeAddition.init();
 		GARecipeAddition.forestrySupport();
 		MatterReplication.init();

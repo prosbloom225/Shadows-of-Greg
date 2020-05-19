@@ -272,6 +272,15 @@ public class GAConfig {
 		@Config.Name("List of circuits disabled in assembler")
 		public String disableAssemblerCircuitsList = "Basic Electronic Circuit,Advanced Circuit Parts,Good Electronic Circuit,Integrated Processor,Good Electronic Circuit,Nanoprocessor,Processor Assembly,Crystalprocessor,Data Control Circuit,Energy Flow Circuit,Wetware Processor,Wetware Mainframe,Wetware Supercomputer,Wetware Assembly,Quantumprocessor,Nano Processor Assembly";
 
+
+
+		@Config.Name("Use GT5 Circuit recipes")
+		public boolean gtnhCircuitRecipes= true;
+		@Config.Name("Use GT5 Pyrolyse Oven recipes")
+		public boolean gtnhPyrolyseRecipes = true;
+		@Config.Name("Use GT5 Distillation Tower recipes")
+		public boolean gtnhDistillationTowerRecipes = true;
+
 		// TODO - assembly line disables
 		//"Wetware Mainframe"
 	}
