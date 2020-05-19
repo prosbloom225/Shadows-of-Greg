@@ -205,6 +205,13 @@ metaitem.advanced.smd.diode.name=Advanced SMD Diode
 metaitem.advanced.smd.resistor.name=Advanced SMD Resistor
 metaitem.advanced.smd.transistor.name=Advanced SMD Transistor
 
+metaitem.bio.ball.name=Bio Ball
+metaitem.bio.chunk.name=Bio Chunk
+metaitem.compressed.bio.ball.name=Compressed Bio Ball
+metaitem.bio.carbon.plate.name=Bio Carbon Plate
+metaitem.bio.organic.mesh.name=Bio Organic Mesh
+
+
 metaitem.electrode.apatite.name=Apatine Electrode
 metaitem.electrode.blaze.name=Blazing Electrode
 metaitem.electrode.bronze.name=Bronze Electrode

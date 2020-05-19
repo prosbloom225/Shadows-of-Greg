@@ -893,6 +893,7 @@ public class GARecipeAddition {
 		//).fluidInputs(Helium.getFluid(24000)).outputs(OreDictUnifier.get(OrePrefix.cableGtSingle, GAAlloys.SUPERCONDUCTOR_UHV, 24)).duration(1200).EUt(1966080).buildAndRegister();
 
 		// GT++ Intermediates
+		// Complete Casing
 		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
 				.duration(80)
 				.EUt(60)
@@ -901,6 +902,30 @@ public class GARecipeAddition {
 				.fluidInputs(Materials.Oxygen.getFluid(2000))
 				.outputs(GAMetaItems.COMPLETE_CASING_HALF.getStackForm())
 				.buildAndRegister();
+
+		// Bio Chunk
+		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+				.duration(1200)
+				.EUt(64)
+				.inputs(OreDictUnifier.get(OrePrefix.block, Charcoal, 1), GAMetaItems.COMPRESSED_BIO_BALL.getStackForm(8))
+				.outputs(GAMetaItems.BIO_CHUNK.getStackForm())
+				.buildAndRegister();
+		// Compressed Bio Ball
+		RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder()
+				.duration(300)
+				.EUt(2)
+				.inputs(GAMetaItems.BIO_BALL.getStackForm())
+				.outputs(GAMetaItems.COMPRESSED_BIO_BALL.getStackForm())
+				.buildAndRegister();
+		// Bio Ball
+		RecipeMaps.MIXER_RECIPES.recipeBuilder()
+				.duration(200)
+				.EUt(16)
+				.inputs(MetaItems.PLANT_BALL.getStackForm(16), OreDictUnifier.get(OrePrefix.dust, Flint, 2))
+				.outputs(GAMetaItems.COMPRESSED_BIO_BALL.getStackForm())
+				.buildAndRegister();
+
+
 
 	}
 

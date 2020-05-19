@@ -105,6 +105,10 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.ADVANCED_SMD_DIODE = addItem(176, "advanced.smd.diode");
 		GAMetaItems.BIO_PROCESSING_UNIT= addItem(177, "bio.processing.unit");
 		GAMetaItems.RAW_ADVANCED_CRYSTAL_CHIP= addItem(178, "raw.advanced.crystal.chip");
+		GAMetaItems.BIO_BALL = addItem(179, "bio.ball");
+		GAMetaItems.COMPRESSED_BIO_BALL = addItem(180, "compressed.bio.ball");
+		GAMetaItems.BIO_CHUNK = addItem(181, "bio.chunk");
+		GAMetaItems.BIO_CARBON_PLATE = addItem(182, "bio.carbon.plate");
 	}
 
 	@Override

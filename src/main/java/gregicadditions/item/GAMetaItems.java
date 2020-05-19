@@ -98,6 +98,10 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem ADVANCED_SMD_DIODE;
 	public static MetaItem<?>.MetaValueItem BIO_PROCESSING_UNIT;
 	public static MetaItem<?>.MetaValueItem RAW_ADVANCED_CRYSTAL_CHIP;
+	public static MetaItem<?>.MetaValueItem BIO_BALL;
+	public static MetaItem<?>.MetaValueItem COMPRESSED_BIO_BALL;
+	public static MetaItem<?>.MetaValueItem BIO_CHUNK;
+	public static MetaItem<?>.MetaValueItem BIO_CARBON_PLATE;
 
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();
