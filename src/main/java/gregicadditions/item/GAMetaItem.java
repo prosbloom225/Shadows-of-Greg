@@ -1,6 +1,8 @@
 package gregicadditions.item;
 
 import gregicadditions.GAConfig;
+import gregicadditions.GregicAdditions;
+import gregtech.api.GTValues;
 import gregtech.api.items.materialitem.MaterialMetaItem;
 import gregtech.api.items.metaitem.ElectricStats;
 import gregtech.api.items.metaitem.MetaItem;
@@ -9,8 +11,11 @@ import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.ItemMaterialInfo;
 import gregtech.api.unification.stack.MaterialStack;
+import gregtech.common.covers.CoverBehaviors;
+import gregtech.common.covers.CoverSolarPanel;
 import gregtech.common.items.MetaItems;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 
 public class GAMetaItem extends MaterialMetaItem {
@@ -109,6 +114,21 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.COMPRESSED_BIO_BALL = addItem(180, "compressed.bio.ball");
 		GAMetaItems.BIO_CHUNK = addItem(181, "bio.chunk");
 		GAMetaItems.BIO_CARBON_PLATE = addItem(182, "bio.carbon.plate");
+
+		GAMetaItems.COVER_SOLAR_PANEL_MV = addItem(183, "cover.solar.panel.mv");
+		GAMetaItems.COVER_SOLAR_PANEL_HV = addItem(184, "cover.solar.panel.hv");
+		GAMetaItems.COVER_SOLAR_PANEL_EV = addItem(185, "cover.solar.panel.ev");
+		GAMetaItems.COVER_SOLAR_PANEL_IV = addItem(186, "cover.solar.panel.iv");
+		GAMetaItems.COVER_SOLAR_PANEL_LUV = addItem(187, "cover.solar.panel.luv");
+		GAMetaItems.COVER_SOLAR_PANEL_ZPM = addItem(188, "cover.solar.panel.zpm");
+		GAMetaItems.COVER_SOLAR_PANEL_UV = addItem(189, "cover.solar.panel.uv");
+		CoverBehaviors.registerBehavior(41, new ResourceLocation(GTValues.MODID, "solar_panel.mv"), GAMetaItems.COVER_SOLAR_PANEL_MV, (tile, side) -> new CoverSolarPanel(tile, side, 128));
+		CoverBehaviors.registerBehavior(42, new ResourceLocation(GTValues.MODID, "solar_panel.hv"), GAMetaItems.COVER_SOLAR_PANEL_HV, (tile, side) -> new CoverSolarPanel(tile, side, 512));
+		CoverBehaviors.registerBehavior(43, new ResourceLocation(GTValues.MODID, "solar_panel.ev"), GAMetaItems.COVER_SOLAR_PANEL_EV, (tile, side) -> new CoverSolarPanel(tile, side, 2048));
+		CoverBehaviors.registerBehavior(44, new ResourceLocation(GTValues.MODID, "solar_panel.iv"), GAMetaItems.COVER_SOLAR_PANEL_IV, (tile, side) -> new CoverSolarPanel(tile, side, 8192));
+		CoverBehaviors.registerBehavior(45, new ResourceLocation(GTValues.MODID, "solar_panel.luv"), GAMetaItems.COVER_SOLAR_PANEL_LUV, (tile, side) -> new CoverSolarPanel(tile, side, 32768));
+		CoverBehaviors.registerBehavior(46, new ResourceLocation(GTValues.MODID, "solar_panel.zpm"), GAMetaItems.COVER_SOLAR_PANEL_ZPM, (tile, side) -> new CoverSolarPanel(tile, side, 131072));
+		CoverBehaviors.registerBehavior(47, new ResourceLocation(GTValues.MODID, "solar_panel.uv"), GAMetaItems.COVER_SOLAR_PANEL_UV, (tile, side) -> new CoverSolarPanel(tile, side, 524288));
 	}
 
 	@Override

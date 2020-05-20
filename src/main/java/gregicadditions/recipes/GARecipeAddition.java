@@ -922,7 +922,7 @@ public class GARecipeAddition {
 				.duration(200)
 				.EUt(16)
 				.inputs(MetaItems.PLANT_BALL.getStackForm(16), OreDictUnifier.get(OrePrefix.dust, Flint, 2))
-				.outputs(GAMetaItems.COMPRESSED_BIO_BALL.getStackForm())
+				.outputs(GAMetaItems.BIO_BALL.getStackForm())
 				.buildAndRegister();
 
 

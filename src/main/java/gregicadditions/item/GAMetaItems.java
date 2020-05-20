@@ -103,6 +103,15 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem BIO_CHUNK;
 	public static MetaItem<?>.MetaValueItem BIO_CARBON_PLATE;
 
+	public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_MV;
+	public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_HV;
+	public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_EV;
+	public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_IV;
+	public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_LUV;
+	public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_ZPM;
+	public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_UV;
+
+
 	public static void init() {
 		GAMetaItem item = new GAMetaItem();
 		item.setRegistryName("ga_meta_item");

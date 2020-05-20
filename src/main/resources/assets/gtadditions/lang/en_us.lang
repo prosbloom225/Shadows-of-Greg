@@ -211,6 +211,14 @@ metaitem.compressed.bio.ball.name=Compressed Bio Ball
 metaitem.bio.carbon.plate.name=Bio Carbon Plate
 metaitem.bio.organic.mesh.name=Bio Organic Mesh
 
+metaitem.cover.solar.panel.mv.name=Solar Panel (MV)
+metaitem.cover.solar.panel.hv.name=Solar Panel (HV)
+metaitem.cover.solar.panel.ev.name=Solar Panel (EV)
+metaitem.cover.solar.panel.iv.name=Solar Panel (IV)
+metaitem.cover.solar.panel.luv.name=Solar Panel (LuV)
+metaitem.cover.solar.panel.zpm.name=Solar Panel (ZPM)
+metaitem.cover.solar.panel.uv.name=Solar Panel (UV)
+
 
 metaitem.electrode.apatite.name=Apatine Electrode
 metaitem.electrode.blaze.name=Blazing Electrode
