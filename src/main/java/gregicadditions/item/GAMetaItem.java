@@ -129,6 +129,16 @@ public class GAMetaItem extends MaterialMetaItem {
 		CoverBehaviors.registerBehavior(45, new ResourceLocation(GTValues.MODID, "solar_panel.luv"), GAMetaItems.COVER_SOLAR_PANEL_LUV, (tile, side) -> new CoverSolarPanel(tile, side, 32768));
 		CoverBehaviors.registerBehavior(46, new ResourceLocation(GTValues.MODID, "solar_panel.zpm"), GAMetaItems.COVER_SOLAR_PANEL_ZPM, (tile, side) -> new CoverSolarPanel(tile, side, 131072));
 		CoverBehaviors.registerBehavior(47, new ResourceLocation(GTValues.MODID, "solar_panel.uv"), GAMetaItems.COVER_SOLAR_PANEL_UV, (tile, side) -> new CoverSolarPanel(tile, side, 524288));
+
+		GAMetaItems.IRRADIANT_REINFORCED_ALUMINIUM_PLATE = addItem(190, "irradiant.reinforced.aluminium.plate");
+		GAMetaItems.IRRADIANT_REINFORCED_BEDROCKIUM_PLATE = addItem(191, "irradiant.reinforced.bedrockium.plate");
+		GAMetaItems.IRRADIANT_REINFORCED_CHROME_PLATE = addItem(192, "irradiant.reinforced.chrome.plate");
+		GAMetaItems.IRRADIANT_REINFORCED_IRIDIUM_PLATE = addItem(193, "irradiant.reinforced.iridium.plate");
+		GAMetaItems.IRRADIANT_REINFORCED_NAQUADRIA_PLATE = addItem(194, "irradiant.reinforced.naquadria.plate");
+		GAMetaItems.IRRADIANT_REINFORCED_NEUTRONIUM_PLATE = addItem(195, "irradiant.reinforced.neutronium.plate");
+		GAMetaItems.IRRADIANT_REINFORCED_TITANIUM_PLATE = addItem(196, "irradiant.reinforced.titanium.plate");
+		GAMetaItems.IRRADIANT_REINFORCED_TUNGSTEN_PLATE = addItem(197, "irradiant.reinforced.tungsten.plate");
+		GAMetaItems.IRRADIANT_REINFORCED_TUNGSTENSTEEL_PLATE = addItem(198, "irradiant.reinforced.tungstensteel.plate");
 	}
 
 	@Override

@@ -110,6 +110,15 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_LUV;
 	public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_ZPM;
 	public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_UV;
+	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_ALUMINIUM_PLATE;
+	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_BEDROCKIUM_PLATE;
+	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_CHROME_PLATE;
+	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_IRIDIUM_PLATE;
+	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_NAQUADRIA_PLATE;
+	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_NEUTRONIUM_PLATE;
+	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_TITANIUM_PLATE;
+	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_TUNGSTEN_PLATE;
+	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_TUNGSTENSTEEL_PLATE;
 
 
 	public static void init() {

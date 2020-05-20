@@ -218,6 +218,15 @@ metaitem.cover.solar.panel.iv.name=Solar Panel (IV)
 metaitem.cover.solar.panel.luv.name=Solar Panel (LuV)
 metaitem.cover.solar.panel.zpm.name=Solar Panel (ZPM)
 metaitem.cover.solar.panel.uv.name=Solar Panel (UV)
+metaitem.irradiant.reinforced.aluminium.plate.name=Irradiant Reinforced Aluminium Plate
+metaitem.irradiant.reinforced.bedrockium.plate.name=Irradiant Reinforced Bedrockium Plate
+metaitem.irradiant.reinforced.chrome.plate.name=Irradiant Reinforced Chrome Plate
+metaitem.irradiant.reinforced.iridium.plate.name=Irradiant Reinforced Iridium Plate
+metaitem.irradiant.reinforced.naquadria.plate.name=Irradiant Reinforced Naquadria Plate
+metaitem.irradiant.reinforced.neutronium.plate.name=Irradiant Reinforced Neutronium Plate
+metaitem.irradiant.reinforced.titanium.plate.name=Irradiant Reinforced Titanium Plate
+metaitem.irradiant.reinforced.tungsten.plate.name=Irradiant Reinforced Tungsten Plate
+metaitem.irradiant.reinforced.tungstensteel.plate.name=Irradiant Reinforced Tungstensteel Plate
 
 
 metaitem.electrode.apatite.name=Apatine Electrode
