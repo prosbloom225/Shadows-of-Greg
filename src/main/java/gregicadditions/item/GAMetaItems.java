@@ -121,6 +121,25 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_TUNGSTENSTEEL_PLATE;
 	public static MetaItem<?>.MetaValueItem ALUMINIUM_IRON_PLATE;
 	public static MetaItem<?>.MetaValueItem REINFORCED_ALUMINIUM_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem BEDROCKIUM_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem REINFORCED_BEDROCKIUM_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem CHROME_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem REINFORCED_CHROME_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem IRIDIUM_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem REINFORCED_IRIDIUM_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem NAQUADRIA_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem REINFORCED_NAQUADRIA_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem NEUTRONIUM_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem REINFORCED_NEUTRONIUM_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem TITANIUM_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem REINFORCED_TITANIUM_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem TUNGSTEN_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem REINFORCED_TUNGSTEN_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem TUNGSTENSTEEL_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem REINFORCED_TUNGSTENSTEEL_IRON_PLATE;
+
+	// TODO - nanosuit/quantumsuit mats
+	//public static MetaItem<?>.MetaValueItem REINFORCED_ALUMINIUM_IRON_PLATE;
 
 
 	public static void init() {

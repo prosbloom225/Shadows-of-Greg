@@ -141,6 +141,22 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.IRRADIANT_REINFORCED_TUNGSTENSTEEL_PLATE = addItem(198, "irradiant.reinforced.tungstensteel.plate");
 		GAMetaItems.ALUMINIUM_IRON_PLATE= addItem(199, "aluminium.iron.plate");
 		GAMetaItems.REINFORCED_ALUMINIUM_IRON_PLATE= addItem(200, "reinforced.aluminium.iron.plate");
+		GAMetaItems.BEDROCKIUM_IRON_PLATE = addItem(201, "bedrockium.iron.plate");
+		GAMetaItems.REINFORCED_BEDROCKIUM_IRON_PLATE = addItem(202, "reinforced.bedrockium.iron.plate");
+		GAMetaItems.CHROME_IRON_PLATE = addItem(203, "chrome.iron.plate");
+		GAMetaItems.REINFORCED_CHROME_IRON_PLATE = addItem(204, "reinforced.chrome.iron.plate");
+		GAMetaItems.IRIDIUM_IRON_PLATE = addItem(205, "iridium.iron.plate");
+		GAMetaItems.REINFORCED_IRIDIUM_IRON_PLATE = addItem(206, "reinforced.iridium.iron.plate");
+		GAMetaItems.NAQUADRIA_IRON_PLATE = addItem(207, "naquadria.iron.plate");
+		GAMetaItems.REINFORCED_NAQUADRIA_IRON_PLATE = addItem(208, "reinforced.naquadria.iron.plate");
+		GAMetaItems.NEUTRONIUM_IRON_PLATE = addItem(209, "neutronium.iron.plate");
+		GAMetaItems.REINFORCED_NEUTRONIUM_IRON_PLATE = addItem(210, "reinforced.neutronium.iron.plate");
+		GAMetaItems.TITANIUM_IRON_PLATE= addItem(211, "titanium.iron.plate");
+		GAMetaItems.REINFORCED_TITANIUM_IRON_PLATE = addItem(212, "reinforced.titanium.iron.plate");
+		GAMetaItems.TUNGSTEN_IRON_PLATE = addItem(213, "tungsten.iron.plate");
+		GAMetaItems.REINFORCED_TUNGSTEN_IRON_PLATE= addItem(214, "reinforced.tungsten.iron.plate");
+		GAMetaItems.TUNGSTENSTEEL_IRON_PLATE = addItem(215, "tungstensteel.iron.plate");
+		GAMetaItems.REINFORCED_TUNGSTENSTEEL_IRON_PLATE = addItem(216, "reinforced.tungstensteel.iron.plate");
 	}
 
 	@Override

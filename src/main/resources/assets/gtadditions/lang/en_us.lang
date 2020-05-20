@@ -229,6 +229,22 @@ metaitem.irradiant.reinforced.tungsten.plate.name=Irradiant Reinforced Tungsten 
 metaitem.irradiant.reinforced.tungstensteel.plate.name=Irradiant Reinforced Tungstensteel Plate
 metaitem.aluminium.iron.plate.name=Aluminium-Iron Plate
 metaitem.reinforced.aluminium.iron.plate.name=Reinforced Aluminium-Iron Plate
+metaitem.bedrockium.iron.plate.name=Bedrockdium-Iron Plate
+metaitem.reinforced.bedrockium.iron.plate.name=Reinforced Bedrockium-Iron Plate
+metaitem.chrome.iron.plate.name=Chrome-Iron Plate
+metaitem.reinforced.chrome.iron.plate.name=Reinforced Chrome-Iron Plate
+metaitem.iridium.iron.plate.name=Iridium-Iron Plate
+metaitem.reinforced.iridium.iron.plate.name=Reinforced Iridium-Iron Plate
+metaitem.neutronium.iron.plate.name=Neutronium-Iron Plate
+metaitem.reinforced.neutronium.iron.plate.name=Reinforced Neutronium-Iron Plate
+metaitem.naquadria.iron.plate.name=Naquadria-Iron Plate
+metaitem.reinforced.naquadria.iron.plate.name=Reinforced Naquadria-Iron Plate
+metaitem.titanium.iron.plate.name=Titanium-Iron Plate
+metaitem.reinforced.titanium.iron.plate.name=Reinforced Titanium-Iron Plate
+metaitem.tungsten.iron.plate.name=Tungsten-Iron Plate
+metaitem.reinforced.tungsten.iron.plate.name=Reinforced Tungsten-Iron Plate
+metaitem.tungstensteel.iron.plate.name=TungstenSteel-Iron Plate
+metaitem.reinforced.tungstensteel.iron.plate.name=Reinforced Tungstensteel-Iron Plate
 
 
 metaitem.electrode.apatite.name=Apatine Electrode
@@ -762,6 +778,7 @@ material.superconductor_luv=Superconductor LuV
 material.superconductor_zpm=Superconductor ZPM
 material.superconductor_uv=Superconductor UV
 material.superconductor_uhv=Superconductor UHV
+material.sunnarium=Sunnarium
 
 
 item.epoxid.ingot=Epoxy Resin Bar

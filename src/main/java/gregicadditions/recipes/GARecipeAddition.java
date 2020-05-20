@@ -33,6 +33,7 @@ import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -40,8 +41,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
+import slimeknights.mantle.util.RecipeMatch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -895,38 +898,88 @@ public class GARecipeAddition {
 		// GT++ Intermediates
 		// Complete Casing
 		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
-				.duration(80)
-				.EUt(60)
 				.inputs(OreDictUnifier.get(OrePrefix.plate, Materials.Vanadium, 8),
 						OreDictUnifier.get(OrePrefix.frameGt, GAAlloys.INCOLOY020, 2))
 				.fluidInputs(Materials.Oxygen.getFluid(2000))
 				.outputs(GAMetaItems.COMPLETE_CASING_HALF.getStackForm())
+				.duration(80)
+				.EUt(60)
 				.buildAndRegister();
 
 		// Bio Chunk
 		RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
-				.duration(1200)
-				.EUt(64)
 				.inputs(OreDictUnifier.get(OrePrefix.block, Charcoal, 1), GAMetaItems.COMPRESSED_BIO_BALL.getStackForm(8))
 				.outputs(GAMetaItems.BIO_CHUNK.getStackForm())
+				.duration(1200)
+				.EUt(64)
 				.buildAndRegister();
 		// Compressed Bio Ball
 		RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder()
-				.duration(300)
-				.EUt(2)
 				.inputs(GAMetaItems.BIO_BALL.getStackForm())
 				.outputs(GAMetaItems.COMPRESSED_BIO_BALL.getStackForm())
+				.duration(300)
+				.EUt(2)
 				.buildAndRegister();
 		// Bio Ball
 		RecipeMaps.MIXER_RECIPES.recipeBuilder()
-				.duration(200)
-				.EUt(16)
 				.inputs(MetaItems.PLANT_BALL.getStackForm(16), OreDictUnifier.get(OrePrefix.dust, Flint, 2))
 				.outputs(GAMetaItems.BIO_BALL.getStackForm())
+				.duration(200)
+				.EUt(16)
 				.buildAndRegister();
+		// Iridium-Iron Plate
+		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
+				.inputs(OreDictUnifier.get(OrePrefix.plate, Iridium, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.outputs(GAMetaItems.IRIDIUM_IRON_PLATE.getStackForm())
+				.duration(600).EUt(122880).buildAndRegister();
+		// Tungstensteel-Iron Plate
+		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
+				.inputs(OreDictUnifier.get(OrePrefix.plate, TungstenSteel, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.outputs(GAMetaItems.TUNGSTENSTEEL_IRON_PLATE.getStackForm())
+				.duration(600).EUt(7680).buildAndRegister();
+		// Titanium-Iron Plate
+		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
+				.inputs(OreDictUnifier.get(OrePrefix.plate, Titanium, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.outputs(GAMetaItems.TITANIUM_IRON_PLATE.getStackForm())
+				.duration(600).EUt(480).buildAndRegister();
+		// Tungsten-Iron Plate
+		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
+				.inputs(OreDictUnifier.get(OrePrefix.plate, Tungsten, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.outputs(GAMetaItems.TUNGSTEN_IRON_PLATE.getStackForm())
+				.duration(600).EUt(1920).buildAndRegister();
+		// TODO - neutronium
+		// Neutronium-Iron Plate
+		/*
+		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
+				.inputs(OreDictUnifier.get(OrePrefix.plate, Neutronium, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.outputs(GAMetaItems.NEUTRONIUM_IRON_PLATE.getStackForm())
+				.duration(600).EUt(1966080).buildAndRegister();
 
+		 */
+		// Chrome-Iron Plate
+		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
+				.inputs(OreDictUnifier.get(OrePrefix.plate, Chrome, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.outputs(GAMetaItems.CHROME_IRON_PLATE.getStackForm())
+				.duration(600).EUt(30720).buildAndRegister();
 
-
+		// Aluminium-Iron Plate
+		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
+				.inputs(OreDictUnifier.get(OrePrefix.plate, Aluminium, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.outputs(GAMetaItems.ALUMINIUM_IRON_PLATE.getStackForm())
+				.duration(600).EUt(120).buildAndRegister();
+		// Naquadria-Iron Plate
+		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
+				.inputs(OreDictUnifier.get(OrePrefix.plate, Naquadria, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.outputs(GAMetaItems.NAQUADRIA_IRON_PLATE.getStackForm())
+				.duration(600).EUt(491520).buildAndRegister();
+		// Naquadria-Iron Plate
+		// TODO - bedrockium
+		/*
+		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
+				.inputs(OreDictUnifier.get(OrePrefix.plate, Bedrockium, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.outputs(GAMetaItems.BEDROCKIUM_IRON_PLATE.getStackForm())
+				.duration(600).EUt(7864320).buildAndRegister();
+		*/
 	}
 
 	public static void forestrySupport() {

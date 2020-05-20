@@ -28,7 +28,7 @@ public class GAAlloys implements IMaterialHandler {
                 NITINOL60, ZERON100, MARAGING250, MARAGING300, MARAGING350, AQUATIC_STEEL, STELLITE, TALONITE, HASTELLOYW,
                 HASTELLOYX, HASTELLOYN, HASTELLOYC276, INCOLOY020, INCOLOYDS, INCOLOYMA956, TUNGSTENTITANIUMCARBIDE,
                 SILICONCARBIDE, TANTALUMCARBIDE, ZIRCONIUMCARBIDE, NIOBIUMCARBIDE, GRISIUM, EGLINSTEELBASE, EGLINSTEEL,
-                LAFIUM, ABYSSAL, QUANTUM, SUPERCONDUCTOR_BASE_MV
+                LAFIUM, ABYSSAL, QUANTUM, SUPERCONDUCTOR_BASE_MV, SUNNARIUM
         ).collect(Collectors.toList());
 
         SUPERCONDUCTOR_BASE_MV.setCableProperties(128, 1, 1);
@@ -399,6 +399,11 @@ public class GAAlloys implements IMaterialHandler {
     public static final BasicMaterial SUPERCONDUCTOR_LUV = new BasicMaterial(754, "superconductor_luv", 0x824000, MaterialIconSet.METALLIC);
     public static final BasicMaterial SUPERCONDUCTOR_ZPM = new BasicMaterial(755, "superconductor_zpm", 0x080808, MaterialIconSet.METALLIC);
     public static final BasicMaterial SUPERCONDUCTOR_UV = new BasicMaterial(756, "superconductor_uv", 0xbeb206, MaterialIconSet.METALLIC);
+
+    public static final GAIngotMaterial SUNNARIUM = new GAIngotMaterial(757, "sunnarium", 0xcece00, MaterialIconSet.METALLIC, 1,
+            ImmutableList.of(),
+            EXT2_METAL,
+            null,  1920, 756, 4500);
     // TODO - UHV base cable
     //public static final BasicMaterial SUPERCONDUCTOR_UHV = new BasicMaterial(757, "superconductor_uhv", 0xbeb206, MaterialIconSet.METALLIC);
 
