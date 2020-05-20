@@ -119,6 +119,8 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_TITANIUM_PLATE;
 	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_TUNGSTEN_PLATE;
 	public static MetaItem<?>.MetaValueItem IRRADIANT_REINFORCED_TUNGSTENSTEEL_PLATE;
+	public static MetaItem<?>.MetaValueItem ALUMINIUM_IRON_PLATE;
+	public static MetaItem<?>.MetaValueItem REINFORCED_ALUMINIUM_IRON_PLATE;
 
 
 	public static void init() {

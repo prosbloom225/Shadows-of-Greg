@@ -139,6 +139,8 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.IRRADIANT_REINFORCED_TITANIUM_PLATE = addItem(196, "irradiant.reinforced.titanium.plate");
 		GAMetaItems.IRRADIANT_REINFORCED_TUNGSTEN_PLATE = addItem(197, "irradiant.reinforced.tungsten.plate");
 		GAMetaItems.IRRADIANT_REINFORCED_TUNGSTENSTEEL_PLATE = addItem(198, "irradiant.reinforced.tungstensteel.plate");
+		GAMetaItems.ALUMINIUM_IRON_PLATE= addItem(199, "aluminium.iron.plate");
+		GAMetaItems.REINFORCED_ALUMINIUM_IRON_PLATE= addItem(200, "reinforced.aluminium.iron.plate");
 	}
 
 	@Override

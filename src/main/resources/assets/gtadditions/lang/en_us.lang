@@ -227,6 +227,8 @@ metaitem.irradiant.reinforced.neutronium.plate.name=Irradiant Reinforced Neutron
 metaitem.irradiant.reinforced.titanium.plate.name=Irradiant Reinforced Titanium Plate
 metaitem.irradiant.reinforced.tungsten.plate.name=Irradiant Reinforced Tungsten Plate
 metaitem.irradiant.reinforced.tungstensteel.plate.name=Irradiant Reinforced Tungstensteel Plate
+metaitem.aluminium.iron.plate.name=Aluminium-Iron Plate
+metaitem.reinforced.aluminium.iron.plate.name=Reinforced Aluminium-Iron Plate
 
 
 metaitem.electrode.apatite.name=Apatine Electrode
