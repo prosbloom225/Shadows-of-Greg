@@ -97,5 +97,8 @@ public class GAMaterials implements IMaterialHandler {
 		OrePrefix.gemExquisite.setIgnored(LIGNITE_COKE);
 
 		Materials.Magnetite.setDirectSmelting(Materials.Iron);
+
+		RedAlloy.addFlag(IngotMaterial.MatFlags.GENERATE_BOLT_SCREW);
+		Diamond.addFlag(IngotMaterial.MatFlags.GENERATE_BOLT_SCREW);
 	}
 }

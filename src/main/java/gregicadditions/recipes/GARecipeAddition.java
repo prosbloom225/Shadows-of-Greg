@@ -947,15 +947,11 @@ public class GARecipeAddition {
 				.inputs(OreDictUnifier.get(OrePrefix.plate, Tungsten, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
 				.outputs(GAMetaItems.TUNGSTEN_IRON_PLATE.getStackForm())
 				.duration(600).EUt(1920).buildAndRegister();
-		// TODO - neutronium
 		// Neutronium-Iron Plate
-		/*
 		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
-				.inputs(OreDictUnifier.get(OrePrefix.plate, Neutronium, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.inputs(OreDictUnifier.get(OrePrefix.plate, GAMaterials.NEUTRONIUM, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
 				.outputs(GAMetaItems.NEUTRONIUM_IRON_PLATE.getStackForm())
 				.duration(600).EUt(1966080).buildAndRegister();
-
-		 */
 		// Chrome-Iron Plate
 		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
 				.inputs(OreDictUnifier.get(OrePrefix.plate, Chrome, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
@@ -972,14 +968,11 @@ public class GARecipeAddition {
 				.inputs(OreDictUnifier.get(OrePrefix.plate, Naquadria, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
 				.outputs(GAMetaItems.NAQUADRIA_IRON_PLATE.getStackForm())
 				.duration(600).EUt(491520).buildAndRegister();
-		// Naquadria-Iron Plate
-		// TODO - bedrockium
-		/*
+		// Bedrockium-Iron Plate
 		RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
-				.inputs(OreDictUnifier.get(OrePrefix.plate, Bedrockium, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
+				.inputs(OreDictUnifier.get(OrePrefix.plate, GAAlloys.BEDROCKIUM, 2), OreDictUnifier.get(OrePrefix.plate, Iron, 4))
 				.outputs(GAMetaItems.BEDROCKIUM_IRON_PLATE.getStackForm())
 				.duration(600).EUt(7864320).buildAndRegister();
-		*/
 	}
 
 	public static void forestrySupport() {

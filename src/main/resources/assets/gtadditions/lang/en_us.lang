@@ -779,7 +779,11 @@ material.superconductor_zpm=Superconductor ZPM
 material.superconductor_uv=Superconductor UV
 material.superconductor_uhv=Superconductor UHV
 material.sunnarium=Sunnarium
-
+material.draconium=Draconium
+material.awakened_draconium=Awakened Draconium
+material.bedrockium=Bedrockium
+material.neutronium=Neutronium
+material.fiery_steel=Fiery Steel
 
 item.epoxid.ingot=Epoxy Resin Bar
 item.epoxid.dustTiny=Tiny Pile of Epoxy Resin Pulp

@@ -3,6 +3,7 @@ package gregicadditions;
 import com.google.common.collect.ImmutableList;
 import gregicadditions.item.BasicMaterial;
 import gregicadditions.item.GAIngotMaterial;
+import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.unification.material.IMaterialHandler;
 import gregtech.api.unification.material.MaterialIconSet;
 import gregtech.api.unification.material.type.DustMaterial;
@@ -10,6 +11,7 @@ import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.unification.stack.MaterialStack;
+import jdk.nashorn.internal.ir.annotations.Immutable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,8 @@ public class GAAlloys implements IMaterialHandler {
                 NITINOL60, ZERON100, MARAGING250, MARAGING300, MARAGING350, AQUATIC_STEEL, STELLITE, TALONITE, HASTELLOYW,
                 HASTELLOYX, HASTELLOYN, HASTELLOYC276, INCOLOY020, INCOLOYDS, INCOLOYMA956, TUNGSTENTITANIUMCARBIDE,
                 SILICONCARBIDE, TANTALUMCARBIDE, ZIRCONIUMCARBIDE, NIOBIUMCARBIDE, GRISIUM, EGLINSTEELBASE, EGLINSTEEL,
-                LAFIUM, ABYSSAL, QUANTUM, SUPERCONDUCTOR_BASE_MV, SUNNARIUM
+                LAFIUM, ABYSSAL, QUANTUM, SUPERCONDUCTOR_BASE_MV, SUNNARIUM, DRACONIUM, AWAKENED_DRACONIUM,
+                BEDROCKIUM, FIERY_STEEL
         ).collect(Collectors.toList());
 
         SUPERCONDUCTOR_BASE_MV.setCableProperties(128, 1, 1);
@@ -49,6 +52,8 @@ public class GAAlloys implements IMaterialHandler {
 
 
     // GT++ Alloys
+    // TODO - some alloys have different blast furnace liquid requirements.  need to go through individually and add
+    // for now just blanket adding the recipes
     public static final GAIngotMaterial STABALLOY = new GAIngotMaterial(704, "staballoy", 0x3c423a, MaterialIconSet.METALLIC, 3,
             ImmutableList.of(new MaterialStack(Titanium, 1),
                     new MaterialStack(Uranium, 9)),
@@ -399,12 +404,29 @@ public class GAAlloys implements IMaterialHandler {
     public static final BasicMaterial SUPERCONDUCTOR_LUV = new BasicMaterial(754, "superconductor_luv", 0x824000, MaterialIconSet.METALLIC);
     public static final BasicMaterial SUPERCONDUCTOR_ZPM = new BasicMaterial(755, "superconductor_zpm", 0x080808, MaterialIconSet.METALLIC);
     public static final BasicMaterial SUPERCONDUCTOR_UV = new BasicMaterial(756, "superconductor_uv", 0xbeb206, MaterialIconSet.METALLIC);
+    // TODO - UHV base cable
+    //public static final BasicMaterial SUPERCONDUCTOR_UHV = new BasicMaterial(757, "superconductor_uhv", 0xbeb206, MaterialIconSet.METALLIC);
 
     public static final GAIngotMaterial SUNNARIUM = new GAIngotMaterial(757, "sunnarium", 0xcece00, MaterialIconSet.METALLIC, 1,
             ImmutableList.of(),
             EXT2_METAL,
             null,  1920, 756, 4500);
-    // TODO - UHV base cable
-    //public static final BasicMaterial SUPERCONDUCTOR_UHV = new BasicMaterial(757, "superconductor_uhv", 0xbeb206, MaterialIconSet.METALLIC);
 
+    // TODO - ordict these
+    public static final GAIngotMaterial DRACONIUM = new GAIngotMaterial(758, "draconium", 0x6c3c9c, MaterialIconSet.SHINY, 1,
+            ImmutableList.of(),
+            EXT2_METAL,
+            null,  30720, 4950, 7200);
+    public static final GAIngotMaterial AWAKENED_DRACONIUM = new GAIngotMaterial(759, "awakened_draconium", 0xffbe00, MaterialIconSet.SHINY, 1,
+            ImmutableList.of(),
+            EXT2_METAL,
+            null,  122880, 2500, 9900);
+    public static final GAIngotMaterial BEDROCKIUM = new GAIngotMaterial(760, "bedrockium", 0xffb800, MaterialIconSet.METALLIC, 1,
+            ImmutableList.of(),
+            EXT2_METAL,
+            null,  122880, 17460, 9900);
+    public static final GAIngotMaterial FIERY_STEEL = new GAIngotMaterial(762, "fiery_steel", 0x0d0000, MaterialIconSet.SHINY, 1,
+            ImmutableList.of(),
+            EXT2_METAL,
+            null,  491520, 5000, 9000);
 }
