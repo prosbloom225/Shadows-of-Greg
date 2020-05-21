@@ -245,6 +245,9 @@ metaitem.tungsten.iron.plate.name=Tungsten-Iron Plate
 metaitem.reinforced.tungsten.iron.plate.name=Reinforced Tungsten-Iron Plate
 metaitem.tungstensteel.iron.plate.name=TungstenSteel-Iron Plate
 metaitem.reinforced.tungstensteel.iron.plate.name=Reinforced Tungstensteel-Iron Plate
+metaitem.enriched.naquadria.sunnarium.alloy.name=Enriched Naquadria Sunnarium Alloy
+metaitem.enriched.naquadria.neutronium.sunnarium.alloy.name=Enriched Naquadria-Neutronium Sunnarium Alloy
+metaitem.enriched.x.sunnarium.alloy.name=Enriched X Sunnarium Alloy
 
 
 metaitem.electrode.apatite.name=Apatine Electrode

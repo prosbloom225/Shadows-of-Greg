@@ -157,6 +157,9 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.REINFORCED_TUNGSTEN_IRON_PLATE= addItem(214, "reinforced.tungsten.iron.plate");
 		GAMetaItems.TUNGSTENSTEEL_IRON_PLATE = addItem(215, "tungstensteel.iron.plate");
 		GAMetaItems.REINFORCED_TUNGSTENSTEEL_IRON_PLATE = addItem(216, "reinforced.tungstensteel.iron.plate");
+		GAMetaItems.ENRICHED_NAQUADRIA_SUNNARIUM_ALLOY = addItem(217, "enriched.naquadria.sunnarium.alloy");
+		GAMetaItems.ENRICHED_NAQUADRIA_NEUTRONIUM_SUNNARIUM_ALLOY = addItem(218, "enriched.naquadria.neutronium.sunnarium.alloy");
+		GAMetaItems.ENRICHED_X_SUNNARIUM_ALLOY = addItem(219, "enriched.x.sunnarium.alloy");
 	}
 
 	@Override
