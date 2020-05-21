@@ -160,6 +160,12 @@ public class GAMetaItem extends MaterialMetaItem {
 		GAMetaItems.ENRICHED_NAQUADRIA_SUNNARIUM_ALLOY = addItem(217, "enriched.naquadria.sunnarium.alloy");
 		GAMetaItems.ENRICHED_NAQUADRIA_NEUTRONIUM_SUNNARIUM_ALLOY = addItem(218, "enriched.naquadria.neutronium.sunnarium.alloy");
 		GAMetaItems.ENRICHED_X_SUNNARIUM_ALLOY = addItem(219, "enriched.x.sunnarium.alloy");
+		GAMetaItems.POWER_IC = addItem(220, "power.ic");
+		GAMetaItems.HIGH_POWER_IC= addItem(221, "high.power.ic");
+		GAMetaItems.ULTRA_HIGH_POWER_IC = addItem(222, "ultra.high.power.ic");
+		GAMetaItems.POWER_IC_WAFER = addItem(223, "power.ic.wafer");
+		GAMetaItems.HIGH_POWER_IC_WAFER = addItem(224, "high.power.ic.wafer");
+		GAMetaItems.ULTRA_HIGH_POWER_IC_WAFER = addItem(225, "ultra.high.power.ic.wafer");
 	}
 
 	@Override

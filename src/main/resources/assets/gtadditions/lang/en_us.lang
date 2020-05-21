@@ -248,6 +248,12 @@ metaitem.reinforced.tungstensteel.iron.plate.name=Reinforced Tungstensteel-Iron 
 metaitem.enriched.naquadria.sunnarium.alloy.name=Enriched Naquadria Sunnarium Alloy
 metaitem.enriched.naquadria.neutronium.sunnarium.alloy.name=Enriched Naquadria-Neutronium Sunnarium Alloy
 metaitem.enriched.x.sunnarium.alloy.name=Enriched X Sunnarium Alloy
+metaitem.power.ic.name=Power IC
+metaitem.high.power.ic.name=High Power IC
+metaitem.ultra.high.power.ic.name=Ultra High Power IC
+metaitem.power.ic.wafer.name=PIC Wafer
+metaitem.high.power.ic.wafer.name=HPIC Wafer
+metaitem.ultra.high.power.ic.wafer.name=UHPIC Wafer
 
 
 metaitem.electrode.apatite.name=Apatine Electrode

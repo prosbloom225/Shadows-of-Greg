@@ -140,6 +140,12 @@ public class GAMetaItems {
 	public static MetaItem<?>.MetaValueItem ENRICHED_NAQUADRIA_SUNNARIUM_ALLOY;
 	public static MetaItem<?>.MetaValueItem ENRICHED_NAQUADRIA_NEUTRONIUM_SUNNARIUM_ALLOY;
 	public static MetaItem<?>.MetaValueItem ENRICHED_X_SUNNARIUM_ALLOY;
+	public static MetaItem<?>.MetaValueItem POWER_IC;
+	public static MetaItem<?>.MetaValueItem POWER_IC_WAFER;
+	public static MetaItem<?>.MetaValueItem HIGH_POWER_IC;
+	public static MetaItem<?>.MetaValueItem HIGH_POWER_IC_WAFER;
+	public static MetaItem<?>.MetaValueItem ULTRA_HIGH_POWER_IC;
+	public static MetaItem<?>.MetaValueItem ULTRA_HIGH_POWER_IC_WAFER;
 
 	// TODO - nanosuit/quantumsuit mats
 	//public static MetaItem<?>.MetaValueItem REINFORCED_ALUMINIUM_IRON_PLATE;

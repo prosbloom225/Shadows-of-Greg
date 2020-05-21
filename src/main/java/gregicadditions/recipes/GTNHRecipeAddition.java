@@ -11,11 +11,15 @@ import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
+import gregtech.api.unification.material.type.FluidMaterial;
 import gregtech.api.unification.material.type.IngotMaterial;
+import gregtech.api.unification.material.type.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,6 +30,9 @@ public class GTNHRecipeAddition {
     public static void init() {
         circuitComponents();
         chemicals();
+        laserEngraver();
+        cuttingMachine();
+        chemical_components();
         if (GAConfig.gtnh.gtnhDistillationTowerRecipes)
         distillationTower();
         if (GAConfig.gtnh.gtnhPyrolyseRecipes)
@@ -280,6 +287,83 @@ public class GTNHRecipeAddition {
         }
     }
 
+    private static void laserEngraver() {
+        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder()
+                .inputs(MetaItems.GLOWSTONE_WAFER.getStackForm())
+                .notConsumable(OreDictUnifier.get("craftingLensBlue"))
+                .outputs(GAMetaItems.POWER_IC_WAFER.getStackForm())
+                .duration(1200).EUt(480).buildAndRegister();
+        RecipeMaps.LASER_ENGRAVER_RECIPES.recipeBuilder()
+                .inputs(MetaItems.NAQUADAH_WAFER.getStackForm())
+                .notConsumable(OreDictUnifier.get("craftingLensBlue"))
+                .outputs(GAMetaItems.POWER_IC_WAFER.getStackForm(4))
+                .duration(1200).EUt(480).buildAndRegister();
+
+    }
+    private static void cuttingMachine() {
+            // Power IC
+        RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.POWER_IC_WAFER.getStackForm())
+                .outputs(GAMetaItems.POWER_IC.getStackForm(4))
+                .fluidInputs(Water.getFluid(1000))
+                .duration(1800).EUt(1920).buildAndRegister();
+        RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.POWER_IC_WAFER.getStackForm())
+                .outputs(GAMetaItems.POWER_IC.getStackForm(4))
+                .fluidInputs(DistilledWater.getFluid(750))
+                .duration(1800).EUt(1920).buildAndRegister();
+        RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.POWER_IC_WAFER.getStackForm())
+                .outputs(GAMetaItems.POWER_IC.getStackForm(4))
+                .fluidInputs(Lubricant.getFluid(250))
+                .duration(900).EUt(1920).buildAndRegister();
+        // High Power IC
+        RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.HIGH_POWER_IC_WAFER.getStackForm())
+                .outputs(GAMetaItems.HIGH_POWER_IC.getStackForm(2))
+                .fluidInputs(Water.getFluid(1000))
+                .duration(1800).EUt(7680).buildAndRegister();
+        RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.HIGH_POWER_IC_WAFER.getStackForm())
+                .outputs(GAMetaItems.HIGH_POWER_IC.getStackForm(2))
+                .fluidInputs(DistilledWater.getFluid(750))
+                .duration(1800).EUt(7680).buildAndRegister();
+        RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.HIGH_POWER_IC_WAFER.getStackForm())
+                .outputs(GAMetaItems.HIGH_POWER_IC.getStackForm(2))
+                .fluidInputs(Lubricant.getFluid(250))
+                .duration(900).EUt(7680).buildAndRegister();
+        // Ultra High Power IC
+        RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.ULTRA_HIGH_POWER_IC_WAFER.getStackForm())
+                .outputs(GAMetaItems.ULTRA_HIGH_POWER_IC.getStackForm(2))
+                .fluidInputs(Water.getFluid(1000))
+                .duration(1800).EUt(30720).buildAndRegister();
+        RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.ULTRA_HIGH_POWER_IC_WAFER.getStackForm())
+                .outputs(GAMetaItems.ULTRA_HIGH_POWER_IC.getStackForm(2))
+                .fluidInputs(DistilledWater.getFluid(750))
+                .duration(1800).EUt(30720).buildAndRegister();
+        RecipeMaps.CUTTER_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.ULTRA_HIGH_POWER_IC_WAFER.getStackForm())
+                .outputs(GAMetaItems.ULTRA_HIGH_POWER_IC.getStackForm(2))
+                .fluidInputs(Lubricant.getFluid(250))
+                .duration(900).EUt(30720).buildAndRegister();
+    }
+    private static void chemical_components() {
+        // HPIC Wafer
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.POWER_IC_WAFER.getStackForm(), OreDictUnifier.get(OrePrefix.dust, IndiumGalliumPhosphide, 2))
+                .fluidInputs(VanadiumGallium.getFluid(288))
+                .outputs(GAMetaItems.HIGH_POWER_IC_WAFER.getStackForm())
+                .duration(1200).EUt(7680).buildAndRegister();
+        // UHPIC Wafer
+        RecipeMaps.CHEMICAL_RECIPES.recipeBuilder()
+                .inputs(GAMetaItems.HIGH_POWER_IC_WAFER.getStackForm(), OreDictUnifier.get(OrePrefix.dust, IndiumGalliumPhosphide, 8))
+                .fluidInputs(Naquadah.getFluid(576))
+                .outputs(GAMetaItems.ULTRA_HIGH_POWER_IC_WAFER.getStackForm())
+                .duration(1200).EUt(30720).buildAndRegister();
+    }
     private static void chemicals() {
 
         // Polybenzimidazole
@@ -339,7 +423,6 @@ public class GTNHRecipeAddition {
                 .fluidOutputs(GAMaterials.DIMETHYL_BENZENE.getFluid(40))
                 .duration(20).EUt(120).buildAndRegister();
     }
-
     private static void pyrolyseOven() {
         RecipeMaps.PYROLYSE_RECIPES.recipeBuilder()
                 .inputs(OreDictUnifier.get(OrePrefix.log, Wood, 16))
